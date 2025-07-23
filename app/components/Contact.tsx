@@ -50,7 +50,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <section id="contact1" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="container mx-auto max-w-md">
         <motion.h2
           className="text-4xl font-bold mb-8 text-center text-gray-900"

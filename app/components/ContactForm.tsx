@@ -44,7 +44,7 @@ export default function ContactForm() {
   }
 
   return (
-    <section id="contact" className="contact1 mb-16">
+    <section id="contact1" className="contact1 mb-16 scroll-mt-24">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -14,14 +14,13 @@ export default function Home() {
   const { language } = useContext(LanguageContext)
   return (
     <>
-      <Hero language={language} />
-      <WearYourStory language={language} />
+      <Hero  />
+      <WearYourStory  />
       <Services />
       <FeatureCarousel />
       <PortfolioGrid />
       <Marquee />
       <ContactForm />
-      <NewsletterSubscribe />
     </>
   )
 }

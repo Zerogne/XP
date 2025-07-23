@@ -10,9 +10,7 @@ import { LanguageProvider } from "../components/LanguageProvider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "Minimal Creative Agency",
-  description: "Apple-inspired design portfolio",
-    generator: 'v0.dev'
+  title: "XP-Your Digital Growth Partner",
 }
 
 export default function RootLayout({

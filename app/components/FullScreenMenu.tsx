@@ -9,7 +9,7 @@ interface FullScreenMenuProps {
 }
 
 export default function FullScreenMenu({ isOpen, onClose }: FullScreenMenuProps) {
-  const menuItems = ["Work", "About", "Services", "Contact"]
+  const menuItems = ["Service", "work", "Contact"]
 
   return (
     <AnimatePresence>

@@ -8,7 +8,7 @@ export default function Footer() {
           {["About", "Work", "Services", "Contact", "Privacy", "Terms"].map((item) => (
             <div key={item} className="pb-6">
               <Link
-                href="https://www.flowersandsaints.com.au"
+                href=""
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm leading-6 text-muted-foreground hover:text-foreground"

@@ -42,7 +42,7 @@ export default function MobileHamburgerMenu() {
   const navLinks = [
     { name: language === "english" ? "Service" : "Үйлчилгээ", href: "#services", external: false },
     { name: language === "english" ? "Work" : "Ажлууд", href: "#our-work", external: false },
-    { name: language === "english" ? "Contact" : "Холбоо барих", href: "#contact", external: false },
+    { name: language === "english" ? "Contact" : "Холбоо барих", href: "#contact1", external: false },
   ]
 
   const handleLinkClick = () => {

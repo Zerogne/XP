@@ -10,9 +10,10 @@ const projects = [
   {
     id: 1,
     title: "Minimalist Brand Identity",
-    description: "Clean and modern visual communication for a tech startup",
+    description: "Connecting students and young professionals with real-world internships and learning opportunities.",
     imageUrl: "/placeholder.svg?height=600&width=800",
     category: "Branding",
+    link: "https://www.xperience.mn/" // <-- your project link here
   },
   {
     id: 2,
@@ -184,7 +185,7 @@ export default function PortfolioGrid() {
                     {project.title}
                   </motion.h3>
                   <motion.a
-                    href="https://www.flowersandsaints.com.au"
+                    href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary hover:underline inline-flex items-center group"

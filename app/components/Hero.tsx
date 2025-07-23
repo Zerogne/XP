@@ -19,6 +19,13 @@ export default function Hero({ language = "english" }: { language?: "english" | 
   }
   return (
     <div className="relative isolate overflow-hidden bg-background">
+      {/* Mobile-only blurred logo overlay */}
+      <img
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/creative-SW6QDQbcVuwPgb6a2CYtYmRbsJa4k1.png"
+        alt="XP Logo Overlay"
+        className="absolute left-1/2 top-16 -translate-x-1/2 z-0 w-2/3 max-w-xs opacity-40 blur-lg block lg:hidden pointer-events-none select-none"
+        style={{ filter: 'blur(6px)' }}
+      />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-16 flex flex-col-reverse lg:flex-row items-center gap-y-12 lg:gap-x-10 lg:px-8">
         <div className="w-full max-w-2xl lg:mx-0 lg:max-w-lg lg:flex-shrink-0 flex flex-col items-center lg:items-start text-center lg:text-left">
           <motion.h1
@@ -53,7 +60,7 @@ export default function Hero({ language = "english" }: { language?: "english" | 
               {translations[language].button}
             </button>
             <a
-              href=""
+              href="https://www.facebook.com/gaming/Tsetseghuuhdiingutliindelguur"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-semibold leading-6 text-foreground"
@@ -74,7 +81,7 @@ export default function Hero({ language = "english" }: { language?: "english" | 
               alt="Flowers & Saints design concept"
               width={600}
               height={600}
-              className="w-full h-auto rounded-2xl shadow-xl ring-1 ring-gray-900/10"
+              className="w-full h-auto rounded-2xl"
             />
           </div>
         </motion.div>

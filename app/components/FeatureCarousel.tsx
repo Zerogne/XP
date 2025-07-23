@@ -1,8 +1,8 @@
 "use client"
 
 import { useRef, useEffect, useState } from "react"
-import { motion, useAnimation, useMotionValue, useScroll, useTransform, useInView } from "framer-motion"
-import { useIsMobile } from "../../hooks/use-mobile"
+import { motion, useScroll, useTransform, useInView } from "framer-motion"
+
 
 const features = [
   {
@@ -29,20 +29,10 @@ const features = [
     icon: "🌈",
     color: "from-green-500 to-emerald-500",
   },
-  {
-    title: "SEO Optimized",
-    description: "Built to help your site rank higher in search results.",
-    icon: "🔍",
-    color: "from-indigo-500 to-purple-500",
-  },
 ]
 
 export default function FeatureCarousel() {
-  const [width, setWidth] = useState(0)
-  const carousel = useRef<HTMLDivElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
-  const x = useMotionValue(0)
-  const controls = useAnimation()
   const isInView = useInView(containerRef, { once: true, amount: 0.3 })
 
   const { scrollYProgress } = useScroll({
@@ -53,25 +43,37 @@ export default function FeatureCarousel() {
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
 
-  useEffect(() => {
-    if (carousel.current) {
-      setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth)
-    }
-  }, [])
+  // Indices for the visible cards: [left, center-left, center-right, right]
+  const [cardIndices, setCardIndices] = useState([
+    features.length - 1,
+    0,
+    1,
+    2
+  ])
 
-  const handleDragEnd = () => {
-    const currentX = x.get()
-    if (currentX > 0) {
-      controls.start({ x: 0, transition: { type: "spring", stiffness: 300, damping: 30 } })
-    } else if (currentX < -width) {
-      controls.start({ x: -width, transition: { type: "spring", stiffness: 300, damping: 30 } })
-    }
-  }
+  // For each card, determine its relative position to the center (from -2 to 2)
+  const getRelativePosition = (idx: number) => idx - 2
+
+  // All cards have the same static properties
+  const getCardStyle = (): React.CSSProperties => ({
+    width: 300,
+    minWidth: 300,
+    maxWidth: 300,
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    pointerEvents: 'auto',
+    opacity: 1,
+    zIndex: 1,
+  })
+
+  // Remove all animation and auto-sliding logic
 
   return (
     <motion.div
       ref={containerRef}
-      className="py-20 bg-gradient-to-b from-background to-secondary/20 relative overflow-hidden"
+      className="py-10 bg-gradient-to-b from-background to-secondary/20 relative overflow-hidden"
       style={{ opacity }}
     >
       {/* Animated background elements */}
@@ -91,137 +93,105 @@ export default function FeatureCarousel() {
           Why Choose Us
         </motion.h2>
 
-        <motion.div
-          ref={carousel}
-          className="cursor-grab overflow-hidden"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          <motion.div
-            drag="x"
-            dragConstraints={{ right: 0, left: -width }}
-            whileTap={{ cursor: "grabbing" }}
-            animate={controls}
-            style={{ x }}
-            onDragEnd={handleDragEnd}
-            className="flex"
-          >
-            {features.map((feature, index) => (
-              <FeatureCard key={index} feature={feature} index={index} />
-            ))}
-          </motion.div>
-        </motion.div>
+        {/* Static 4-card carousel, all cards same size, no animation, no overlap */}
+        <div className="flex justify-center items-center gap-4 max-w-3xl mx-auto h-[400px] sm:h-[450px] px-2">
+          {cardIndices.map((featureIdx, idx) => (
+            <div
+              key={featureIdx + '-' + idx}
+              style={getCardStyle()}
+            >
+              <FeatureCard
+                feature={features[featureIdx]}
+                index={featureIdx}
+                small={false}
+                pos={"center"}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </motion.div>
   )
 }
 
-function FeatureCard({ feature, index }: { feature: (typeof features)[0]; index: number }) {
-  const cardRef = useRef<HTMLDivElement>(null)
-  const [isHovered, setIsHovered] = useState(false)
-  const isMobile = useIsMobile()
-
-  // Determine animation direction based on device
-  const initialAnim = isMobile
-    ? { opacity: 0, x: 100 }
-    : { opacity: 0, y: 50, rotateY: -15 }
-  const animateAnim = isMobile
-    ? { opacity: 1, x: 0 }
-    : { opacity: 1, y: 0, rotateY: 0 }
-
+// Update FeatureCard to accept a 'small' prop for scaling and 'pos' for fade effect
+function FeatureCard({ feature, index, small, pos }: { feature: (typeof features)[0]; index: number; small?: boolean; pos?: string }) {
+  // Animate opacity: 1 for center, 0.3 for side cards
+  const contentOpacity = pos === 'center' ? 1 : 0.3;
+  // Counteract card scale for text content
+  const contentScale = pos === 'center' ? 1 : 1 / 0.8;
   return (
     <motion.div
-      ref={cardRef}
-      className="min-w-[300px] h-[400px] p-8 m-4 bg-background rounded-3xl shadow-lg flex flex-col justify-between relative overflow-hidden group"
-      initial={initialAnim}
-      animate={animateAnim}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      whileHover={
-        isMobile
-          ? undefined
-          : {
-              scale: 1.05,
-              rotateY: 5,
-              transition: { duration: 0.3 },
-            }
-      }
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
-      style={{ perspective: 1000 }}
+      className={`absolute inset-0 w-full h-full p-8 bg-background rounded-3xl shadow-lg flex flex-col justify-between relative overflow-hidden group border border-border/50 ${small ? 'scale-90 opacity-70 pointer-events-none' : ''}`}
+      style={{ minWidth: 0, maxWidth: '100%' }}
+      initial={{ opacity: 0, x: 300, rotateY: 45 }}
+      animate={{ opacity: 1, x: 0, rotateY: 0 }}
+      exit={{ opacity: 0, x: -300, rotateY: -45 }}
+      transition={{
+        duration: 0.6,
+        ease: "easeInOut",
+        type: "spring",
+        stiffness: 100,
+        damping: 20,
+      }}
+      whileHover={small ? {} : {
+        scale: 1.02,
+        transition: { duration: 0.3 },
+      }}
     >
       {/* Animated gradient background */}
       <motion.div
-        className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
-        animate={isHovered ? { scale: 1.1 } : { scale: 1 }}
-        transition={{ duration: 0.3 }}
+        className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-5`}
+        animate={{ scale: [1, 1.1, 1] }}
+        transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
       />
 
       {/* Border animation */}
       <motion.div
-        className="absolute inset-0 border-2 rounded-3xl pointer-events-none"
-        animate={
-          isHovered
-            ? {
-                borderColor: "hsl(var(--primary))",
-                boxShadow: "0 0 20px hsl(var(--primary) / 0.3)",
-              }
-            : {
-                borderColor: "rgba(0,0,0,0)",
-                boxShadow: "0 0 0px hsl(var(--primary) / 0)",
-              }
-        }
-        transition={{ duration: 0.3 }}
+        className="absolute inset-0 border-2 rounded-3xl pointer-events-none border-primary/20"
+        animate={{
+          boxShadow: [
+            "0 0 0px hsl(var(--primary) / 0.1)",
+            "0 0 20px hsl(var(--primary) / 0.2)",
+            "0 0 0px hsl(var(--primary) / 0.1)",
+          ],
+        }}
+        transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
       />
 
-      <div className="relative z-10">
-        <motion.div
-          className="text-4xl mb-4"
-          animate={
-            isHovered
-              ? {
-                  scale: 1.2,
-                  rotate: [0, -10, 10, 0],
-                }
-              : { scale: 1, rotate: 0 }
-          }
-          transition={{ duration: 0.5 }}
-        >
+      {/* Only fade and counter-scale the content, no entrance/exit/position animation on text */}
+      <motion.div className="relative z-10 w-full" animate={{ opacity: contentOpacity }} transition={{ duration: 0.5, ease: 'linear' }} style={{ scale: contentScale, minWidth: 0, maxWidth: '100%' }}>
+        <div className="text-5xl mb-6 text-center">
           {feature.icon}
-        </motion.div>
-
-        <motion.h3
-          className="text-xl font-semibold mb-2 text-foreground"
-          animate={isHovered ? { x: 5 } : { x: 0 }}
-          transition={{ duration: 0.3 }}
-        >
+        </div>
+        <h3 className="text-2xl font-semibold mb-4 text-foreground text-center">
           {feature.title}
-        </motion.h3>
-
-        <motion.p
-          className="text-muted-foreground"
-          animate={isHovered ? { x: 5 } : { x: 0 }}
-          transition={{ duration: 0.3, delay: 0.1 }}
-        >
+        </h3>
+        <p className="text-muted-foreground text-center leading-relaxed">
           {feature.description}
-        </motion.p>
-      </div>
+        </p>
+      </motion.div>
 
       <motion.div
-        className="mt-4 relative z-10"
-        animate={isHovered ? { y: -5 } : { y: 0 }}
-        transition={{ duration: 0.3 }}
+        className="mt-6 text-center relative z-10"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
       >
         <motion.a
           href="https://www.flowersandsaints.com.au"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-primary hover:underline inline-flex items-center group"
-          whileHover={{ x: 5 }}
+          className="text-primary hover:underline inline-flex items-center group font-medium"
+          whileHover={small ? {} : { x: 5 }}
           transition={{ duration: 0.2 }}
         >
           Learn more
-          <motion.span className="ml-1" animate={isHovered ? { x: 5 } : { x: 0 }} transition={{ duration: 0.3 }}>
+          <motion.span
+            className="ml-2"
+            animate={{ x: [0, 5, 0] }}
+            transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+          >
             →
           </motion.span>
         </motion.a>

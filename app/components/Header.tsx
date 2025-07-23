@@ -5,13 +5,11 @@ import Link from "next/link"
 import { useTheme } from "next-themes"
 import { motion, AnimatePresence } from "framer-motion"
 import { MoonIcon, SunIcon, Menu, X } from "lucide-react"
-import { LanguageContext } from "../../components/LanguageProvider"
 
 export default function Header() {
   const [mounted, setMounted] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { theme, setTheme } = useTheme()
-  const { language, setLanguage } = React.useContext(LanguageContext)
 
   useEffect(() => setMounted(true), [])
 
@@ -35,19 +33,6 @@ export default function Header() {
     return () => document.removeEventListener("click", handleClickOutside);
   }, [mobileMenuOpen]);
 
-  const translations = {
-    english: {
-      service: "Service",
-      work: "Work",
-      contact: "Contact",
-    },
-    mongolia: {
-      service: "Үйлчилгээ",
-      work: "Ажлууд",
-      contact: "Холбоо барих",
-    },
-  };
-
   return (
     <motion.header
       className="sticky top-0 z-50 bg-background/80 backdrop-blur-md"
@@ -55,7 +40,7 @@ export default function Header() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <nav className="mx-auto max-w-7xl flex items-center justify-between p-6 lg:px-8 relative" aria-label="Global">
+      <nav className="mx-auto max-w-7xl flex items-center p-6 lg:px-8 relative" aria-label="Global">
         {/* Logo: always left */}
         <div className="flex items-center flex-shrink-0">
           <Link href="/" className="-m-1.5 p-1.5">
@@ -67,26 +52,13 @@ export default function Header() {
             />
           </Link>
         </div>
-        {/* Nav links: visible on desktop only, perfectly centered */}
-        <div className="hidden md:flex gap-x-12 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          <Link
-            href="#services"
-            className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors"
-          >
-            {translations[language].service}
-          </Link>
-          <Link
-            href="#our-work"
-            className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors"
-          >
-            {translations[language].work}
-          </Link>
-          <Link
-            href="#contact"
-            className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors"
-          >
-            {translations[language].contact}
-          </Link>
+        {/* Spacer: same width as right controls */}
+        <div className="hidden md:block" style={{ width: '56px' }}></div>
+        {/* Nav links: perfectly centered */}
+        <div className="hidden md:flex gap-x-12 mx-auto justify-center ">
+          <Link href="#services" className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors">Service</Link>
+          <Link href="#our-work" className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors">Work</Link>
+          <Link href="#contact1" className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors">Contact</Link>
         </div>
         {/* Hamburger menu: absolute top right on mobile only */}
         <div className="md:hidden">
@@ -102,7 +74,7 @@ export default function Header() {
             {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
-        {/* Theme and language toggles: right on desktop only */}
+        {/* Right controls */}
         <div className="flex flex-1 justify-end z-10">
           {mounted && (
             <div className="hidden md:flex items-center gap-2">
@@ -112,13 +84,6 @@ export default function Header() {
                 aria-label="Toggle theme"
               >
                 {theme === "dark" ? <SunIcon className="h-5 w-5" /> : <MoonIcon className="h-5 w-5" />}
-              </button>
-              <button
-                onClick={() => setLanguage(language === "english" ? "mongolia" : "english")}
-                className="rounded-full px-3 py-2 bg-primary/10 text-primary hover:bg-primary/20 transition-colors text-xs font-medium"
-                aria-label="Toggle language"
-              >
-                {language === "english" ? "MN" : "EN"}
               </button>
             </div>
           )}
@@ -141,19 +106,6 @@ export default function Header() {
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: 0 }}
-                >
-                  <Link
-                    href="#our-work"
-                    className="block text-base font-semibold text-foreground hover:text-primary transition-colors py-2"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {translations[language].work}
-                  </Link>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: 0.1 }}
                 >
                   <Link
@@ -161,7 +113,7 @@ export default function Header() {
                     className="block text-base font-semibold text-foreground hover:text-primary transition-colors py-2"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    {translations[language].service}
+                    Service
                   </Link>
                 </motion.div>
                 <motion.div
@@ -170,11 +122,24 @@ export default function Header() {
                   transition={{ duration: 0.3, delay: 0.2 }}
                 >
                   <Link
-                    href="#contact"
+                    href="#our-work"
                     className="block text-base font-semibold text-foreground hover:text-primary transition-colors py-2"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    {translations[language].contact}
+                    Work
+                  </Link>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: 0.3 }}
+                >
+                  <Link
+                    href="#contact1"
+                    className="block text-base font-semibold text-foreground hover:text-primary transition-colors py-2"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Contact
                   </Link>
                 </motion.div>
               </div>
@@ -196,17 +161,6 @@ export default function Header() {
                       {theme === "dark" ? <SunIcon className="h-4 w-4" /> : <MoonIcon className="h-4 w-4" />}
                       <span className="text-xs font-medium">{theme === "dark" ? "Light" : "Dark"}</span>
                     </button>
-                    <motion.button
-                      onClick={() => setLanguage(language === "english" ? "mongolia" : "english")}
-                      className="rounded-full px-3 py-2 bg-primary/10 text-primary hover:bg-primary/20 transition-colors text-xs font-medium min-w-[50px]"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      aria-label="Toggle language"
-                    >
-                      <motion.span initial={false} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
-                        {language === "english" ? "MN" : "EN"}
-                      </motion.span>
-                    </motion.button>
                   </div>
                 </motion.div>
               )}

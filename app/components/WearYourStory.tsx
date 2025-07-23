@@ -92,7 +92,7 @@ export default function WearYourStory({ language = "english" }: { language?: "en
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => {
-                  const el = document.getElementById('contact');
+                  const el = document.getElementById('contact1');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
@@ -112,7 +112,7 @@ export default function WearYourStory({ language = "english" }: { language?: "en
               </motion.button>
 
               <motion.a
-                href="https://www.flowersandsaints.com.au"
+                href=""
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors inline-flex items-center"

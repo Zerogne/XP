@@ -121,18 +121,10 @@ function ServiceCard({ service, index, variants }: { service: (typeof services)[
       ref={cardRef}
       className="bg-background rounded-3xl p-8 shadow-lg border border-border/50 hover:border-primary/20 transition-all duration-300 group relative overflow-hidden"
       variants={variants}
-      whileHover={{
-        y: -10,
-        transition: { duration: 0.3 },
-      }}
+      
     >
       {/* Background gradient on hover */}
-      <motion.div
-        className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
-        initial={{ scale: 0.8 }}
-        whileHover={{ scale: 1.1 }}
-        transition={{ duration: 0.3 }}
-      />
+      
 
       <div className="relative z-10">
         {/* Icon */}
