@@ -83,7 +83,7 @@ export default function Services() {
   }
 
   return (
-    <section id="services" className="py-20 bg-gradient-to-b from-background to-secondary/10" ref={containerRef}>
+    <section id="services" className="py-20 bg-gradient-to-b from-background to-secondary/10 relative" ref={containerRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <motion.div
           className="text-center mb-16"
@@ -149,22 +149,12 @@ function ServiceCard({ service, index, variants }: { service: (typeof services)[
           {service.title}
         </motion.h3>
 
-        {/* Description */}
-        <motion.p
-          className="text-muted-foreground mb-6 leading-relaxed"
-          initial={{ opacity: 0, x: -20 }}
-          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          {service.description}
-        </motion.p>
-
         {/* Features */}
         <motion.div
           className="space-y-2"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
           {service.features.map((feature, featureIndex) => (
             <motion.div
@@ -172,43 +162,12 @@ function ServiceCard({ service, index, variants }: { service: (typeof services)[
               className="flex items-center text-sm text-muted-foreground"
               initial={{ opacity: 0, x: -10 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
-              transition={{ duration: 0.3, delay: 0.4 + featureIndex * 0.1 }}
+              transition={{ duration: 0.3, delay: 0.3 + featureIndex * 0.1 }}
             >
               <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3" />
               {feature}
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* CTA */}
-        <motion.div
-          className="mt-8"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          <motion.a
-            href="https://www.flowersandsaints.com.au"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center text-primary hover:text-primary/80 font-medium group"
-            whileHover={{ x: 5 }}
-            transition={{ duration: 0.2 }}
-          >
-            Learn More
-            <motion.svg
-              className="w-4 h-4 ml-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              initial={{ x: 0 }}
-              whileHover={{ x: 3 }}
-              transition={{ duration: 0.2 }}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </motion.svg>
-          </motion.a>
         </motion.div>
       </div>
 

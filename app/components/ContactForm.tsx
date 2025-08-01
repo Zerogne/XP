@@ -1,51 +1,39 @@
 "use client"
 
-import { useState } from "react"
 import { motion } from "framer-motion"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import * as z from "zod"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Button } from "@/components/ui/button"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-
-const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  email: z.string().email({ message: "Please enter a valid email address." }),
-  phoneNumber: z.string().min(10, { message: "Please enter a valid phone number." }),
-  budget: z.string().min(1, { message: "Please enter your budget." }),
-  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
-})
+import { Facebook, Instagram, Mail, Phone } from "lucide-react"
 
 export default function ContactForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
-
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      phoneNumber: "",
-      budget: "",
-      message: "",
+  const socialLinks = [
+    {
+      name: "Facebook",
+      url: "https://www.facebook.com",
+      icon: Facebook,
+      color: "from-blue-500 to-blue-600",
     },
-  })
-
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsSubmitting(true)
-    // Simulate API call
-    setTimeout(() => {
-      console.log(values)
-      setIsSubmitting(false)
-      form.reset()
-      alert("Thank you for your message. We'll get back to you soon!")
-    }, 2000)
-  }
+    {
+      name: "Instagram",
+      url: "https://www.instagram.com/xp_digital/",
+      icon: Instagram,
+      color: "from-pink-500 to-purple-600",
+    },
+    {
+      name: "Gmail",
+      url: "mailto:xpdigital.dev@gmail.com",
+      icon: Mail,
+      color: "from-red-500 to-red-600",
+    },
+    {
+      name: "Phone",
+      url: "tel:+976 80296007",
+      icon: Phone,
+      color: "from-green-500 to-green-600",
+    },
+  ]
 
   return (
-    <section id="contact1" className="contact1 mb-16 scroll-mt-24">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact1" className="contact1 mb-16 scroll-mt-24 relative">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -54,86 +42,84 @@ export default function ContactForm() {
         >
           <h2 className="text-3xl font-bold text-foreground sm:text-4xl mb-4">Get in Touch</h2>
           <p className="text-lg text-muted-foreground">
-            We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.
+            Connect with us on social media or reach out directly. We'd love to hear from you!
           </p>
         </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
         >
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="John Doe" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <Input placeholder="john@example.com" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="phoneNumber"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Phone Number</FormLabel>
-                    <FormControl>
-                      <Input placeholder="+1 (555) 000-0000" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="budget"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Budget</FormLabel>
-                    <FormControl>
-                      <Input placeholder="$1,000 - $5,000" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Message</FormLabel>
-                    <FormControl>
-                      <Textarea placeholder="Tell us about your project..." className="min-h-[120px]" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <Button type="submit" className="w-full" disabled={isSubmitting}>
-                {isSubmitting ? "Sending..." : "Send Message"}
-              </Button>
-            </form>
-          </Form>
+          {socialLinks.map((social, index) => {
+            const isLink = social.name === "Facebook" || social.name === "Instagram";
+            
+            const content = (
+              <div className="group relative bg-background rounded-xl p-4 shadow-lg border border-border/50 hover:border-primary/20 transition-all duration-300 overflow-hidden">
+                {/* Background gradient */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${social.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+                
+                {/* Content */}
+                <div className="relative z-10 flex items-center space-x-3">
+                  <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${social.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                    <social.icon className="w-4 h-4 text-white" style={{ minWidth: '16px', minHeight: '16px' }} />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors text-sm">
+                      {social.name}
+                    </h3>
+                    <p className="text-xs text-muted-foreground">
+                      {social.name === "Phone" ? "+976 80296007" : 
+                       social.name === "Gmail" ? "xpdigital.dev@gmail.com" : 
+                       "Connect with us"}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Hover border effect */}
+                <div className="absolute inset-0 rounded-xl border-2 border-transparent pointer-events-none group-hover:border-primary/20 transition-colors duration-300" />
+              </div>
+            );
+
+            return isLink ? (
+              <motion.a
+                key={social.name}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
+                whileHover={{ 
+                  scale: 1.02,
+                  transition: { duration: 0.2 }
+                }}
+              >
+                {content}
+              </motion.a>
+            ) : (
+              <motion.div
+                key={social.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
+              >
+                {content}
+              </motion.div>
+            );
+          })}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-center mt-12"
+        >
+          <p className="text-muted-foreground">
+            Ready to start your project? Let's create something amazing together!
+          </p>
         </motion.div>
       </div>
     </section>

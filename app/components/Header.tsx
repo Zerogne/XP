@@ -143,7 +143,7 @@ export default function Header() {
                   </Link>
                 </motion.div>
               </div>
-              {/* Mobile Theme and Language Controls */}
+              {/* Mobile Theme Controls */}
               {mounted && (
                 <motion.div
                   className="flex items-center justify-between pt-4 border-t border-border/50"

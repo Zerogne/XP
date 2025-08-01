@@ -2,21 +2,7 @@
 
 import { motion } from "framer-motion"
 
-export default function Hero({ language = "english" }: { language?: "english" | "mongolia" }) {
-  const translations = {
-    english: {
-      title: "XP",
-      subtitle: "We’re your digital growth partner, combining technology, design, and marketing to elevate your business and ensure lasting success.",
-      button: "Explore Our Work",
-      learnMore: "Learn more",
-    },
-    mongolia: {
-      title: "XP",
-      subtitle: "Бид таны хөгжил дэвшлийн найдвартай түнш бөгөөд технологи, дизайн, маркетингийг ашиглан танай бизнесийг өсгөж, амжилтад хүрэхэд дэмжинэ.",
-      button: "explore our work",
-      learnMore: "Learn more",
-    },
-  }
+export default function Hero() {
   return (
     <div className="relative isolate overflow-hidden bg-background">
       {/* Mobile-only blurred logo overlay */}
@@ -34,7 +20,7 @@ export default function Hero({ language = "english" }: { language?: "english" | 
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-gradient">{translations[language].title}</span>
+            <span className="text-gradient">XP</span>
           </motion.h1>
           <motion.p
             className="mt-6 text-lg leading-8 text-muted-foreground"
@@ -42,7 +28,7 @@ export default function Hero({ language = "english" }: { language?: "english" | 
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            {translations[language].subtitle}
+            We're your digital growth partner, combining technology, design, and marketing to elevate your business and ensure lasting success.
           </motion.p>
           <motion.div
             className="mt-10 flex items-center gap-x-6"
@@ -57,7 +43,7 @@ export default function Hero({ language = "english" }: { language?: "english" | 
                 if (el) el.scrollIntoView({ behavior: 'smooth' });
               }}
             >
-              {translations[language].button}
+              Explore Our Work
             </button>
             <a
               href="https://www.facebook.com/gaming/Tsetseghuuhdiingutliindelguur"
@@ -65,7 +51,7 @@ export default function Hero({ language = "english" }: { language?: "english" | 
               rel="noopener noreferrer"
               className="text-sm font-semibold leading-6 text-foreground"
             >
-              {translations[language].learnMore} <span aria-hidden="true">→</span>
+              Learn more <span aria-hidden="true">→</span>
             </a>
           </motion.div>
         </div>

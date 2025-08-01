@@ -4,7 +4,6 @@ import { useState } from "react"
 import { motion, AnimatePresence, useInView } from "framer-motion"
 import { useRef } from "react"
 import Image from "next/image"
-import AnimatedSection from "./AnimatedSection"
 
 const projects = [
   {
@@ -90,17 +89,26 @@ export default function PortfolioGrid() {
   }
 
   return (
-    <section id="our-work" className="py-20 bg-background" ref={containerRef}>
+    <section id="our-work" className="py-20 bg-background relative" ref={containerRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <AnimatedSection className="text-center mb-12">
+        <motion.div 
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8 }}
+        >
           <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Our Work</h2>
           <p className="mt-4 text-lg text-muted-foreground">
             A showcase of our minimalist designs and creative solutions.
           </p>
-        </AnimatedSection>
+        </motion.div>
 
-        <AnimatedSection delay={0.2}>
-          <div className="flex justify-center space-x-4 mb-8 flex-wrap gap-2">
+        <motion.div
+          className="flex justify-center space-x-4 mb-8 flex-wrap gap-2"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8 }}
+        >
             {categories.map((category, index) => (
               <motion.button
                 key={category}
@@ -119,8 +127,7 @@ export default function PortfolioGrid() {
                 {category}
               </motion.button>
             ))}
-          </div>
-        </AnimatedSection>
+          </motion.div>
 
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
