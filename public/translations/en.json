@@ -1,0 +1,69 @@
+{
+  "hero": {
+    "title": "XP",
+    "subtitle": "XP is a team driven by fresh ideas and collective passion. Together, we create real solutions that make an impact.",
+    "exploreButton": "Explore Our Work",
+    "learnMore": "Learn more"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "We offer comprehensive web development services to help your business succeed in the digital world.",
+    "webDevelopment": {
+      "title": "Web Development",
+      "description": "Custom websites and web applications built with modern technologies like React, Next.js, and Node.js.",
+      "features": ["Responsive Design", "SEO Optimized", "Fast Performance", "Modern Stack"]
+    },
+    "mobileApps": {
+      "title": "Mobile Apps",
+      "description": "Native and cross-platform mobile applications for iOS and Android using React Native and Flutter.",
+      "features": ["Cross-Platform", "Native Performance", "App Store Ready", "Push Notifications"]
+    },
+    "uiuxDesign": {
+      "title": "UI/UX Design",
+      "description": "Beautiful, intuitive user interfaces and experiences that engage users and drive conversions.",
+      "features": ["User Research", "Wireframing", "Prototyping", "Design Systems"]
+    },
+    "ecommerce": {
+      "title": "E-commerce",
+      "description": "Complete e-commerce solutions with payment integration, inventory management, and analytics.",
+      "features": ["Payment Gateway", "Inventory System", "Analytics", "Admin Dashboard"]
+    },
+    "seoMarketing": {
+      "title": "SEO & Marketing",
+      "description": "Search engine optimization and digital marketing strategies to grow your online presence.",
+      "features": ["Keyword Research", "Content Strategy", "Link Building", "Analytics"]
+    },
+    "performanceOptimization": {
+      "title": "Performance Optimization",
+      "description": "Speed up your website and improve user experience with advanced optimization techniques.",
+      "features": ["Core Web Vitals", "Image Optimization", "Code Splitting", "CDN Setup"]
+    }
+  },
+  "aboutUs": {
+    "title": "Meet Our Team",
+    "subtitle": "The passionate individuals behind XP"
+  },
+  "portfolio": {
+    "title": "Our Work",
+    "subtitle": "A showcase of our minimalist designs and creative solutions.",
+    "viewProject": "View Project",
+    "comingSoon": "Coming Soon"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Send us your idea. We'll send back working code.",
+    "readyToStart": "Ready to start your project? Let's create something amazing together!"
+  },
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "work": "Work",
+    "contact": "Contact",
+    "team": "Team"
+  },
+  "language": {
+    "mn": "Монгол",
+    "en": "English"
+  }
+} 

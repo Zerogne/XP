@@ -3,56 +3,36 @@
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import { Code, Palette, Smartphone, Globe, Search, Zap } from "lucide-react"
+import { useLanguage } from "../contexts/LanguageContext"
 
 const services = [
   {
-    icon: <Globe className="w-8 h-8" />,
-    title: "Web Development",
-    description:
-      "Custom websites and web applications built with modern technologies like React, Next.js, and Node.js.",
-    features: ["Responsive Design", "SEO Optimized", "Fast Performance", "Modern Stack"],
+    icon: <Code className="w-8 h-8" />,
+    titleKey: "webDevelopment.title",
+    descriptionKey: "webDevelopment.description",
+    featuresKey: "webDevelopment.features",
     color: "from-blue-500 to-cyan-500",
   },
   {
     icon: <Smartphone className="w-8 h-8" />,
-    title: "Mobile Apps",
-    description: "Native and cross-platform mobile applications for iOS and Android using React Native and Flutter.",
-    features: ["Cross-Platform", "Native Performance", "App Store Ready", "Push Notifications"],
+    titleKey: "mobileApps.title",
+    descriptionKey: "mobileApps.description",
+    featuresKey: "mobileApps.features",
     color: "from-purple-500 to-pink-500",
   },
   {
     icon: <Palette className="w-8 h-8" />,
-    title: "UI/UX Design",
-    description: "Beautiful, intuitive user interfaces and experiences that engage users and drive conversions.",
-    features: ["User Research", "Wireframing", "Prototyping", "Design Systems"],
+    titleKey: "uiuxDesign.title",
+    descriptionKey: "uiuxDesign.description",
+    featuresKey: "uiuxDesign.features",
     color: "from-orange-500 to-red-500",
-  },
-  {
-    icon: <Code className="w-8 h-8" />,
-    title: "E-commerce",
-    description: "Complete e-commerce solutions with payment integration, inventory management, and analytics.",
-    features: ["Payment Gateway", "Inventory System", "Analytics", "Admin Dashboard"],
-    color: "from-green-500 to-emerald-500",
-  },
-  {
-    icon: <Search className="w-8 h-8" />,
-    title: "SEO & Marketing",
-    description: "Search engine optimization and digital marketing strategies to grow your online presence.",
-    features: ["Keyword Research", "Content Strategy", "Link Building", "Analytics"],
-    color: "from-yellow-500 to-orange-500",
-  },
-  {
-    icon: <Zap className="w-8 h-8" />,
-    title: "Performance Optimization",
-    description: "Speed up your website and improve user experience with advanced optimization techniques.",
-    features: ["Core Web Vitals", "Image Optimization", "Code Splitting", "CDN Setup"],
-    color: "from-indigo-500 to-purple-500",
   },
 ]
 
 export default function Services() {
   const containerRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(containerRef, { once: true, amount: 0.1 })
+  const { t } = useLanguage()
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -91,9 +71,9 @@ export default function Services() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-3xl font-bold text-foreground sm:text-4xl mb-4">Our Services</h2>
+          <h2 className="text-3xl font-bold text-foreground sm:text-4xl mb-4">{t('services.title')}</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            We offer comprehensive web development services to help your business succeed in the digital world.
+            {t('services.subtitle')}
           </p>
         </motion.div>
 
@@ -104,7 +84,7 @@ export default function Services() {
           animate={isInView ? "visible" : "hidden"}
         >
           {services.map((service, index) => (
-            <ServiceCard key={service.title} service={service} index={index} variants={itemVariants} />
+            <ServiceCard key={index} service={service} index={index} variants={itemVariants} />
           ))}
         </motion.div>
       </div>
@@ -115,71 +95,73 @@ export default function Services() {
 function ServiceCard({ service, index, variants }: { service: (typeof services)[0]; index: number; variants: any }) {
   const cardRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(cardRef, { once: true, amount: 0.3 })
+  const { t } = useLanguage()
 
   return (
     <motion.div
       ref={cardRef}
-      className="bg-background rounded-3xl p-8 shadow-lg border border-border/50 hover:border-primary/20 transition-all duration-300 group relative overflow-hidden"
+      className="bg-background rounded-3xl p-8 shadow-lg border border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300 group relative overflow-hidden"
       variants={variants}
-      
+      whileHover={{ y: -5 }}
     >
-      {/* Background gradient on hover */}
-      
+      {/* Subtle gradient background - only on hover */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
       <div className="relative z-10">
-        {/* Icon */}
-        <motion.div
-          className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} text-white mb-6`}
-          whileHover={{
-            scale: 1.1,
-            rotate: [0, -5, 5, 0],
-          }}
-          transition={{ duration: 0.3 }}
-        >
-          {service.icon}
-        </motion.div>
-
-        {/* Title */}
+        <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 mb-6 group-hover:scale-105 transition-transform duration-300">
+          <div className="text-primary">
+            {service.icon}
+          </div>
+        </div>
+        
         <motion.h3
           className="text-xl font-semibold text-foreground mb-3"
-          initial={{ opacity: 0, x: -20 }}
-          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+          initial={{ x: -20, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+          viewport={{ once: true }}
         >
-          {service.title}
+          {t(`services.${service.titleKey}`)}
         </motion.h3>
-
-        {/* Features */}
-        <motion.div
-          className="space-y-2"
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+        
+        <motion.p
+          className="text-muted-foreground mb-6 leading-relaxed"
+          initial={{ x: -20, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          viewport={{ once: true }}
         >
-          {service.features.map((feature, featureIndex) => (
-            <motion.div
-              key={feature}
-              className="flex items-center text-sm text-muted-foreground"
-              initial={{ opacity: 0, x: -10 }}
-              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
-              transition={{ duration: 0.3, delay: 0.3 + featureIndex * 0.1 }}
-            >
-              <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3" />
-              {feature}
-            </motion.div>
-          ))}
-        </motion.div>
+          {t(`services.${service.descriptionKey}`)}
+        </motion.p>
+        
+        <motion.ul
+          className="space-y-2"
+          initial={{ x: -20, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
+          {(() => {
+            const features = t(`services.${service.featuresKey}`)
+            if (Array.isArray(features)) {
+              return features.map((feature: string, featureIndex: number) => (
+                <motion.li
+                  key={featureIndex}
+                  className="flex items-center text-sm text-muted-foreground"
+                  initial={{ x: -20, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.3, delay: 0.4 + featureIndex * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary mr-3" />
+                  {feature}
+                </motion.li>
+              ))
+            }
+            return null
+          })()}
+        </motion.ul>
       </div>
-
-      {/* Hover border effect */}
-      <motion.div
-        className="absolute inset-0 rounded-3xl border-2 border-transparent pointer-events-none"
-        whileHover={{
-          borderColor: "hsl(var(--primary) / 0.2)",
-          boxShadow: "0 0 30px hsl(var(--primary) / 0.1)",
-        }}
-        transition={{ duration: 0.3 }}
-      />
     </motion.div>
   )
 }

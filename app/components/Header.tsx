@@ -4,12 +4,14 @@ import React, { useState, useEffect } from "react"
 import Link from "next/link"
 import { useTheme } from "next-themes"
 import { motion, AnimatePresence } from "framer-motion"
-import { MoonIcon, SunIcon, Menu, X } from "lucide-react"
+import { MoonIcon, SunIcon, Menu, X, Globe } from "lucide-react"
+import { useLanguage } from "../contexts/LanguageContext"
 
 export default function Header() {
   const [mounted, setMounted] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { theme, setTheme } = useTheme()
+  const { language, setLanguage, t } = useLanguage()
 
   useEffect(() => setMounted(true), [])
 
@@ -33,6 +35,10 @@ export default function Header() {
     return () => document.removeEventListener("click", handleClickOutside);
   }, [mobileMenuOpen]);
 
+  const toggleLanguage = () => {
+    setLanguage(language === 'mn' ? 'en' : 'mn')
+  }
+
   return (
     <motion.header
       className="sticky top-0 z-50 bg-background/80 backdrop-blur-md"
@@ -55,10 +61,11 @@ export default function Header() {
         {/* Spacer: same width as right controls */}
         <div className="hidden md:block" style={{ width: '56px' }}></div>
         {/* Nav links: perfectly centered */}
-        <div className="hidden md:flex gap-x-12 mx-auto justify-center ">
-          <Link href="#services" className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors">Service</Link>
-          <Link href="#our-work" className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors">Work</Link>
-          <Link href="#contact1" className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors">Contact</Link>
+        <div className="hidden md:flex gap-x-6 mx-auto justify-center ">
+          <Link href="#services" className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors">{t('navigation.services')}</Link>
+          <Link href="#our-work" className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors">{t('navigation.work')}</Link>
+          <Link href="#team" className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors">{t('navigation.team')}</Link>
+          <Link href="#contact1" className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors">{t('navigation.contact')}</Link>
         </div>
         {/* Hamburger menu: absolute top right on mobile only */}
         <div className="md:hidden">
@@ -78,6 +85,13 @@ export default function Header() {
         <div className="flex flex-1 justify-end z-10">
           {mounted && (
             <div className="hidden md:flex items-center gap-2">
+              <button
+                onClick={toggleLanguage}
+                className="rounded-full p-2 bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                aria-label="Toggle language"
+              >
+                <Globe className="h-5 w-5" />
+              </button>
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 className="rounded-full p-2 bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
@@ -113,7 +127,7 @@ export default function Header() {
                     className="block text-base font-semibold text-foreground hover:text-primary transition-colors py-2"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Service
+                    {t('navigation.services')}
                   </Link>
                 </motion.div>
                 <motion.div
@@ -126,7 +140,7 @@ export default function Header() {
                     className="block text-base font-semibold text-foreground hover:text-primary transition-colors py-2"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Work
+                    {t('navigation.work')}
                   </Link>
                 </motion.div>
                 <motion.div
@@ -139,7 +153,7 @@ export default function Header() {
                     className="block text-base font-semibold text-foreground hover:text-primary transition-colors py-2"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Contact
+                    {t('navigation.contact')}
                   </Link>
                 </motion.div>
               </div>
@@ -153,6 +167,14 @@ export default function Header() {
                 >
                   <span className="text-sm font-medium text-muted-foreground">Preferences</span>
                   <div className="flex items-center gap-3">
+                    <button
+                      onClick={toggleLanguage}
+                      className="flex items-center gap-2 rounded-full px-3 py-2 bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                      aria-label="Toggle language"
+                    >
+                      <Globe className="h-4 w-4" />
+                      <span className="text-xs font-medium">{language === 'mn' ? 'EN' : 'МН'}</span>
+                    </button>
                     <button
                       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                       className="flex items-center gap-2 rounded-full px-3 py-2 bg-primary/10 text-primary hover:bg-primary/20 transition-colors"

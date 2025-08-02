@@ -2,18 +2,21 @@
 
 import { motion } from "framer-motion"
 import { Facebook, Instagram, Mail, Phone } from "lucide-react"
+import { useLanguage } from "../contexts/LanguageContext"
 
 export default function ContactForm() {
+  const { t } = useLanguage()
+  
   const socialLinks = [
     {
       name: "Facebook",
-      url: "https://www.facebook.com",
+      url: "https://www.facebook.com/profile.php?id=61578833769304",
       icon: Facebook,
       color: "from-blue-500 to-blue-600",
     },
     {
       name: "Instagram",
-      url: "https://www.instagram.com/xp_digital/",
+      url: "https://www.instagram.com/xp.digital.dev/",
       icon: Instagram,
       color: "from-pink-500 to-purple-600",
     },
@@ -40,12 +43,11 @@ export default function ContactForm() {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold text-foreground sm:text-4xl mb-4">Get in Touch</h2>
+          <h2 className="text-3xl font-bold text-foreground sm:text-4xl mb-4">{t('contact.title')}</h2>
           <p className="text-lg text-muted-foreground">
-            Connect with us on social media or reach out directly. We'd love to hear from you!
+            {t('contact.subtitle')}
           </p>
         </motion.div>
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -76,7 +78,6 @@ export default function ContactForm() {
                     </p>
                   </div>
                 </div>
-
                 {/* Hover border effect */}
                 <div className="absolute inset-0 rounded-xl border-2 border-transparent pointer-events-none group-hover:border-primary/20 transition-colors duration-300" />
               </div>
@@ -110,7 +111,6 @@ export default function ContactForm() {
             );
           })}
         </motion.div>
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -118,7 +118,7 @@ export default function ContactForm() {
           className="text-center mt-12"
         >
           <p className="text-muted-foreground">
-            Ready to start your project? Let's create something amazing together!
+            {t('contact.readyToStart')}
           </p>
         </motion.div>
       </div>

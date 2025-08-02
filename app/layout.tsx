@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { LanguageProvider } from "./contexts/LanguageContext"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import ScrollProgress from "./components/ScrollProgress"
@@ -21,10 +22,12 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body className={`${inter.className} min-h-screen bg-background text-foreground`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <ScrollProgress />
-          <Header />
-          <main>{children}</main>
-          <Footer />
+          <LanguageProvider>
+            <ScrollProgress />
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

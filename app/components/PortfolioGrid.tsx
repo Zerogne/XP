@@ -4,50 +4,31 @@ import { useState } from "react"
 import { motion, AnimatePresence, useInView } from "framer-motion"
 import { useRef } from "react"
 import Image from "next/image"
+import { useLanguage } from "../contexts/LanguageContext"
 
 const projects = [
   {
     id: 1,
-    title: "Minimalist Brand Identity",
+    title: "Xperience",
     description: "Connecting students and young professionals with real-world internships and learning opportunities.",
     imageUrl: "/placeholder.svg?height=600&width=800",
-    category: "Branding",
+    category: "Web Development",
     link: "https://www.xperience.mn/" // <-- your project link here
   },
   {
     id: 2,
-    title: "Sleek Web Experience",
-    description: "Elegant online presence for a luxury fashion brand",
+    title: "Han Education",
+    description: "HAN Education offers you the opportunity to study in China with a scholarship.",
     imageUrl: "/placeholder.svg?height=800&width=600",
-    category: "Web Design",
+    category: "Web Development",
+    link: "https://www.haneducation.mn/" // <-- your project link here
   },
   {
     id: 3,
-    title: "Intuitive Mobile App",
-    description: "User-friendly app design for a health and wellness company",
+    title: "TellU",
+    description: "TellU is a mobile app where students can anonymously share honest feedback about their school experience to help improve education through open communication.",
     imageUrl: "/placeholder.svg?height=600&width=800",
     category: "Mobile App",
-  },
-  {
-    id: 4,
-    title: "Elegant Digital Campaign",
-    description: "Sophisticated marketing strategy for a luxury automotive brand",
-    imageUrl: "/placeholder.svg?height=800&width=600",
-    category: "Digital Marketing",
-  },
-  {
-    id: 5,
-    title: "Refined UI/UX Design",
-    description: "Streamlined user interfaces for a financial services platform",
-    imageUrl: "/placeholder.svg?height=600&width=800",
-    category: "UI/UX",
-  },
-  {
-    id: 6,
-    title: "Minimalist Product Design",
-    description: "Sleek and functional design for a smart home device",
-    imageUrl: "/placeholder.svg?height=800&width=600",
-    category: "Product Design",
   },
 ]
 
@@ -57,6 +38,7 @@ export default function PortfolioGrid() {
   const [filter, setFilter] = useState("All")
   const containerRef = useRef(null)
   const isInView = useInView(containerRef, { once: true, amount: 0.1 })
+  const { t } = useLanguage()
 
   const filteredProjects = filter === "All" ? projects : projects.filter((project) => project.category === filter)
 
@@ -97,9 +79,9 @@ export default function PortfolioGrid() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Our Work</h2>
+          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">{t('portfolio.title')}</h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            A showcase of our minimalist designs and creative solutions.
+            {t('portfolio.subtitle')}
           </p>
         </motion.div>
 
@@ -158,19 +140,15 @@ export default function PortfolioGrid() {
                     style={{ objectFit: "cover" }}
                     className="transition-transform duration-500 ease-in-out group-hover:scale-110"
                   />
-                  <motion.div
-                    className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300"
-                    whileHover={{ opacity: 1 }}
+                  <div
+                    className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   >
-                    <motion.p
-                      className="text-white text-center px-4"
-                      initial={{ y: 20, opacity: 0 }}
-                      whileHover={{ y: 0, opacity: 1 }}
-                      transition={{ duration: 0.3 }}
+                    <p
+                      className="text-white text-center px-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
                     >
                       {project.description}
-                    </motion.p>
-                  </motion.div>
+                    </p>
+                  </div>
                 </div>
                 <div className="p-6">
                   <motion.div
@@ -191,31 +169,43 @@ export default function PortfolioGrid() {
                   >
                     {project.title}
                   </motion.h3>
-                  <motion.a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:underline inline-flex items-center group"
-                    initial={{ x: -20, opacity: 0 }}
-                    whileInView={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.4, delay: 0.3 }}
-                    viewport={{ once: true }}
-                    whileHover={{ x: 5 }}
-                  >
-                    View Project
-                    <motion.svg
-                      className="w-4 h-4 ml-2"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                      initial={{ x: 0 }}
-                      whileHover={{ x: 3 }}
-                      transition={{ duration: 0.2 }}
+                  {project.link ? (
+                    <motion.a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline inline-flex items-center group"
+                      initial={{ x: -20, opacity: 0 }}
+                      whileInView={{ x: 0, opacity: 1 }}
+                      transition={{ duration: 0.4, delay: 0.3 }}
+                      viewport={{ once: true }}
+                      whileHover={{ x: 5 }}
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </motion.svg>
-                  </motion.a>
+                      {t('portfolio.viewProject')}
+                      <motion.svg
+                        className="w-4 h-4 ml-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        initial={{ x: 0 }}
+                        whileHover={{ x: 3 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </motion.svg>
+                    </motion.a>
+                  ) : (
+                    <motion.span
+                      className="text-muted-foreground inline-flex items-center"
+                      initial={{ x: -20, opacity: 0 }}
+                      whileInView={{ x: 0, opacity: 1 }}
+                      transition={{ duration: 0.4, delay: 0.3 }}
+                      viewport={{ once: true }}
+                    >
+                      {t('portfolio.comingSoon')}
+                    </motion.span>
+                  )}
                 </div>
               </motion.div>
             ))}

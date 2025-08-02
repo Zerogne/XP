@@ -1,0 +1,69 @@
+{
+  "hero": {
+    "title": "XP",
+    "subtitle": "Бид таны дижитал өсөлтийн түнш бөгөөд технологи, дизайн, маркетингийг хослуулан таны бизнесийг дээшлүүлж, удаан хугацааны амжилтыг хангадаг.",
+    "exploreButton": "Бидний ажлыг үзэх",
+    "learnMore": "Дэлгэрэнгүй"
+  },
+  "services": {
+    "title": "Бидний үйлчилгээ",
+    "subtitle": "Таны бизнесийг дижитал ертөнцөд амжилттай болоход тусалдаг дэлгэрэнгүй вэб хөгжүүлэлтийн үйлчилгээг санал болгож байна.",
+    "webDevelopment": {
+      "title": "Вэб хөгжүүлэлт",
+      "description": "React, Next.js, Node.js зэрэг орчин үеийн технологиор хийгдсэн хувийн вэбсайт болон вэб аппликейшн.",
+      "features": ["Responsive Design", "SEO Optimized", "Fast Performance", "Modern Stack"]
+    },
+    "mobileApps": {
+      "title": "Мобайл апп",
+      "description": "React Native болон Flutter ашиглан iOS болон Android-д зориулсан үндэсний болон cross-platform мобайл аппликейшн.",
+      "features": ["Cross-Platform", "Native Performance", "App Store Ready", "Push Notifications"]
+    },
+    "uiuxDesign": {
+      "title": "UI/UX Дизайн",
+      "description": "Хэрэглэгчдийг татаж, хөрвүүлэлтийг нэмэгдүүлдэг сайхан, ойлгомжтой хэрэглэгчийн интерфейс болон туршлага.",
+      "features": ["User Research", "Wireframing", "Prototyping", "Design Systems"]
+    },
+    "ecommerce": {
+      "title": "E-commerce",
+      "description": "Төлбөр төлөлт, бараа материалын удирдлага, аналитик бүхий бүрэн e-commerce шийдэл.",
+      "features": ["Payment Gateway", "Inventory System", "Analytics", "Admin Dashboard"]
+    },
+    "seoMarketing": {
+      "title": "SEO & Маркетинг",
+      "description": "Таны онлайн харагдах байдлыг өсгөх хайлтын системийн оновчлол болон дижитал маркетингийн стратеги.",
+      "features": ["Keyword Research", "Content Strategy", "Link Building", "Analytics"]
+    },
+    "performanceOptimization": {
+      "title": "Гүйцэтгэлийн оновчлол",
+      "description": "Дэлгэрэнгүй оновчлолын арга техникээр вэбсайтаа хурдасгаж, хэрэглэгчийн туршлагыг сайжруулна.",
+      "features": ["Core Web Vitals", "Image Optimization", "Code Splitting", "CDN Setup"]
+    }
+  },
+  "aboutUs": {
+    "title": "Бидний багтай танилцаарай",
+    "subtitle": "XP-ийн ард байгаа хүсэл эрмэлзэлтэй хүмүүс бөгөөд инновацийн дижитал шийдлүүдээр дамжуулан бизнесүүд хэрхэн хэрэглэгчдээтэй холбогдохыг өөрчлөхөд зориулж ажилладаг."
+  },
+  "portfolio": {
+    "title": "Бидний ажил",
+    "subtitle": "Бидний минималист дизайн болон бүтээлч шийдлүүд.",
+    "viewProject": "Төслийг үзэх",
+    "comingSoon": "Тун Удахгүй"
+  },
+  "contact": {
+    "title": "Холбоо барих",
+    "subtitle": "Сошиал медиа эсвэл шууд холбогдоно уу. Бид танаас сонсохыг хүсч байна!",
+    "readyToStart": "Гайхамшгийг хамтдаа бий болгоё!"
+  },
+  "navigation": {
+    "home": "Нүүр",
+    "services": "Үйлчилгээ",
+    "about": "Бидний тухай",
+    "work": "Ажил",
+    "contact": "Холбоо барих",
+    "team": "Баг"
+  },
+  "language": {
+    "mn": "Монгол",
+    "en": "English"
+  }
+} 

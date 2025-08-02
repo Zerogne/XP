@@ -1,8 +1,11 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { useLanguage } from "../contexts/LanguageContext"
 
 export default function Hero() {
+  const { t } = useLanguage()
+
   return (
     <div className="relative isolate overflow-hidden bg-background">
       {/* Mobile-only blurred logo overlay */}
@@ -20,7 +23,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-gradient">XP</span>
+            <span className="text-gradient">{t('hero.title')}</span>
           </motion.h1>
           <motion.p
             className="mt-6 text-lg leading-8 text-muted-foreground"
@@ -28,7 +31,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            We're your digital growth partner, combining technology, design, and marketing to elevate your business and ensure lasting success.
+            {t('hero.subtitle')}
           </motion.p>
           <motion.div
             className="mt-10 flex items-center gap-x-6"
@@ -43,15 +46,15 @@ export default function Hero() {
                 if (el) el.scrollIntoView({ behavior: 'smooth' });
               }}
             >
-              Explore Our Work
+              {t('hero.exploreButton')}
             </button>
             <a
-              href="https://www.facebook.com/gaming/Tsetseghuuhdiingutliindelguur"
+              href="https://www.facebook.com/profile.php?id=61578833769304"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-semibold leading-6 text-foreground"
             >
-              Learn more <span aria-hidden="true">→</span>
+              {t('hero.learnMore')} <span aria-hidden="true">→</span>
             </a>
           </motion.div>
         </div>
@@ -64,7 +67,7 @@ export default function Hero() {
           <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
             <img
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/creative-SW6QDQbcVuwPgb6a2CYtYmRbsJa4k1.png"
-              alt="Flowers & Saints design concept"
+              alt="XP Logo"
               width={600}
               height={600}
               className="w-full h-auto rounded-2xl"
