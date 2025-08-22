@@ -2,6 +2,7 @@
   "hero": {
     "title": "XP",
     "subtitle": "XP is a team driven by fresh ideas and collective passion. Together, we create real solutions that make an impact.",
+    "badge": "Creative Agency",
     "exploreButton": "Explore Our Work",
     "learnMore": "Learn more"
   },
@@ -11,32 +12,62 @@
     "webDevelopment": {
       "title": "Web Development",
       "description": "Custom websites and web applications built with modern technologies like React, Next.js, and Node.js.",
-      "features": ["Responsive Design", "SEO Optimized", "Fast Performance", "Modern Stack"]
+      "features": [
+        "Responsive Design",
+        "SEO Optimized",
+        "Fast Performance",
+        "Modern Stack"
+      ]
     },
     "mobileApps": {
       "title": "Mobile Apps",
       "description": "Native and cross-platform mobile applications for iOS and Android using React Native and Flutter.",
-      "features": ["Cross-Platform", "Native Performance", "App Store Ready", "Push Notifications"]
+      "features": [
+        "Cross-Platform",
+        "Native Performance",
+        "App Store Ready",
+        "Push Notifications"
+      ]
     },
     "uiuxDesign": {
       "title": "UI/UX Design",
       "description": "Beautiful, intuitive user interfaces and experiences that engage users and drive conversions.",
-      "features": ["User Research", "Wireframing", "Prototyping", "Design Systems"]
+      "features": [
+        "User Research",
+        "Wireframing",
+        "Prototyping",
+        "Design Systems"
+      ]
     },
     "ecommerce": {
       "title": "E-commerce",
       "description": "Complete e-commerce solutions with payment integration, inventory management, and analytics.",
-      "features": ["Payment Gateway", "Inventory System", "Analytics", "Admin Dashboard"]
+      "features": [
+        "Payment Gateway",
+        "Inventory System",
+        "Analytics",
+        "Admin Dashboard"
+      ]
     },
     "seoMarketing": {
       "title": "SEO & Marketing",
       "description": "Search engine optimization and digital marketing strategies to grow your online presence.",
-      "features": ["Keyword Research", "Content Strategy", "Link Building", "Analytics"]
+      "features": [
+        "Keyword Research",
+        "Content Strategy",
+        "Link Building",
+        "Analytics"
+      ]
     },
     "performanceOptimization": {
       "title": "Performance Optimization",
       "description": "Speed up your website and improve user experience with advanced optimization techniques.",
-      "features": ["Core Web Vitals", "Image Optimization", "Code Splitting", "CDN Setup"]
+      "features": [
+        "Core Web Vitals",
+        "Image Optimization",
+        "Code Splitting",
+        "CDN Setup"
+      ]
     }
   },
   "aboutUs": {
@@ -47,7 +78,11 @@
     "title": "Our Work",
     "subtitle": "A showcase of our minimalist designs and creative solutions.",
     "viewProject": "View Project",
-    "comingSoon": "Coming Soon"
+    "comingSoon": "Coming Soon",
+    "exploreProject": "Explore Project",
+    "viewDetails": "View Details",
+    "exploreMore": "Explore More",
+    "showLess": "Show Less"
   },
   "contact": {
     "title": "Get in Touch",
@@ -66,4 +101,4 @@
     "mn": "Монгол",
     "en": "English"
   }
-} 
+}

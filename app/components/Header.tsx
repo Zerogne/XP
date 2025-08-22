@@ -53,9 +53,15 @@ export default function Header() {
             <span className="sr-only">XP</span>
             <img
               className="h-8 w-auto"
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/creative-SW6QDQbcVuwPgb6a2CYtYmRbsJa4k1.png"
+              src="/xp-logo.svg"
               alt="XP Logo"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+                target.nextElementSibling?.classList.remove('hidden');
+              }}
             />
+            <span className="text-2xl font-bold text-foreground hidden">XP</span>
           </Link>
         </div>
         {/* Spacer: same width as right controls */}

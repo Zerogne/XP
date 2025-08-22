@@ -2,27 +2,37 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Facebook, Instagram, Github } from "lucide-react"
+import { Facebook, Instagram, Github, Globe } from "lucide-react"
 import { useLanguage } from "../contexts/LanguageContext"
 
 const team = [
   {
+    name: "Danny",
+    role: "Founder, Project Manager & Developer",
+    description: "Creating beautiful and intuitive user experiences that engage users and drive conversions. Leading the team with vision and technical expertise.",
+    image: "https://images8.alphacoders.com/483/483462.png",
+    facebook: "https://www.facebook.com/dnii.dnii.0412",
+    instagram: "https://www.instagram.com/dnii_d/",
+    github: "https://github.com/dnii0412",
+    portfolio: "https://dnii0412.github.io/danny-portfolio/",
+  },
+  {
     name: "Bayarbayasgalan",
     role: "Lead Developer",
     description: "Passionate about creating innovative digital solutions and helping businesses grow through technology.",
-    image: "/placeholder-user.jpg",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnb34N79_25Qvdze3AEKBpgrVV7zWyNLwr_Q&s",
     facebook: "https://www.facebook.com/Xuj11/",
     instagram: "https://instagram.com/zgrbayraa",
     github: "https://github.com/Zerogne",
   },
   {
-    name: "Dnii",
-    role: "Project Manager,Developer",
-    description: "Creating beautiful and intuitive user experiences that engage users and drive conversions.",
-    image: "/placeholder-user.jpg",
-    facebook: "https://www.facebook.com/dnii.dnii.0412",
-    instagram: "https://www.instagram.com/dnii_d/",
-    github: "https://github.com/dnii0412",
+    name: "Batmandakh",
+    role: "Product Manager, SMM Manager",
+    description: "Strategic product development and social media marketing expert, driving growth through innovative solutions and engaging content.",
+    image: "https://static.wikia.nocookie.net/disney/images/3/37/Profile_-_Simba.jpeg",
+    facebook: "https://www.facebook.com/batmandakh.batsukh.5",
+    instagram: "https://www.instagram.com/bta1023/",
+    github: null,
   },
 ]
 
@@ -76,7 +86,7 @@ export default function AboutUs() {
 
         <motion.div
           ref={containerRef}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -159,6 +169,19 @@ function TeamCard({ member, index, variants }: { member: (typeof team)[0]; index
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
+          {member.portfolio && (
+            <motion.a
+              href={member.portfolio}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              title="Portfolio"
+            >
+              <Globe className="w-5 h-5" />
+            </motion.a>
+          )}
           <motion.a
             href={member.facebook}
             target="_blank"
@@ -179,16 +202,18 @@ function TeamCard({ member, index, variants }: { member: (typeof team)[0]; index
           >
             <Instagram className="w-5 h-5" />
           </motion.a>
-          <motion.a
-            href={member.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <Github className="w-5 h-5" />
-          </motion.a>
+          {member.github && (
+            <motion.a
+              href={member.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <Github className="w-5 h-5" />
+            </motion.a>
+          )}
         </motion.div>
       </div>
 

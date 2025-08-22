@@ -2,6 +2,7 @@
   "hero": {
     "title": "XP",
     "subtitle": "Бид таны дижитал өсөлтийн түнш бөгөөд технологи, дизайн, маркетингийг хослуулан таны бизнесийг дээшлүүлж, удаан хугацааны амжилтыг хангадаг.",
+    "badge": "Бүтээлч Агентлаг",
     "exploreButton": "Бидний ажлыг үзэх",
     "learnMore": "Дэлгэрэнгүй"
   },
@@ -11,32 +12,62 @@
     "webDevelopment": {
       "title": "Вэб хөгжүүлэлт",
       "description": "React, Next.js, Node.js зэрэг орчин үеийн технологиор хийгдсэн хувийн вэбсайт болон вэб аппликейшн.",
-      "features": ["Responsive Design", "SEO Optimized", "Fast Performance", "Modern Stack"]
+      "features": [
+        "Responsive Design",
+        "SEO Optimized",
+        "Fast Performance",
+        "Modern Stack"
+      ]
     },
     "mobileApps": {
       "title": "Мобайл апп",
       "description": "React Native болон Flutter ашиглан iOS болон Android-д зориулсан үндэсний болон cross-platform мобайл аппликейшн.",
-      "features": ["Cross-Platform", "Native Performance", "App Store Ready", "Push Notifications"]
+      "features": [
+        "Cross-Platform",
+        "Native Performance",
+        "App Store Ready",
+        "Push Notifications"
+      ]
     },
     "uiuxDesign": {
       "title": "UI/UX Дизайн",
       "description": "Хэрэглэгчдийг татаж, хөрвүүлэлтийг нэмэгдүүлдэг сайхан, ойлгомжтой хэрэглэгчийн интерфейс болон туршлага.",
-      "features": ["User Research", "Wireframing", "Prototyping", "Design Systems"]
+      "features": [
+        "User Research",
+        "Wireframing",
+        "Prototyping",
+        "Design Systems"
+      ]
     },
     "ecommerce": {
       "title": "E-commerce",
       "description": "Төлбөр төлөлт, бараа материалын удирдлага, аналитик бүхий бүрэн e-commerce шийдэл.",
-      "features": ["Payment Gateway", "Inventory System", "Analytics", "Admin Dashboard"]
+      "features": [
+        "Payment Gateway",
+        "Inventory System",
+        "Analytics",
+        "Admin Dashboard"
+      ]
     },
     "seoMarketing": {
       "title": "SEO & Маркетинг",
       "description": "Таны онлайн харагдах байдлыг өсгөх хайлтын системийн оновчлол болон дижитал маркетингийн стратеги.",
-      "features": ["Keyword Research", "Content Strategy", "Link Building", "Analytics"]
+      "features": [
+        "Keyword Research",
+        "Content Strategy",
+        "Link Building",
+        "Analytics"
+      ]
     },
     "performanceOptimization": {
       "title": "Гүйцэтгэлийн оновчлол",
       "description": "Дэлгэрэнгүй оновчлолын арга техникээр вэбсайтаа хурдасгаж, хэрэглэгчийн туршлагыг сайжруулна.",
-      "features": ["Core Web Vitals", "Image Optimization", "Code Splitting", "CDN Setup"]
+      "features": [
+        "Core Web Vitals",
+        "Image Optimization",
+        "Code Splitting",
+        "CDN Setup"
+      ]
     }
   },
   "aboutUs": {
@@ -47,7 +78,11 @@
     "title": "Бидний ажил",
     "subtitle": "Бидний минималист дизайн болон бүтээлч шийдлүүд.",
     "viewProject": "Төслийг үзэх",
-    "comingSoon": "Тун Удахгүй"
+    "comingSoon": "Тун Удахгүй",
+    "exploreProject": "Төслийг үзэх",
+    "viewDetails": "Дэлгэрэнгүй",
+    "exploreMore": "Илүү ихийг үзэх",
+    "showLess": "Бага үзэх"
   },
   "contact": {
     "title": "Холбоо барих",
@@ -66,4 +101,4 @@
     "mn": "Монгол",
     "en": "English"
   }
-} 
+}

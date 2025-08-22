@@ -6,7 +6,7 @@ import { useLanguage } from "../contexts/LanguageContext"
 
 export default function ContactForm() {
   const { t } = useLanguage()
-  
+
   const socialLinks = [
     {
       name: "Facebook",
@@ -56,12 +56,14 @@ export default function ContactForm() {
         >
           {socialLinks.map((social, index) => {
             const isLink = social.name === "Facebook" || social.name === "Instagram";
-            
+            const isEmail = social.name === "Gmail";
+            const isPhone = social.name === "Phone";
+
             const content = (
-              <div className="group relative bg-background rounded-xl p-4 shadow-lg border border-border/50 hover:border-primary/20 transition-all duration-300 overflow-hidden">
+              <div className="group relative bg-background rounded-xl p-4 shadow-lg border border-border/50 hover:border-primary/20 transition-all duration-300 overflow-hidden cursor-pointer">
                 {/* Background gradient */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${social.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-                
+
                 {/* Content */}
                 <div className="relative z-10 flex items-center space-x-3">
                   <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${social.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
@@ -72,9 +74,9 @@ export default function ContactForm() {
                       {social.name}
                     </h3>
                     <p className="text-xs text-muted-foreground">
-                      {social.name === "Phone" ? "+976 80296007" : 
-                       social.name === "Gmail" ? "xpdigital.dev@gmail.com" : 
-                       "Connect with us"}
+                      {social.name === "Phone" ? "+976 80296007" :
+                        social.name === "Gmail" ? "xpdigital.dev@gmail.com" :
+                          "Connect with us"}
                     </p>
                   </div>
                 </div>
@@ -83,32 +85,68 @@ export default function ContactForm() {
               </div>
             );
 
-            return isLink ? (
-              <motion.a
-                key={social.name}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
-                whileHover={{ 
-                  scale: 1.02,
-                  transition: { duration: 0.2 }
-                }}
-              >
-                {content}
-              </motion.a>
-            ) : (
-              <motion.div
-                key={social.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
-              >
-                {content}
-              </motion.div>
-            );
+            if (isLink) {
+              return (
+                <motion.a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
+                  whileHover={{
+                    scale: 1.02,
+                    transition: { duration: 0.2 }
+                  }}
+                >
+                  {content}
+                </motion.a>
+              );
+            } else if (isEmail) {
+              return (
+                <motion.a
+                  key={social.name}
+                  href={social.url}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
+                  whileHover={{
+                    scale: 1.02,
+                    transition: { duration: 0.2 }
+                  }}
+                >
+                  {content}
+                </motion.a>
+              );
+            } else if (isPhone) {
+              return (
+                <motion.a
+                  key={social.name}
+                  href={social.url}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
+                  whileHover={{
+                    scale: 1.02,
+                    transition: { duration: 0.2 }
+                  }}
+                >
+                  {content}
+                </motion.a>
+              );
+            } else {
+              return (
+                <motion.div
+                  key={social.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
+                >
+                  {content}
+                </motion.div>
+              );
+            }
           })}
         </motion.div>
         <motion.div

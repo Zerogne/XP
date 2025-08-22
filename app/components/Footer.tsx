@@ -19,7 +19,7 @@ export default function Footer() {
     <footer className="bg-background border-t border-border/50 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
-      
+
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main footer content */}
         <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -28,9 +28,15 @@ export default function Footer() {
             <div className="flex items-center mb-6">
               <img
                 className="h-8 w-auto mr-3"
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/creative-SW6QDQbcVuwPgb6a2CYtYmRbsJa4k1.png"
+                src="/xp-logo.svg"
                 alt="XP Logo"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  target.nextElementSibling?.classList.remove('hidden');
+                }}
               />
+              <span className="text-2xl font-bold text-foreground hidden mr-3">XP</span>
               <span className="text-2xl font-bold text-foreground">XP</span>
             </div>
             <p className="text-muted-foreground mb-6 max-w-md leading-relaxed">
@@ -115,9 +121,9 @@ export default function Footer() {
           <p className="text-sm text-muted-foreground mb-4 sm:mb-0">
             © 2025 XP Digital. {t('navigation.contact') === 'Contact' ? 'All rights reserved.' : 'Бүх эрх хуулиар хамгаалагдсан.'}
           </p>
-          
+
           {/* Back to top button */}
-          
+
         </div>
       </div>
     </footer>
