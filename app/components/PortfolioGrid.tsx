@@ -10,24 +10,9 @@ import Link from "next/link"
 
 const projects = [
   {
-    id: 1,
-    title: "Xperience – Digital Internship Hub",
-    description: "A platform connecting Mongolian students with internships, part-time jobs, and project opportunities — bridging education and work. Students create profiles and apply to roles, while organizations post openings and manage candidates.",
-    imageUrl: "/xperience.png",
-    category: "Web Development",
-    liveUrl: "https://xperience.mn",
-    slug: "xperience",
-    technologies: ["Next.js", "TypeScript", "MongoDB", "Cloudinary", "NextAuth"],
-    stats: {
-      users: "1000+",
-      companies: "50+",
-      internships: "200+"
-    }
-  },
-  {
     id: 2,
-    title: "Han Education – Language & Study Abroad Platform",
-    description: "A modern education site helping students explore courses, language programs, and study-abroad opportunities. The platform offers guided searches, consultation booking, and multilingual content.",
+    title: "Han Education – Гадаадад Сурах, Хэлний Хөтөлбөрийн Платформ",
+    description: "Сурагчдад хичээл, хэлний сургалт болон гадаадад суралцах боломжуудыг нээж өгөх орчин үеийн боловсролын веб сайт. Монголын сурагчдад нэр хүндтэй БНХАУ-ын их сургуулиуд болон тэтгэлгийн хөтөлбөрүүдтэй холбогдох боломжийг олгодог.",
     imageUrl: "/haneducation.png",
     category: "Web Development",
     liveUrl: "https://haneducation.mn",
@@ -37,44 +22,67 @@ const projects = [
       students: "500+",
       universities: "30+",
       countries: "3"
-    }
+    },
+    timeline: "2 weeks",
+    team: "2 developers"
   },
   {
     id: 3,
-    title: "Sunrise Mongolia – Tours & Experiences",
-    description: "An adventure travel website showcasing Mongolia's best tours with smooth booking requests and bold design. Admins update itineraries, pricing, and promos via a responsive admin panel.",
+    title: "Sunrise Mongolia – Аялал ба Туршлагууд",
+    description: "Монголын шилдэг аялал, адал явдлыг танилцуулж, захиалга хийхэд хялбар болгосон орчин үеийн аяллын вэбсайт. Энэхүү платформ нь аялагчдад аяллын дэлгэрэнгүй мэдээлэл болон онцгой туршлагуудтай танилцах боломжийг олгоно.",
     imageUrl: "/SunriseMongolia.png",
     category: "Web Development",
-    liveUrl: null,
+    liveUrl: "https://sunrisemongolia.com",
     slug: "sunrise-mongolia",
     technologies: ["Next.js", "TypeScript", "Tailwind", "MongoDB", "Cloudinary", "ReCAPTCHA"],
     stats: {
       tours: "50+",
       destinations: "20+",
       bookings: "100+"
-    }
+    },
+    timeline: "2 weeks",
+    team: "2 developers"
   },
   {
     id: 4,
-    title: "New Era – K-12 & Courses Platform",
-    description: "A parent-friendly school site featuring program details, admissions, announcements, and media galleries. Staff manage content, hero sections, and calendars through a robust admin dashboard.",
+    title: "New Era – Ерөнхий боловсрол ба Хичээлүүдийн платформ",
+    description: "Эцэг эх, сурагчдад зориулсан ээлтэй боловсролын сайт. Хөтөлбөрийн мэдээлэл, элсэлт, мэдээ зар, медиа галерей зэрэг бүх мэдээллийг нэг дор төвлөрүүлсэн цогц боловсролын платформ.",
     imageUrl: "/newera.png",
     category: "Web Development",
     liveUrl: "https://edunewera.mn",
     slug: "new-era",
-    technologies: ["Next.js", "TypeScript", "Tailwind", "MongoDB", "Cloudinary", "NextAuth"],
+    technologies: ["Next.js", "TypeScript", "Tailwind", "MongoDB", "Cloudinary", "NextAuth", "Bunny.net", "TUS"],
     stats: {
       students: "300+",
       programs: "25+",
       courses: "100+"
-    }
+    },
+    timeline: "4 weeks",
+    team: "2 developers"
+  },
+  {
+    id: 1,
+    title: "Xperience – Дижитал Дадлагын Төв",
+    description: "Монголын оюутан сурагчдад дадлага, цагийн ажил, төсөлд оролцох боломжуудтай холбож, боловсрол ба ажил мэргэжлийн гүүр болох платформ. Зорилготой, идэвхтэй оюутан, залуу мэргэжилтнүүдийг үнэ цэнтэй дадлага, менторшип хөтөлбөртэй холбодог.",
+    imageUrl: "/xperience.png",
+    category: "Projects",
+    liveUrl: "https://xperience.mn",
+    slug: "xperience",
+    technologies: ["Next.js", "TypeScript", "MongoDB", "Cloudinary", "NextAuth"],
+    stats: {
+      users: "1000+",
+      companies: "50+",
+      internships: "200+"
+    },
+    timeline: "3 months",
+    team: "2 developers"
   },
   {
     id: 5,
-    title: "TellU – Student Review Platform",
-    description: "A mobile-first platform empowering students to share honest reviews about schools and universities, providing transparent insights for future students and parents.",
+    title: "TellU – Сурагчдын Сэтгэгдэл илэрхийлэх Платформ",
+    description: "Сурагчдад сургууль, их сургуулийнхаа талаар шударга сэтгэгдэлээ хуваалцах боломж олгодог гар утсанд ээлтэй платформ. Сурагчид санал бодлоо илэрхийлэх, сургалтын дэд бүтцийг үнэлэх аюулгүй орон зайг бүрдүүлдэг.",
     imageUrl: "/TellU.png",
-    category: "Web Development",
+    category: "Projects",
     liveUrl: null,
     slug: "tellu",
     technologies: ["Next.js", "TypeScript", "MongoDB", "Cloudinary", "NextAuth", "Tailwind CSS"],
@@ -82,7 +90,9 @@ const projects = [
       reviews: "500+",
       schools: "100+",
       students: "1000+"
-    }
+    },
+    timeline: "4 months",
+    team: "2 developers"
   }
 ]
 
@@ -205,15 +215,20 @@ export default function PortfolioGrid() {
                   {/* Project Stats Overlay */}
                   <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
                     <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm font-medium text-primary-foreground bg-primary/20 px-2 py-1 rounded-full">
-                        {project.category}
-                      </span>
                       <div className="flex gap-2">
-                        {Object.entries(project.stats).slice(0, 2).map(([key, value]) => (
-                          <span key={key} className="text-xs bg-white/20 px-2 py-1 rounded-full">
-                            {value}
+                        <span className="text-sm font-medium text-primary-foreground bg-primary/20 px-2 py-1 rounded-full">
+                          {project.category}
+                        </span>
+                        {project.category === "Projects" && (
+                          <span className="text-sm font-bold text-white bg-gradient-to-r from-yellow-500 to-orange-500 px-3 py-1 rounded-full shadow-lg">
+                            ⭐
                           </span>
-                        ))}
+                        )}
+                        {project.category === "Web Development" && (
+                          <span className="text-sm font-bold text-white bg-gradient-to-r from-blue-500 to-purple-500 px-3 py-1 rounded-full shadow-lg">
+                            💻
+                          </span>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -263,14 +278,42 @@ export default function PortfolioGrid() {
                     )}
                   </motion.div>
 
+                  {/* Timeline & Team Info */}
+                  <motion.div
+                    className="mb-4 p-3 bg-secondary/20 rounded-lg"
+                    initial={{ x: -20, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 0.4, delay: 0.4 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="flex justify-between items-center text-sm">
+                      <div className="flex items-center gap-1 text-muted-foreground">
+                        <span>⏱️</span>
+                        <span>{project.timeline}</span>
+                      </div>
+                      <div className="flex items-center gap-1 text-muted-foreground">
+                        <span>👥</span>
+                        <span>{project.team}</span>
+                      </div>
+                    </div>
+                  </motion.div>
+
                   {/* Action Buttons */}
                   <div className="flex gap-3">
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium whitespace-nowrap min-w-0"
+                    >
+                      <Eye className="w-4 h-4 flex-shrink-0" />
+                      <span className="truncate">Project Details</span>
+                    </Link>
+
                     {project.liveUrl ? (
                       <motion.a
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium whitespace-nowrap min-w-0"
+                        className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/80 transition-colors text-sm font-medium whitespace-nowrap min-w-0"
                         initial={{ x: -20, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.4, delay: 0.4 }}
@@ -279,7 +322,7 @@ export default function PortfolioGrid() {
                         whileTap={{ scale: 0.98 }}
                       >
                         <ExternalLink className="w-4 h-4 flex-shrink-0" />
-                        <span className="truncate">Project Details</span>
+                        <span className="truncate">Preview</span>
                       </motion.a>
                     ) : (
                       <motion.button
@@ -293,14 +336,6 @@ export default function PortfolioGrid() {
                         <span className="truncate">Coming Soon</span>
                       </motion.button>
                     )}
-
-                    <Link
-                      href={`/projects/${project.slug}`}
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/80 transition-colors text-sm font-medium whitespace-nowrap min-w-0"
-                    >
-                      <Eye className="w-4 h-4 flex-shrink-0" />
-                      <span className="truncate">Review</span>
-                    </Link>
                   </div>
                 </div>
               </motion.div>

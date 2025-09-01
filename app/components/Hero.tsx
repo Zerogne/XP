@@ -3,11 +3,14 @@
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useLanguage } from "../contexts/LanguageContext"
 import { useEffect, useState } from "react"
+import { Facebook, Instagram, Twitter, Linkedin, Youtube, Mail, Copy, Check } from "lucide-react"
 
 export default function Hero() {
   const { t } = useLanguage()
   const { scrollY } = useScroll()
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [isEmailHovered, setIsEmailHovered] = useState(false)
+  const [emailCopied, setEmailCopied] = useState(false)
 
   const y1 = useTransform(scrollY, [0, 300], [0, -100])
   const y2 = useTransform(scrollY, [0, 300], [0, -200])
@@ -20,6 +23,16 @@ export default function Hero() {
     window.addEventListener('mousemove', handleMouseMove)
     return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
+
+  const copyEmailToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText('xpdigital.dev@gmail.com')
+      setEmailCopied(true)
+      setTimeout(() => setEmailCopied(false), 2000)
+    } catch (err) {
+      console.error('Failed to copy email:', err)
+    }
+  }
 
   return (
     <div className="relative isolate overflow-hidden bg-background min-h-screen flex items-center">
@@ -191,9 +204,106 @@ export default function Hero() {
               </div>
             ))}
           </motion.div>
+
+          {/* Social Media Links */}
+          <motion.div
+            className="mt-8 flex items-center justify-center lg:justify-start gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.1 }}
+          >
+            <span className="text-sm text-muted-foreground mr-2">Follow us:</span>
+            {[
+              {
+                icon: Facebook,
+                href: "https://www.facebook.com/profile.php?id=61578833769304",
+                color: "hover:text-blue-600",
+                bgColor: "hover:bg-blue-100"
+              },
+              {
+                icon: Instagram,
+                href: "https://instagram.com/xp.agency.mn",
+                color: "hover:text-pink-600",
+                bgColor: "hover:bg-pink-100"
+              },
+              {
+                icon: Mail,
+                href: "mailto:xpdigital.dev@gmail.com",
+                color: "hover:text-green-600",
+                bgColor: "hover:bg-green-100"
+              }
+            ].map((social, index) => {
+              const isEmail = social.href.includes('mailto:')
+
+              return (
+                <div key={index} className="relative">
+                  {isEmail ? (
+                    // Email Button with Copy Functionality
+                    <motion.button
+                      onClick={copyEmailToClipboard}
+                      className={`group relative w-10 h-10 rounded-full bg-background/50 backdrop-blur-sm border border-border/50 flex items-center justify-center text-muted-foreground transition-all duration-300 ${social.color} ${social.bgColor} hover:border-transparent hover:shadow-lg hover:scale-110`}
+                      whileHover={{ y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: 1.2 + index * 0.1 }}
+                      onMouseEnter={() => setIsEmailHovered(true)}
+                      onMouseLeave={() => setIsEmailHovered(false)}
+                    >
+                      {/* Icon changes from Mail to Copy on hover */}
+                      <motion.div
+                        className="w-4 h-4 transition-transform duration-300 group-hover:scale-110"
+                        animate={{
+                          rotate: isEmailHovered ? 0 : 0,
+                          scale: isEmailHovered ? 1 : 1
+                        }}
+                      >
+                        {emailCopied ? (
+                          <Check className="w-4 h-4 text-green-600" />
+                        ) : isEmailHovered ? (
+                          <Copy className="w-4 h-4" />
+                        ) : (
+                          <Mail className="w-4 h-4" />
+                        )}
+                      </motion.div>
+
+                      {/* Email Tooltip */}
+                      <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-foreground text-background text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+                        xpdigital.dev@gmail.com
+                      </div>
+                    </motion.button>
+                  ) : (
+                    // Regular Social Media Links
+                    <motion.a
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`group relative w-10 h-10 rounded-full bg-background/50 backdrop-blur-sm border border-border/50 flex items-center justify-center text-muted-foreground transition-all duration-300 ${social.color} ${social.bgColor} hover:border-transparent hover:shadow-lg hover:scale-110`}
+                      whileHover={{ y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: 1.2 + index * 0.1 }}
+                    >
+                      <social.icon className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
+
+                      {/* Regular Tooltip */}
+                      <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-foreground text-background text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+                        {social.href.includes('facebook') && 'Facebook'}
+                        {social.href.includes('instagram') && 'Instagram'}
+                        {social.href.includes('twitter') && 'Twitter'}
+                        {social.href.includes('linkedin') && 'LinkedIn'}
+                        {social.href.includes('youtube') && 'YouTube'}
+                      </div>
+                    </motion.a>
+                  )}
+                </div>
+              )
+            })}
+          </motion.div>
         </motion.div>
 
-                {/* Interactive 3D Design Element */}
+        {/* Interactive 3D Design Element */}
         <motion.div
           className="hidden lg:flex w-full justify-end mb-8 lg:mb-0 relative"
           initial={{ opacity: 0, x: 50 }}
@@ -203,11 +313,11 @@ export default function Hero() {
           <div className="relative w-full max-w-md">
             {/* Glow Effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-purple-600/20 rounded-3xl blur-3xl scale-110" />
-            
+
             {/* Main 3D Container */}
             <motion.div
               className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 rounded-3xl p-8 shadow-2xl"
-              whileHover={{ 
+              whileHover={{
                 scale: 1.05,
                 rotateY: 5,
               }}
@@ -228,7 +338,7 @@ export default function Hero() {
                     ease: "easeInOut"
                   }}
                 />
-                
+
                 {/* Floating Tech Icons */}
                 <motion.div
                   className="absolute top-4 left-4 w-8 h-8 bg-gradient-to-br from-orange-400 to-red-500 rounded-lg flex items-center justify-center text-white text-xs font-bold"
@@ -244,7 +354,7 @@ export default function Hero() {
                 >
                   ▶
                 </motion.div>
-                
+
                 <motion.div
                   className="absolute top-8 right-6 w-6 h-6 bg-gradient-to-br from-green-400 to-blue-500 rounded-full"
                   animate={{
@@ -257,7 +367,7 @@ export default function Hero() {
                     ease: "easeInOut"
                   }}
                 />
-                
+
                 <motion.div
                   className="absolute top-16 left-8 w-10 h-10 bg-gradient-to-br from-purple-400 to-pink-500 rounded-lg flex items-center justify-center text-white text-xs font-bold"
                   animate={{
@@ -272,7 +382,7 @@ export default function Hero() {
                 >
                   ✏️
                 </motion.div>
-                
+
                 <motion.div
                   className="absolute top-20 right-12 w-8 h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center text-white text-xs font-bold"
                   animate={{
@@ -287,7 +397,7 @@ export default function Hero() {
                 >
                   T
                 </motion.div>
-                
+
                 {/* Color Wheel */}
                 <motion.div
                   className="absolute bottom-8 left-12 w-12 h-12 rounded-full overflow-hidden"
@@ -302,7 +412,7 @@ export default function Hero() {
                 >
                   <div className="w-full h-full bg-conic-gradient from-red-500 via-yellow-500 via-green-500 via-blue-500 to-purple-500" />
                 </motion.div>
-                
+
                 {/* Floating Cubes */}
                 <motion.div
                   className="absolute bottom-16 right-8 w-4 h-4 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-sm"
@@ -316,7 +426,7 @@ export default function Hero() {
                     ease: "easeInOut"
                   }}
                 />
-                
+
                 <motion.div
                   className="absolute bottom-20 right-16 w-3 h-3 bg-gradient-to-br from-pink-400 to-rose-500 rounded-sm"
                   animate={{
@@ -329,7 +439,7 @@ export default function Hero() {
                     ease: "easeInOut"
                   }}
                 />
-                
+
                 {/* Palette */}
                 <motion.div
                   className="absolute bottom-6 right-4 w-8 h-6 bg-white/20 rounded-lg border border-white/30 flex gap-1 p-1"
@@ -346,7 +456,7 @@ export default function Hero() {
                   <div className="w-2 h-4 bg-yellow-400 rounded-sm" />
                   <div className="w-2 h-4 bg-green-400 rounded-sm" />
                 </motion.div>
-                
+
                 {/* Bookmark Ribbon */}
                 <motion.div
                   className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-6 h-8 bg-gradient-to-b from-blue-500 to-blue-600 rounded-t-lg"
@@ -360,7 +470,7 @@ export default function Hero() {
                   }}
                 />
               </div>
-              
+
               {/* Floating Elements Around Container */}
               <motion.div
                 className="absolute -top-4 -right-4 w-8 h-8 bg-primary/20 rounded-full"

@@ -2,42 +2,58 @@
 
 import { motion } from "framer-motion"
 import { useLanguage } from "../../contexts/LanguageContext"
-import { ArrowLeft, ExternalLink, Github, Globe, Calendar, Users, Code } from "lucide-react"
+import { ArrowLeft, ExternalLink, Github, Globe, Calendar, Users, Code, User } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { useParams, useRouter } from "next/navigation"
 
+// Developer profiles
+const developers = [
+  {
+    name: "Danny",
+    role: "Full Stack хөгжүүлэгч",
+    avatar: "/placeholder-user.jpg", // You can replace with actual avatar
+    initials: "DN"
+  },
+  {
+    name: "Bayrbaysalan",
+    role: "Full Stack хөгжүүлэгч",
+    avatar: "/placeholder-user.jpg", // You can replace with actual avatar
+    initials: "BB"
+  }
+]
+
 // Project data - you can move this to a separate file later
 const projectData = {
   "xperience": {
-    title: "Xperience – Digital Internship Hub",
-    subtitle: "A platform connecting Mongolian students with internships, part-time jobs, and project opportunities — bridging education and work.",
-    description: "Xperience is a comprehensive platform designed to bridge the gap between academic learning and real-world professional experience. Our platform connects ambitious students and young professionals with meaningful internship opportunities, mentorship programs, and skill development resources.",
-    longDescription: "Built with modern web technologies, Xperience offers an intuitive user experience for both students seeking opportunities and companies looking for talented individuals. The platform features advanced search and filtering capabilities, real-time notifications, and a comprehensive dashboard for tracking applications and progress. Includes a responsive, reliable admin dashboard for long-term content management.",
+    title: "Xperience – Дижитал Дадлагын Төв",
+    subtitle: "Монголын оюутан сурагчдад дадлага, цагийн ажил, төсөлд оролцох боломжуудтай холбож, боловсрол ба ажил мэргэжлийн гүүр болох платформ.",
+    description: "Xperience нь академик мэдлэг ба бодит ажлын туршлагын хоорондох зайг нөхөх зорилготой цогц платформ юм. Энэхүү платформ нь зорилготой, идэвхтэй оюутан, залуу мэргэжилтнүүдийг үнэ цэнтэй дадлага, менторшип хөтөлбөр болон ур чадвар хөгжүүлэх эх сурвалжуудтай холбодог.",
+    longDescription: "Орчин үеийн веб технологиор бүтээгдсэн Xperience нь дадлага хайж буй оюутан, чадварлаг хүн хайж буй компаниудад ойлгомжтой, шууд хэрэглэгчийн туршлагыг санал болгодог. Платформ нь дэвшилтэт хайлт ба шүүлтүүрийн боломж, бодит цагийн мэдэгдэл, өргөдөл ба ахиц дэвшилээ хянах иж бүрэн самбар зэрэг онцлогтой. Мөн урт хугацаанд тогтвортой ажиллахуйц найдвартай, аюулгүй админ самбартай.",
     imageUrl: "/xperience.png",
-    category: "Web Development",
+    category: "Веб хөгжүүлэлт",
     liveUrl: "https://xperience.mn",
     githubUrl: null,
     technologies: ["Next.js", "TypeScript", "MongoDB", "Cloudinary", "NextAuth"],
     features: [
-      "Multiple login methods",
-      "Internship catalog",
-      "Real-time notifications",
-      "Application tracking",
-      "Company dashboards",
-      "Responsive admin dashboard"
+      "Олон төрлийн нэвтрэх арга (Google, Facebook, Имэйл гэх мэт)",
+      "Дадлагын ангилалууд",
+      "Бодит цагийн мэдэгдэл",
+      "Өргөдлийн явцыг хянах боломж",
+      "Компанийн самбар",
+      "Бүх төрлийн төхөөрөмжид нийцдэг админ самбар"
     ],
     challenges: [
-      "Implementing complex search algorithms",
-      "Real-time data synchronization",
-      "Mobile-first responsive design",
-      "Performance optimization for large datasets"
+      "Нарийн төвөгтэй хайлтын алгоритм хэрэгжүүлэх",
+      "Өгөгдөл бүр шууд автоматаар шинэчлэгдэх",
+      "Бүх төрлийн төхөөрөмжид нийцсэн дизайн хийх",
+      "Их хэмжээний өгөгдөлтэй хуудсуудын гүйцэтгэлийг хадгалах"
     ],
     solutions: [
-      "Utilized Elasticsearch for efficient search",
-      "Implemented WebSocket connections for real-time updates",
-      "Adopted mobile-first design approach",
-      "Used React Query for optimized data fetching"
+      "Хайлтыг илүү үр дүнтэй болгохын тулд Elasticsearch ашигласан",
+      "Бодит цагийн шинэчлэл хийхийн тулд WebSocket холболт хэрэгжүүлсэн",
+      "Mobile-first дизайн ашигласан",
+      "Өгөгдлийг оновчтой татахын тулд React Query ашигласан"
     ],
     stats: {
       users: "1000+",
@@ -45,77 +61,81 @@ const projectData = {
       internships: "200+",
       successRate: "85%"
     },
-    timeline: "3 months",
-    team: "4 developers"
+    timeline: "3 сар",
+    team: "2 хөгжүүлэгч"
   },
   "han-education": {
-    title: "Han Education – Language & Study Abroad Platform",
-    subtitle: "A modern education site helping students explore courses, language programs, and study-abroad opportunities.",
-    description: "Han Education is a specialized educational consultancy platform that connects Mongolian students with prestigious Chinese universities and scholarship opportunities. The platform provides comprehensive guidance for international education applications.",
-    longDescription: "Our platform simplifies the complex process of applying to Chinese universities by providing step-by-step guidance, document preparation assistance, and direct connections with educational institutions. The platform offers guided searches, consultation booking, and multilingual content. Admins manage everything through a fast, reliable dashboard built for long-term use.",
+    title: "Han Education – Гадаадад Сурах, Хэлний Хөтөлбөрийн Платформ",
+    subtitle: "Сурагчдад хичээл, хэлний сургалт болон гадаадад суралцах боломжуудыг нээж өгөх орчин үеийн боловсролын веб сайт.",
+    description: "Han Education нь Монголын сурагчдад нэр хүндтэй БНХАУ-ын их сургуулиуд болон тэтгэлгийн хөтөлбөрүүдтэй холбогдох боломжийг олгодог боловсролын зөвлөх үйлчилгээний платформ юм. Энэхүү платформ нь олон улсын боловсролын өргөдөл гаргах нарийн төвөгтэй процессыг хялбарчлан сурагчдыг чиглүүлнэ.",
+    longDescription: "Han education нь Хятадын их сургуульд элсэх үйл явцыг алхам алхмаар хөтлөн чиглүүлэх, баримт бичиг бүрдүүлэхэд туслах зөвлөх ажилтантай холбоо барих боломжийг олгоно. Харин админ хэсэг нь хурдан, найдвартай бөгөөд урт хугацаанд тогтвортой ажиллахуйц хянах самбараар бүх үйл ажиллагааг удирдах боломжтойгоос гадна холбоо барих мэдээллүүдээ үлдээсэн сурагчидтайгаа хурдан найдвартайгаар холбоо барих нөхцлийг бүрдүүлсэн онцлотой.",
     imageUrl: "/haneducation.png",
     category: "Web Development",
     liveUrl: "https://haneducation.mn",
     githubUrl: null,
     technologies: ["Next.js", "TypeScript", "Tailwind", "MongoDB", "Cloudinary"],
     features: [
-      "Program search with filters",
-      "Lead capture",
-      "CMS editing",
-      "Multilingual support",
-      "SEO optimization",
-      "Role-based admin controls"
+      "Хэрэглэгчийн мэдээлэл цуглуулалт",
+      "Агуулгын Удирдлагын Систем засварлах эрх",
+      "Олон хэлний дэмжлэг",
+      "SEO оновчлол",
+      "Үүрэгт суурилсан админы хяналт",
+      "Зөвлөх ажилтантай шууд холбоо барих",
+      "Баримт бичиг бүрдүүлэх туслалцаа",
+      "Алхам алхмын чиглүүлэлт"
     ],
     challenges: [
-      "Complex application workflow management",
-      "Multi-language content handling",
-      "Document verification system",
-      "Integration with university APIs"
+      "Олон улсын боловсролын өргөдөл гаргах нарийн төвөгтэй процессыг хялбарчлах",
+      "Сурагчид болон зөвлөх ажилтны хооронд хурдан найдвартай холбоо барих",
+      "Мэдээллийн аюулгүй байдал, зөв мэдээллийн урсгалыг хангах",
+      "Хятадын их сургуулиудын мэдээллийг тогтмол шинэчлэх",
+      "Олон хэлний дэмжлэг нэвтрүүлэх"
     ],
     solutions: [
-      "Built custom workflow engine",
-      "Implemented i18n with next-intl",
-      "Created secure document verification",
-      "Developed RESTful API integrations"
+      "Хэрэглэгчийн мэдээлэл цуглуулах иж бүрэн форм систем бүтээсэн",
+      "Сурагчдыг үр дүнтэй удирдах админ самбар хөгжүүлсэн",
+      "Мэдээллийн аюулгүй урсгалыг зөв шифрлэлтээр хэрэгжүүлсэн",
+      "Компани болон сурагчдын хооронд найдвартай харилцаа холбооны суваг бүтээсэн",
+      "SEO оновчлолоор илүү олон хүнд хүрэх боломжийг бүрдүүлсэн"
     ],
     stats: {
       students: "500+",
       universities: "30+",
-      successRate: "90%",
-      countries: "3"
+      countries: "3",
+      satisfaction: "92%"
     },
-    timeline: "4 months",
-    team: "5 developers"
+    timeline: "2 долоо хоног",
+    team: "2 хөгжүүлэгч"
   },
   "sunrise-mongolia": {
-    title: "Sunrise Mongolia – Tours & Experiences",
-    subtitle: "An adventure travel website showcasing Mongolia's best tours with smooth booking requests and bold design.",
-    description: "Sunrise Mongolia is an innovative travel platform designed to showcase the best tours and experiences that Mongolia has to offer. The platform provides travelers with comprehensive information about tours, booking capabilities, and a seamless user experience.",
-    longDescription: "Built with modern web technologies, Sunrise Mongolia offers an intuitive user experience for travelers seeking adventure in Mongolia. The platform features tour catalogs with filters, media galleries, SEO-optimized landing pages, and booking request forms. Admins update itineraries, pricing, and promos via a responsive admin panel for long-term maintainability.",
+    title: "Sunrise Mongolia – Аялал жуулчлалын платформ",
+    subtitle: "Монгол орны шилдэг аялалуудыг танилцуулж, захиалга өгөх боломжтой орчин үеийн аялал жуулчлалын веб сайт.",
+    description: "Sunrise Mongolia нь Монгол орны хамгийн сайхан аялал, адал явдлуудыг танилцуулах зорилготой инновацийн аялал жуулчлалын платформ юм. Энэхүү платформ нь аялагчдад аялалын талаархи дэлгэрэнгүй мэдээлэл болон найдвартай хэрэглэгчийн туршлагыг олгодог.",
+    longDescription: "Орчин үеийн веб технологиор бүтээгдсэн Sunrise Mongolia нь Монголд адал явдал хайж буй аялагчдад ойлгомжтой хэрэглэгчийн туршлагыг санал болгодог. Платформ нь шүүлтүүртэй аялалын каталог, медиа галерей, SEO оновчтой нүүр хуудсууд, захиалгын хүсэлтийн форм зэрэг онцлогтой. Админууд урт хугацаанд найдвартай удирдахын тулд хариуцлагатай админ самбараар аялалын хөтөлбөр, үнэ, урамшуулал зэргийг шинэчилж болно.",
     imageUrl: "/SunriseMongolia.png",
-    category: "Web Development",
-    liveUrl: null,
+    category: "Веб хөгжүүлэлт",
+    liveUrl: "https://sunrisemongolia.com",
     githubUrl: null,
     technologies: ["Next.js", "TypeScript", "Tailwind", "MongoDB", "Cloudinary", "ReCAPTCHA"],
     features: [
-      "Tour catalog with filters",
-      "Media galleries",
-      "SEO-optimized landing pages",
-      "Booking request forms",
-      "Caching",
-      "Performance-focused UI"
+      "Шүүлтүүртэй аялалын каталог",
+      "Медиа галерей",
+      "SEO оновчтой нүүр хуудсууд", 
+      "Захиалгын хүсэлтийн форм",
+      "Уян хатан вебсайт удирдлагын админ самбар",
+      "Гүйцэтгэлд төвлөрсөн UI"
     ],
     challenges: [
-      "Implementing complex tour filtering system",
-      "Media management and optimization",
-      "Booking system integration",
-      "Performance optimization for media-heavy content"
+      "Төрөл бүрийн аялалын хөтөлбөр, сонголтыг зохицуулж чадах нарийн төвөгтэй аялалын шүүлтүүрийн систем зохиох",
+      "Гүйцэтгэлийг удаашруулахгүйгээр их хэмжээний медиа контентыг удирдах, оновчлох",
+      "Техникийн мэдлэггүй хэрэглэгчдэд контент засах, шинэ санал нэмэх, зураг удирдах боломжийг олгох уян хатан админ самбар бүтээх",
+      "Харааны баялаг, медиа ихтэй платформын өндөр гүйцэтгэлийг хангах"
     ],
     solutions: [
-      "Built custom tour filtering with MongoDB aggregation",
-      "Implemented Cloudinary for media optimization",
-      "Created secure booking system with ReCAPTCHA",
-      "Used Next.js Image optimization and caching"
+      "MongoDB агрегацийг ашиглан аялагчдад нарийвчилсан, хурдан хайлт хийх боломжтой тусгай аялалын шүүлтүүрийн хөдөлгүүр хөгжүүлсэн",
+      "Cloudinary-г нэгтгэн медиа боловсруулалтыг оновчтой болгож, хурдан ачаалах хугацаа, өндөр чанарын дүрслэлийг хүргэсэн",
+      "Админууд мэдээлэл шинэчлэх, шинэ зураг оруулах, аялал удирдах, онцлог нэмэх боломжтой хүчирхэг админ самбар бүтээж, хөгжүүлэгчдээс хараат бус урт хугацаанд уян хатан байдлыг хангасан",
+      "Next.js-ийн зургийн оновчлол, кэшлэлтийг ашиглан бүх төхөөрөмж дээр хурд, найдвартай байдлыг нэмэгдүүлсэн"
     ],
     stats: {
       tours: "50+",
@@ -123,38 +143,44 @@ const projectData = {
       bookings: "100+",
       rating: "4.8/5"
     },
-    timeline: "5 months",
-    team: "3 developers"
+    timeline: "2 долоо хоног",
+    team: "2 хөгжүүлэгч"
   },
   "new-era": {
-    title: "New Era – K-12 & Courses Platform",
-    subtitle: "A parent-friendly school site featuring program details, admissions, announcements, and media galleries.",
-    description: "New Era is a comprehensive educational platform designed to provide parents and students with easy access to school information, program details, and admission processes. The platform serves as a central hub for all school-related information and communications.",
-    longDescription: "Built with modern web technologies, New Era offers an intuitive user experience for parents, students, and school staff. The platform features admissions pages with FAQs, announcements CMS, galleries, testimonials, and role-based admin with audit logs. Staff manage content, hero sections, and calendars through a robust admin dashboard designed for long-term reliability.",
+    title: "New Era – Ерөнхий боловсрол ба Хичээлүүдийн платформ",
+    subtitle: "Эцэг эх, сурагчдад зориулсан ээлтэй боловсролын сайт. Хөтөлбөрийн мэдээлэл, элсэлт, мэдээ зар, медиа галерей зэрэг бүх мэдээллийг нэг дор төвлөрүүлсэн.",
+    description: "New Era нь эцэг эх, сурагчдад сургуулийн мэдээлэл, хөтөлбөрийн дэлгэрэнгүй болон элсэлтийн үйл явцад хялбархан нэвтрэх боломжийг олгохоор бүтээгдсэн цогц боловсролын платформ юм. Энэхүү платформ нь сургуулийн бүхий л мэдээлэл, харилцаа холбооны төв цэг болж үйлчилнэ.",
+    longDescription: "Орчин үеийн веб технологиор бүтээсэн New Era нь сургуулийн бүх талын мэдээллийг ойлгомжтой, шууд хүртээмжтэйгээр хүргэдэг. Элсэлтийн хуудас, түгээмэл асуулт (FAQ), мэдээ зарын CMS, галерей, сэтгэгдэл, аудит лог бүхий админ хяналт зэргийг агуулсан. Ажилтнууд контент, хуанли, нүүр хэсгийг хүчирхэг, найдвартай админ самбараар удирдах боломжтой.",
     imageUrl: "/newera.png",
     category: "Web Development",
     liveUrl: "https://edunewera.mn",
     githubUrl: null,
-    technologies: ["Next.js", "TypeScript", "Tailwind", "MongoDB", "Cloudinary", "NextAuth"],
+    technologies: ["Next.js", "TypeScript", "Tailwind", "MongoDB", "Cloudinary", "NextAuth", "Bunny.net", "TUS"],
     features: [
-      "Admissions pages with FAQs",
-      "Announcements CMS",
-      "Galleries",
-      "Testimonials",
-      "Role-based admin with audit logs",
-      "Mobile-first design"
+      "Түгээмэл асуултуудтай админ хуудсууд",
+      "Зар, мэдээний Агуулгын Удирдлагын Систем",
+      "Галерей",
+      "Сэтгэгдэл, үнэлгээ",
+      "Аудит логтой үүрэгт суурилсан админ удирдлага",
+      "Бүх төрлийн дэлгэц дээр асуудалгүй ажиллах дизайн",
+      "Онлайн хичээлүүдийг хурдан, аюулгүй тоглуулах",
+      "Төлбөр шалгах систем"
     ],
     challenges: [
-      "Complex content management system",
-      "Role-based access control implementation",
-      "Mobile-first responsive design",
-      "Performance optimization for content-heavy pages"
+      "Нарийн төвөгтэй контент менежментийн систем хэрэгжүүлэх",
+      "Үүрэгт суурилсан нэвтрэх хяналт суурилуулах",
+      "Гар утсанд ээлтэй дизайн хийх",
+      "Контент ихтэй хуудсуудын чанартай гүйцэтгэлийг хадгалах",
+      "Онлайн хичээлүүдийг хурдан, аюулгүй тоглуулах",
+      "Төлбөр шалгах систем нэвтрүүлэх"
     ],
     solutions: [
-      "Built custom CMS with role-based permissions",
-      "Implemented NextAuth for secure authentication",
-      "Adopted mobile-first design approach",
-      "Used Next.js optimization features for performance"
+      "Үүрэгт суурилсан зөвшөөрөлтэй тусгай Агуулгын Удирдлагын Систем бүтээсэн",
+      "Аюулгүй нэвтрэлтэд NextAuth ашигласан",
+      "Гар утсанд нийцсэн дизайн ашигласан",
+      "Гүйцэтгэл сайжруулахад Next.js-ийн боломжуудыг ашигласан",
+      "SSR буюу Server Sided Rendering ашигласнаар сайтын ажиллах хурдыг ахиулсан",
+      "Bunny.net болон TUS технологи ашиглан видео контентыг оновчтой удирдсан"
     ],
     stats: {
       students: "300+",
@@ -162,45 +188,46 @@ const projectData = {
       courses: "100+",
       satisfaction: "95%"
     },
-    timeline: "6 months",
-    team: "4 developers"
+    timeline: "4 долоо хоног",
+    team: "2 хөгжүүлэгч"
   },
   "tellu": {
-    title: "TellU – Student Review Platform",
-    subtitle: "A mobile-first platform empowering students to share honest reviews about schools and universities.",
-    description: "TellU is a mobile-first platform that empowers students to share honest reviews about their schools and universities. It provides a safe, moderated space where learners can express opinions, rate facilities, and highlight strengths or challenges.",
-    longDescription: "Built with modern web technologies, TellU offers a secure and intuitive platform for students to share their educational experiences. The platform features secure authentication, anonymous review submission with moderation tools, and comprehensive ratings categorized by facilities, teaching quality, and environment. The responsive UI/UX is specifically tailored for mobile users, while admins have access to a comprehensive dashboard for school management and content moderation.",
+    title: "TellU – Сурагчдын Сэтгэгдэл илэрхийлэх Платформ",
+    subtitle: "Сурагчдад сургууль, их сургуулийнхаа талаар шударга сэтгэгдэлээ хуваалцах боломж олгодог гар утсанд ээлтэй платформ.",
+    description: "TellU нь сурагчдад өөрийн сургууль болон их сургуулийн талаар үнэн зөв, шударга сэтгэгдэл үлдээх боломжийг олгодог гар утсанд төвлөрсөн платформ юм. Энэ нь сурагчид санал бодлоо илэрхийлэх, сургалтын дэд бүтцийг үнэлэх, давуу болон сул талыг тодруулах гэх зэрэг хүссэн үнэлгээгээ өгөх аюулгүй орон зайг бүрдүүлдэг.",
+    longDescription: "Орчин үеийн веб технологиор бүтээсэн TellU нь сурагчдад боловсролын туршлагаа аюулгүй, ойлгомжтойгоор хуваалцах боломжийг санал болгодог. Платформ нь баталгаатай нэвтрэлт, нэрээ нууцалсан сэтгэгдэл үлдээх боломж, хяналтын хэрэгсэл бүхий системтэй. Сурагчид сургуулийн дэд бүтэц, багшлах чанар, орчны үнэлгээг ангиллаар нь хуваан үнэлж болно. Харин UI/UX нь гар утасны хэрэглээнд зориулагдан онцгойлон зохиогдсон бол админ хэсэг нь сургуулийн мэдээлэл удирдах, агуулгуудыг хянаж болох иж бүрэн самбартай.",
     imageUrl: "/TellU.png",
     category: "Web Development",
     liveUrl: null,
     githubUrl: null,
     technologies: ["Next.js", "TypeScript", "MongoDB", "Cloudinary", "NextAuth", "Tailwind CSS"],
     features: [
-      "Secure authentication (Google, Facebook, Email/Password)",
-      "Anonymous review submission with moderation tools",
-      "Ratings and feedback categorized by facilities, teaching quality, and environment",
-      "Responsive UI/UX tailored for mobile",
-      "Admin dashboard for school management and content moderation"
+      "Google, Facebook, Имэйл/Нууц үгээр нэвтрэх аюулгүй баталгаажуулалт",
+      "Нэрээ нууцалсан сэтгэгдэл үлдээх боломж ба хяналтын хэрэгслүүд",
+      "Дэд бүтэц, багшлах чанар, орчны ангиллаар үнэлгээ болон санал авах боломж",
+      "Гар утсанд тохируулсан UI/UX дизайн",
+      "Сургуулийн удирдлага болон контент хянах зориулалттай админ самбар"
     ],
     challenges: [
-      "Implementing secure anonymous review system",
-      "Building comprehensive moderation tools",
-      "Creating mobile-first responsive design",
-      "Ensuring data privacy and security"
+      "Аюулгүй, нэрээ нууцалсан сэтгэгдлийн систем хэрэгжүүлэх",
+      "Иж бүрэн хяналтын хэрэгсэл бүхий систем бүтээх",
+      "Гар утсанд төвлөрсөн дизайн хийх",
+      "Өгөгдлийн нууцлал, аюулгүй байдлыг хангах"
     ],
     solutions: [
-      "Built secure authentication with NextAuth",
-      "Implemented robust moderation system with admin controls",
-      "Adopted mobile-first design approach with Tailwind CSS",
-      "Used MongoDB with proper data encryption and privacy controls"
+      "NextAuth ашиглан баталгаатай нэвтрэлтийг хэрэгжүүлсэн",
+      "Админ удирдлагатай найдвартай хяналтын систем бүтээсэн",
+      "Tailwind CSS ашиглан mobile-first дизайн хэрэгжүүлсэн",
+      "MongoDB дээр өгөгдлийн шифрлэл, нууцлалын хяналтыг ашигласан"
     ],
     stats: {
       reviews: "500+",
       schools: "100+",
-      students: "1000+"
+      students: "1000+",
+      satisfaction: "94%"
     },
-    timeline: "4 months",
-    team: "3 developers"
+    timeline: "4 сар",
+    team: "2 хөгжүүлэгч"
   }
 }
 
@@ -215,8 +242,8 @@ export default function ProjectDetails() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-foreground mb-4">Project not found</h1>
-          <Link href="/" className="text-primary hover:underline">Go back home</Link>
+          <h1 className="text-2xl font-bold text-foreground mb-4">Төсөл олдсонгүй</h1>
+          <Link href="/" className="text-primary hover:underline">Нүүр хуудас руу буцах</Link>
         </div>
       </div>
     )
@@ -239,7 +266,7 @@ export default function ProjectDetails() {
               whileHover={{ x: -5 }}
             >
               <ArrowLeft className="w-5 h-5" />
-              Back
+              Буцах
             </motion.button>
 
             <div className="flex items-center gap-4">
@@ -253,7 +280,7 @@ export default function ProjectDetails() {
                   whileTap={{ scale: 0.95 }}
                 >
                   <Globe className="w-4 h-4" />
-                  Live Demo
+                  Шууд үзэх
                 </motion.a>
               )}
               {project.githubUrl && (
@@ -266,7 +293,7 @@ export default function ProjectDetails() {
                   whileTap={{ scale: 0.95 }}
                 >
                   <Github className="w-4 h-4" />
-                  Code
+                  Код
                 </motion.a>
               )}
             </div>
@@ -377,7 +404,7 @@ export default function ProjectDetails() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-2xl font-bold text-foreground mb-6">Key Features</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-6">Гол онцлогууд</h3>
                 <ul className="space-y-3">
                   {project.features.map((feature, index) => (
                     <motion.li
@@ -404,7 +431,7 @@ export default function ProjectDetails() {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-2xl font-bold text-foreground mb-6">Technologies Used</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-6">Ашигласан технологиуд</h3>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, index) => (
                     <motion.span
@@ -427,20 +454,51 @@ export default function ProjectDetails() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-2xl font-bold text-foreground mb-6">Project Details</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-6">Төслийн дэлгэрэнгүй</h3>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <Calendar className="w-5 h-5 text-primary" />
-                    <span className="text-muted-foreground">Timeline: {project.timeline}</span>
+                    <span className="text-muted-foreground">Хугацаа: {project.timeline}</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Users className="w-5 h-5 text-primary" />
-                    <span className="text-muted-foreground">Team: {project.team}</span>
+                    <span className="text-muted-foreground">Баг: {project.team}</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Code className="w-5 h-5 text-primary" />
-                    <span className="text-muted-foreground">Category: {project.category}</span>
+                    <span className="text-muted-foreground">Ангилал: {project.category}</span>
                   </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ x: 50, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-2xl font-bold text-foreground mb-6">Хөгжүүлэлтийн баг</h3>
+                <div className="space-y-4">
+                  {developers.map((developer, index) => (
+                    <motion.div
+                      key={developer.name}
+                      className="flex items-center gap-4 p-3 bg-secondary/20 rounded-lg"
+                      initial={{ x: 20, opacity: 0 }}
+                      whileInView={{ x: 0, opacity: 1 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="relative">
+                        <div className="w-12 h-12 bg-gradient-to-br from-primary to-purple-600 rounded-full flex items-center justify-center text-white font-semibold shadow-lg">
+                          {developer.initials}
+                        </div>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground">{developer.name}</h4>
+                        <p className="text-sm text-muted-foreground">{developer.role}</p>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
               </motion.div>
 
@@ -450,10 +508,10 @@ export default function ProjectDetails() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-2xl font-bold text-foreground mb-6">Challenges & Solutions</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-6">Сорилт ба Шийдлүүд</h3>
                 <div className="space-y-6">
                   <div>
-                    <h4 className="font-semibold text-foreground mb-3">Challenges:</h4>
+                    <h4 className="font-semibold text-foreground mb-3">Сорилтууд:</h4>
                     <ul className="space-y-2">
                       {project.challenges.map((challenge, index) => (
                         <li key={index} className="text-muted-foreground text-sm">• {challenge}</li>
@@ -461,7 +519,7 @@ export default function ProjectDetails() {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground mb-3">Solutions:</h4>
+                    <h4 className="font-semibold text-foreground mb-3">Шийдлүүд:</h4>
                     <ul className="space-y-2">
                       {project.solutions.map((solution, index) => (
                         <li key={index} className="text-muted-foreground text-sm">• {solution}</li>

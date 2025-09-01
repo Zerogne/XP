@@ -69,6 +69,7 @@ export default function Header() {
         {/* Nav links: perfectly centered */}
         <div className="hidden md:flex gap-x-6 mx-auto justify-center ">
           <Link href="#services" className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors">{t('navigation.services')}</Link>
+          <Link href="/offers" className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors">Offers</Link>
           <Link href="#our-work" className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors">{t('navigation.work')}</Link>
           <Link href="#team" className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors">{t('navigation.team')}</Link>
           <Link href="#contact1" className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors">{t('navigation.contact')}</Link>
@@ -139,6 +140,19 @@ export default function Header() {
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: 0.15 }}
+                >
+                  <Link
+                    href="/offers"
+                    className="block text-base font-semibold text-foreground hover:text-primary transition-colors py-2"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Offers
+                  </Link>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: 0.2 }}
                 >
                   <Link
@@ -152,7 +166,7 @@ export default function Header() {
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: 0.3 }}
+                  transition={{ duration: 0.3, delay: 0.25 }}
                 >
                   <Link
                     href="#contact1"

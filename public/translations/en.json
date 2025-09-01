@@ -74,6 +74,11 @@
     "title": "Meet Our Team",
     "subtitle": "The passionate individuals behind XP"
   },
+  "projects": {
+    "title": "Featured Projects",
+    "subtitle": "Discover our flagship platforms that are making a real impact in education and career development.",
+    "badge": "Featured Work"
+  },
   "portfolio": {
     "title": "Our Work",
     "subtitle": "A showcase of our minimalist designs and creative solutions.",
@@ -84,6 +89,114 @@
     "exploreMore": "Explore More",
     "showLess": "Show Less"
   },
+  "pricing": {
+    "title": "Pricing Offers",
+    "subtitle": "Choose the perfect package for your business needs",
+    "packages": {
+      "minimum": {
+        "name": "Minimum Package",
+        "price": "1,500,000₮",
+        "priceNote": "Starting from",
+        "websiteType": "Landing page",
+        "bestFor": "Cafés, shops, salons, service providers",
+        "pages": "2–4 (+300,000₮ per extra)",
+        "design": "Semi-custom design",
+        "features": [
+          "Modern UI/UX",
+          "Responsive design",
+          "Hosting/Domain setup"
+        ],
+        "delivery": "1–3 weeks (Rush +300,000₮)",
+        "maintenance": "100,000₮/month (6+6 service)",
+        "cta": "Choose Minimum Package"
+      },
+      "standard": {
+        "name": "Standard Package",
+        "price": "3,300,000₮",
+        "priceNote": "Starting from",
+        "websiteType": "Portfolio / Company site",
+        "bestFor": "Companies, professionals, organizations",
+        "pages": "Up to 9 (+300,000₮ per extra)",
+        "design": "Fully custom design",
+        "features": [
+          "Content control",
+          "Add/Delete features",
+          "Responsive design",
+          "Hosting/Domain",
+          "Language support"
+        ],
+        "delivery": "2–3 weeks (Rush 1–2 weeks)",
+        "maintenance": "100,000₮/month (6+6 service)",
+        "cta": "Choose Standard Package"
+      },
+      "premium": {
+        "name": "Premium Package",
+        "price": "9,000,000₮",
+        "priceNote": "Starting from",
+        "websiteType": "Media, Ecommerce, Educational, Custom Web App",
+        "bestFor": "Ecommerce shops, schools, online platforms, large organizations",
+        "pages": "Unlimited (+Free 2–3 page landing)",
+        "design": "Fully custom UI/UX + Animations + Branding",
+        "features": [
+          "Dashboard",
+          "Analytics",
+          "User Management",
+          "Payment integration",
+          "QPay integration",
+          "AI Chatbot",
+          "SEO (3 months free)"
+        ],
+        "delivery": "5–7 weeks",
+        "maintenance": "300,000₮/month (6+6 service)",
+        "cta": "Choose Premium Package"
+      }
+    },
+    "addon": {
+      "title": "Social Media Marketing Feature",
+      "description": "Professional reel + Poster design",
+      "price": "499,000₮",
+      "details": "Created by expert media team with big project experience",
+      "benefit": "Boost your launch on social media",
+      "cta": "Add to Any Package"
+    },
+    "labels": {
+      "websiteType": "Website type",
+      "bestFor": "Best for",
+      "pages": "Pages",
+      "design": "Design",
+      "features": "Features",
+      "delivery": "Delivery",
+      "maintenance": "Maintenance & SEO",
+      "popular": "Most Popular",
+      "recommended": "Recommended"
+    }
+  },
+  "freeOffers": {
+    "title": "Free Offers",
+    "subtitle": "Get valuable insights about your digital presence with our complimentary audits",
+    "websiteAudit": {
+      "title": "Website Audit",
+      "description": "We analyze your website's design, speed, and mobile usability. You'll receive a clear report with strengths, weaknesses, and improvement tips.",
+      "cta": "Get Free Website Audit",
+      "features": [
+        "Design Analysis",
+        "Speed Testing",
+        "Mobile Usability",
+        "Detailed Report"
+      ]
+    },
+    "seoAudit": {
+      "title": "SEO Audit",
+      "description": "We check how well your website ranks on Google and show you opportunities to attract more visitors through better optimization.",
+      "cta": "Get Free SEO Audit",
+      "features": [
+        "Ranking Analysis",
+        "Keyword Research",
+        "Optimization Tips",
+        "Growth Opportunities"
+      ]
+    }
+  },
   "contact": {
     "title": "Get in Touch",
     "subtitle": "Send us your idea. We'll send back working code.",
@@ -92,6 +205,7 @@
   "navigation": {
     "home": "Home",
     "services": "Services",
+    "offers": "Offers",
     "about": "About",
     "work": "Work",
     "contact": "Contact",
