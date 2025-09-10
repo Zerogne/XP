@@ -32,7 +32,7 @@ const projectData = {
     },
     subtitle: {
       mn: "Маркетинг, дизайн, хиймэл оюун (AI)-ийн практик ур чадварыг хөгжүүлэх онлайн сургалтын платформ.",
-      en: "Online learning platform for developing practical skills in marketing, design, and artificial intelligence (AI)."
+      en: "Online learning platform for developing practical skills in marketing, design, and artificial intelligence (AI)"
     },
     description: {
       mn: "WinAcademy нь \"Суралц · Бүтээ · Ажилд ор\" зарчмаар оюутнууд болон карьерийн эхэн үеийн залууст богино хугацаанд мэдлэг олгож, бодит даалгавраар баталгаажуулж, ажилд зуучлуулахад чиглэсэн цогц платформ юм.",
