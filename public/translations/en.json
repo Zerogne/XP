@@ -108,6 +108,7 @@
         ],
         "delivery": "1–3 weeks (Rush +300,000₮)",
         "maintenance": "100,000₮/month (6+6 service)",
+        "noat": "-",
         "cta": "Choose Minimum Package"
       },
       "standard": {
@@ -127,6 +128,7 @@
         ],
         "delivery": "2–3 weeks (Rush 1–2 weeks)",
         "maintenance": "100,000₮/month (6+6 service)",
+        "noat": "+",
         "cta": "Choose Standard Package"
       },
       "premium": {
@@ -148,17 +150,18 @@
         ],
         "delivery": "5–7 weeks",
         "maintenance": "300,000₮/month (6+6 service)",
+        "noat": "+",
         "cta": "Choose Premium Package"
       }
     },
-    "addon": {
-      "title": "Social Media Marketing Feature",
-      "description": "Professional reel + Poster design",
-      "price": "499,000₮",
-      "details": "Created by expert media team with big project experience",
-      "benefit": "Boost your launch on social media",
-      "cta": "Add to Any Package"
-    },
+         "addon": {
+       "title": "Social Media Marketing Feature",
+       "description": "Professional reel + Poster design",
+       "price": "999,000₮",
+       "details": "Created by expert media team with big project experience",
+       "benefit": "Boost your launch on social media",
+       "cta": "Add to Any Package"
+     },
     "labels": {
       "websiteType": "Website type",
       "bestFor": "Best for",
@@ -214,5 +217,22 @@
   "language": {
     "mn": "Монгол",
     "en": "English"
+  },
+  "offers": {
+    "backToHome": "Back to Home",
+    "allOffers": "All Offers",
+    "completeOverview": "Complete Offers Overview",
+    "overviewSubtitle": "Explore all our packages, add-ons, and free services in one comprehensive view",
+    "freeAnalysisTitle": "Free Analysis Services",
+    "freeAnalysisSubtitle": "Professional insights at no cost",
+    "whatYouGet": "What You'll Get",
+    "packagesTitle": "Website Development Packages",
+    "packagesSubtitle": "Choose the perfect solution for your business",
+    "packageDetails": "Package Details",
+    "basic": "Basic",
+    "recommended": "Recommended",
+    "advanced": "Advanced",
+    "addonTitle": "Additional Services",
+    "addonSubtitle": "Enhance your package with additional features"
   }
 }

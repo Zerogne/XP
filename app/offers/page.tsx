@@ -141,13 +141,13 @@ export default function OffersPage() {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
             transition={{ duration: 0.6 }}
           >
-            <a
-              href="/"
-              className="inline-flex items-center gap-2 px-4 py-2 text-muted-foreground hover:text-primary transition-colors duration-300 group"
-            >
-              <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-              <span>Нүүр хуудас руу буцах</span>
-            </a>
+                         <a
+               href="/"
+               className="inline-flex items-center gap-2 px-4 py-2 text-muted-foreground hover:text-primary transition-colors duration-300 group"
+             >
+               <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+               <span>{t('offers.backToHome')}</span>
+             </a>
           </motion.div>
 
           <motion.div
@@ -157,18 +157,18 @@ export default function OffersPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <Sparkles className="w-4 h-4" />
-            <span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent font-semibold">
-              All Offers
-            </span>
+                         <span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent font-semibold">
+               {t('offers.allOffers')}
+             </span>
           </motion.div>
 
-          <h1 className="text-4xl font-bold text-foreground sm:text-6xl mb-4">
-            Complete Offers Overview
-          </h1>
+                     <h1 className="text-4xl font-bold text-foreground sm:text-6xl mb-4">
+             {t('offers.completeOverview')}
+           </h1>
 
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Explore all our packages, add-ons, and free services in one comprehensive view
-          </p>
+           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+             {t('offers.overviewSubtitle')}
+           </p>
         </motion.div>
 
         {/* Free Offers Section */}
@@ -178,10 +178,10 @@ export default function OffersPage() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">Free Analysis Services</h2>
-            <p className="text-lg text-muted-foreground">Professional insights at no cost</p>
-          </div>
+                     <div className="text-center mb-12">
+             <h2 className="text-3xl font-bold text-foreground mb-4">{t('offers.freeAnalysisTitle')}</h2>
+             <p className="text-lg text-muted-foreground">{t('offers.freeAnalysisSubtitle')}</p>
+           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             {freeOffers.map((offer, index) => {
@@ -195,11 +195,11 @@ export default function OffersPage() {
                   initial="hidden"
                   animate={isInView ? "visible" : "hidden"}
                   transition={{ delay: 0.4 + index * 0.1 }}
-                  className={`group relative bg-white/80 backdrop-blur-sm rounded-3xl border ${offer.borderColor} ${offer.hoverBorder} shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden`}
+                  className={`group relative bg-card/90 backdrop-blur-sm rounded-3xl border ${offer.borderColor} ${offer.hoverBorder} shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden`}
                   whileHover={{ y: -8, scale: 1.02 }}
                 >
                   {/* Background Gradient */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${offer.bgGradient} opacity-50 group-hover:opacity-70 transition-opacity duration-500`} />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${offer.bgGradient} opacity-30 group-hover:opacity-50 transition-opacity duration-500`} />
 
                   {/* Content */}
                   <div className="relative p-8">
@@ -224,16 +224,16 @@ export default function OffersPage() {
                     </div>
 
                     {/* Description */}
-                    <p className="text-muted-foreground leading-relaxed mb-6 text-base">
+                    <p className="text-foreground/90 leading-relaxed mb-6 text-base">
                       {offerData.description}
                     </p>
 
                     {/* Features */}
                     <div className="mb-8">
-                      <h4 className="text-sm font-semibold text-foreground/80 mb-4 flex items-center gap-2">
-                        <TrendingUp className="w-4 h-4" />
-                        What You'll Get
-                      </h4>
+                                             <h4 className="text-sm font-semibold text-foreground mb-4 flex items-center gap-2">
+                         <TrendingUp className="w-4 h-4" />
+                         {t('offers.whatYouGet')}
+                       </h4>
                       <ul className="grid grid-cols-2 gap-2">
                         {(offerData.features || []).map((feature: string, featureIndex: number) => (
                           <li key={featureIndex} className="flex items-center gap-2 text-sm">
@@ -242,7 +242,7 @@ export default function OffersPage() {
                               WebkitBackgroundClip: 'text',
                               WebkitTextFillColor: 'transparent'
                             }} />
-                            <span className="text-foreground/80">{feature}</span>
+                            <span className="text-foreground/90">{feature}</span>
                           </li>
                         ))}
                       </ul>
@@ -268,46 +268,46 @@ export default function OffersPage() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">Website Development Packages</h2>
-            <p className="text-lg text-muted-foreground">Choose the perfect solution for your business</p>
-          </div>
+                     <div className="text-center mb-12">
+             <h2 className="text-3xl font-bold text-foreground mb-4">{t('offers.packagesTitle')}</h2>
+             <p className="text-lg text-muted-foreground">{t('offers.packagesSubtitle')}</p>
+           </div>
 
           {/* Desktop Table View */}
           <div className="hidden lg:block overflow-x-auto mt-12 pt-4">
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl border border-border/50 overflow-visible relative" style={{ marginTop: '1rem' }}>
+                         <div className="bg-card/90 backdrop-blur-sm rounded-3xl border border-border/20 overflow-visible relative" style={{ marginTop: '1rem' }}>
               <table className="w-full min-w-[1000px]">
                 <thead>
-                  <tr className="bg-gradient-to-r from-primary/5 to-purple-500/5 border-b border-border/20">
-                    <th className="text-left p-6 pt-8 text-sm font-semibold text-muted-foreground uppercase tracking-wider" style={{ width: '20%' }}>
-                      Package Details
-                    </th>
+                                     <tr className="bg-gradient-to-r from-primary/10 to-purple-500/10 border-b border-gray-400/30 dark:border-border/10">
+                                         <th className="text-left p-6 pt-8 text-sm font-semibold text-muted-foreground uppercase tracking-wider" style={{ width: '20%' }}>
+                       {t('offers.packageDetails')}
+                     </th>
                     {packages.map((packageKey) => {
                       const packageData = t(`pricing.packages.${packageKey}`) as any || {}
                       const IconComponent = packageIcons[packageKey]
                       const isPopular = packageKey === 'standard'
 
                       return (
-                        <th key={packageKey} className={`text-center relative ${isPopular ? 'bg-primary/10' : ''} pt-6 pb-6 px-6`} style={{ width: '26.67%' }}>
+                                                 <th key={packageKey} className={`text-center relative ${isPopular ? 'bg-primary/20' : 'bg-card/50'} pt-6 pb-6 px-6`} style={{ width: '26.67%' }}>
                           {packageKey === 'minimum' && (
                             <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 z-30">
-                              <div className={`bg-gradient-to-r ${packageColors[packageKey]} text-white px-4 py-2 rounded-full text-sm font-semibold shadow-xl whitespace-nowrap border-4 border-white`}>
-                                Basic
-                              </div>
+                                                             <div className={`bg-gradient-to-r ${packageColors[packageKey]} text-white px-4 py-2 rounded-full text-sm font-semibold shadow-xl whitespace-nowrap border-4 border-white`}>
+                                 {t('offers.basic')}
+                               </div>
                             </div>
                           )}
                           {isPopular && (
                             <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 z-30">
-                              <div className="bg-gradient-to-r from-primary to-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-xl whitespace-nowrap border-4 border-white">
-                                Recommended
-                              </div>
+                                                             <div className="bg-gradient-to-r from-primary to-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-xl whitespace-nowrap border-4 border-white">
+                                 {t('offers.recommended')}
+                               </div>
                             </div>
                           )}
                           {packageKey === 'premium' && (
                             <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 z-30">
-                              <div className={`bg-gradient-to-r ${packageColors[packageKey]} text-white px-4 py-2 rounded-full text-sm font-semibold shadow-xl whitespace-nowrap border-4 border-white`}>
-                                Advanced
-                              </div>
+                                                             <div className={`bg-gradient-to-r ${packageColors[packageKey]} text-white px-4 py-2 rounded-full text-sm font-semibold shadow-xl whitespace-nowrap border-4 border-white`}>
+                                 {t('offers.advanced')}
+                               </div>
                             </div>
                           )}
                           <div className={`inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-r ${packageColors[packageKey]} text-white mb-3 shadow-lg mx-auto`}>
@@ -325,7 +325,7 @@ export default function OffersPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="border-b border-border/10">
+                  <tr className="border-b border-gray-400/20 dark:border-border/5">
                     <td className="p-6 font-medium text-foreground" style={{ width: '20%' }}>Сайтуудын төрлүүд</td>
                     {packages.map((packageKey) => {
                       const packageData = t(`pricing.packages.${packageKey}`) as any || {}
@@ -336,7 +336,7 @@ export default function OffersPage() {
                       )
                     })}
                   </tr>
-                  <tr className="border-b border-border/10 bg-secondary/20">
+                  <tr className="border-b border-gray-400/20 dark:border-border/5 bg-secondary/30">
                     <td className="p-6 font-medium text-foreground" style={{ width: '20%' }}>Зориулалт</td>
                     {packages.map((packageKey) => {
                       const packageData = t(`pricing.packages.${packageKey}`) as any || {}
@@ -347,7 +347,7 @@ export default function OffersPage() {
                       )
                     })}
                   </tr>
-                  <tr className="border-b border-border/10">
+                  <tr className="border-b border-gray-400/20 dark:border-border/5">
                     <td className="p-6 font-medium text-foreground" style={{ width: '20%' }}>Нүүр хуудсуудын тоо</td>
                     {packages.map((packageKey) => {
                       const packageData = t(`pricing.packages.${packageKey}`) as any || {}
@@ -358,7 +358,7 @@ export default function OffersPage() {
                       )
                     })}
                   </tr>
-                  <tr className="border-b border-border/10 bg-secondary/20">
+                  <tr className="border-b border-gray-400/20 dark:border-border/5 bg-secondary/30">
                     <td className="p-6 font-medium text-foreground" style={{ width: '20%' }}>Дизайн</td>
                     {packages.map((packageKey) => {
                       const packageData = t(`pricing.packages.${packageKey}`) as any || {}
@@ -369,7 +369,7 @@ export default function OffersPage() {
                       )
                     })}
                   </tr>
-                  <tr className="border-b border-border/10">
+                  <tr className="border-b border-gray-400/20 dark:border-border/5">
                     <td className="p-6 font-medium text-foreground" style={{ width: '20%' }}>Онцлог шинжүүд</td>
                     {packages.map((packageKey) => {
                       const packageData = t(`pricing.packages.${packageKey}`) as any || {}
@@ -392,7 +392,7 @@ export default function OffersPage() {
                       )
                     })}
                   </tr>
-                  <tr className="border-b border-border/10 bg-secondary/20">
+                  <tr className="border-b border-gray-400/20 dark:border-border/5 bg-secondary/30">
                     <td className="p-6 font-medium text-foreground" style={{ width: '20%' }}>Гүйцэтгэх хугацаа</td>
                     {packages.map((packageKey) => {
                       const packageData = t(`pricing.packages.${packageKey}`) as any || {}
@@ -403,13 +403,24 @@ export default function OffersPage() {
                       )
                     })}
                   </tr>
-                  <tr className="border-b border-border/10">
+                  <tr className="border-b border-gray-400/20 dark:border-border/5">
                     <td className="p-6 font-medium text-foreground" style={{ width: '20%' }}>Дэмжлэг & SEO</td>
                     {packages.map((packageKey) => {
                       const packageData = t(`pricing.packages.${packageKey}`) as any || {}
                       return (
                         <td key={packageKey} className="p-6 text-center text-sm text-foreground" style={{ width: '26.67%' }}>
                           {packageData.maintenance || ''}
+                        </td>
+                      )
+                    })}
+                  </tr>
+                  <tr className="border-b border-gray-400/20 dark:border-border/5 bg-secondary/30">
+                    <td className="p-6 font-medium text-foreground" style={{ width: '20%' }}>НОАТ-ийн баримт</td>
+                    {packages.map((packageKey) => {
+                      const packageData = t(`pricing.packages.${packageKey}`) as any || {}
+                      return (
+                        <td key={packageKey} className="p-6 text-center text-sm text-foreground" style={{ width: '26.67%' }}>
+                          {packageData.noat || ''}
                         </td>
                       )
                     })}
@@ -434,7 +445,7 @@ export default function OffersPage() {
                   initial="hidden"
                   animate={isInView ? "visible" : "hidden"}
                   transition={{ delay: 0.6 + index * 0.1 }}
-                  className={`relative bg-background/80 backdrop-blur-sm rounded-3xl shadow-xl border transition-all duration-500 hover:shadow-2xl hover:scale-105 ${isPopular
+                                     className={`relative bg-card/90 backdrop-blur-sm rounded-3xl border transition-all duration-500 hover:scale-105 ${isPopular
                     ? 'border-primary/50 ring-2 ring-primary/20'
                     : 'border-border/50 hover:border-primary/20'
                     }`}
@@ -517,8 +528,8 @@ export default function OffersPage() {
                       </ul>
                     </div>
 
-                    {/* Delivery & Maintenance */}
-                    <div className="space-y-2 mb-6 p-3 bg-secondary/30 rounded-lg">
+                    {/* Delivery & Maintenance & NOAT */}
+                                         <div className="space-y-2 mb-6 p-3 bg-secondary/40 rounded-lg">
                       <div className="flex items-center justify-between">
                         <span className="text-xs text-muted-foreground">{t('pricing.labels.delivery')}</span>
                         <span
@@ -529,6 +540,10 @@ export default function OffersPage() {
                       <div className="flex items-center justify-between">
                         <span className="text-xs text-muted-foreground">{t('pricing.labels.maintenance')}</span>
                         <span className="text-xs font-medium text-foreground">{packageData.maintenance || ''}</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs text-muted-foreground">НОАТ-ийн баримт</span>
+                        <span className="text-xs font-medium text-foreground">{packageData.noat || ''}</span>
                       </div>
                     </div>
 
@@ -547,13 +562,13 @@ export default function OffersPage() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8, delay: 0.7 }}
         >
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">Нэмэлт үйлчилгээ</h2>
-            <p className="text-lg text-muted-foreground">Багцаа нэмэлт боломжоор баяжуулаарай</p>
-          </div>
+                     <div className="text-center mb-12">
+             <h2 className="text-3xl font-bold text-foreground mb-4">{t('offers.addonTitle')}</h2>
+             <p className="text-lg text-muted-foreground">{t('offers.addonSubtitle')}</p>
+           </div>
 
           <div className="max-w-3xl mx-auto">
-            <div className="bg-gradient-to-r from-pink-500/10 to-purple-500/10 rounded-2xl border border-pink-200/20 p-8 text-center">
+                         <div className="bg-gradient-to-r from-pink-500/20 to-purple-500/20 rounded-2xl border border-pink-200/30 p-8 text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-r from-pink-500 to-purple-500 text-white mb-6 shadow-lg">
                 <Rocket className="w-8 h-8" />
               </div>

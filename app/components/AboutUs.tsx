@@ -7,9 +7,18 @@ import { useLanguage } from "../contexts/LanguageContext"
 
 const team = [
   {
-    name: "Danny",
-    role: "Founder, Project Manager & Developer",
-    description: "Creating beautiful and intuitive user experiences that engage users and drive conversions. Leading the team with vision and technical expertise.",
+    name: {
+      en: "Danny",
+      mn: "Дэнни"
+    },
+    role: {
+      en: "Founder, Project Manager & Developer",
+      mn: "Үүсгэн байгуулагч, Төслийн менежер & Хөгжүүлэгч"
+    },
+    description: {
+      en: "Creating beautiful and intuitive user experiences that engage users and drive conversions. Leading the team with vision and technical expertise.",
+      mn: "XP Digital-ийг үүсгэн байгуулж, төслийн менежмент болон хөгжүүлэлтийг хариуцдаг. Үйлчлүүлэгчдэд ойлгомжтой, найдвартай туршлага бүтээхдээ төвлөрөх ба багийг алсын хараа, техникийн мэдлэгээр удирдан чиглүүлдэг."
+    },
     image: "https://images8.alphacoders.com/483/483462.png",
     facebook: "https://www.facebook.com/dnii.dnii.0412",
     instagram: "https://www.instagram.com/dnii_d/",
@@ -17,21 +26,57 @@ const team = [
     portfolio: "https://dnii0412.github.io/danny-portfolio/",
   },
   {
-    name: "Bayarbayasgalan",
-    role: "Lead Developer",
-    description: "Passionate about creating innovative digital solutions and helping businesses grow through technology.",
+    name: {
+      en: "Bayarbayasgalan",
+      mn: "Баярбаясгалан"
+    },
+    role: {
+      en: "Lead Developer",
+      mn: "Ахлах хөгжүүлэгч"
+    },
+    description: {
+      en: "Passionate about creating innovative digital solutions and helping businesses grow through technology.",
+      mn: "Багийн ахлах хөгжүүлэгчээр ажилладаг. Сайт болгоны ар дахь нарийн төвөгтэй кодуудыг бичиж, үйлчлүүлэгчдийн сайтыг бэлэн болгоход үндсэн чухал үүргийг гүйцэтгэнэ."
+    },
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnb34N79_25Qvdze3AEKBpgrVV7zWyNLwr_Q&s",
     facebook: "https://www.facebook.com/Xuj11/",
     instagram: "https://instagram.com/zgrbayraa",
     github: "https://github.com/Zerogne",
   },
   {
-    name: "Batmandakh",
-    role: "Product Manager, SMM Manager",
-    description: "Strategic product development and social media marketing expert, driving growth through innovative solutions and engaging content.",
+    name: {
+      en: "Batmandakh",
+      mn: "Батмандах"
+    },
+    role: {
+      en: "Product Manager, SMM Manager",
+      mn: "Бүтээгдэхүүний менежер, Сошиал медиа маркетингийн менежер"
+    },
+    description: {
+      en: "Strategic product development and social media marketing expert, driving growth through innovative solutions and engaging content.",
+      mn: "Бүтээгдэхүүний хөгжүүлэлт болон сошиал медиа маркетингийн чиглэлээр ажилладаг. Стратегийн төлөвлөлт, сонирхолтой контент бүтээх замаар хэрэглэгчийн оролцоог нэмэгдүүлж, бизнесийн өсөлтийг дэмждэг."
+    },
     image: "https://static.wikia.nocookie.net/disney/images/3/37/Profile_-_Simba.jpeg",
     facebook: "https://www.facebook.com/batmandakh.batsukh.5",
     instagram: "https://www.instagram.com/bta1023/",
+    github: null,
+  },
+  {
+    name: {
+      en: "Saran-Ochir",
+      mn: "Саран-Очир"
+    },
+    role: {
+      en: "Business Manager",
+      mn: "Бизнесийн менежер"
+    },
+    description: {
+      en: "Works as the Business Manager at XP Digital. Responsible for overseeing financial and operational organization across projects, focusing on sustainable growth and building long-term client relationships.",
+      mn: "XP Digital-ийн бизнесийн менежерээр ажилладаг. Төсөл бүрийн санхүү, үйл ажиллагааны зохион байгуулалтыг хариуцаж, багийн тогтвортой өсөлт болон үйлчлүүлэгчидтэй урт хугацааны харилцааг хөгжүүлэхэд чиглэнэ."
+    },
+    image: "/saran-ochir-profile.jpg",
+    facebook: "https://www.facebook.com/saran.ochir",
+    instagram: "https://www.instagram.com/saagii_21",
     github: null,
   },
 ]
@@ -39,7 +84,7 @@ const team = [
 export default function AboutUs() {
   const containerRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(containerRef, { once: true, amount: 0.1 })
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -71,7 +116,7 @@ export default function AboutUs() {
 
   return (
     <section id="team" className="py-20 bg-gradient-to-b from-background to-secondary/10 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -86,13 +131,13 @@ export default function AboutUs() {
 
         <motion.div
           ref={containerRef}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
           {team.map((member, index) => (
-            <TeamCard key={member.name} member={member} index={index} variants={itemVariants} />
+            <TeamCard key={member.name.en} member={member} index={index} variants={itemVariants} language={language} />
           ))}
         </motion.div>
       </div>
@@ -100,14 +145,14 @@ export default function AboutUs() {
   )
 }
 
-function TeamCard({ member, index, variants }: { member: (typeof team)[0]; index: number; variants: any }) {
+function TeamCard({ member, index, variants, language }: { member: (typeof team)[0]; index: number; variants: any; language: string }) {
   const cardRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(cardRef, { once: true, amount: 0.3 })
 
   return (
     <motion.div
       ref={cardRef}
-      className="bg-background rounded-3xl p-8 shadow-lg border border-border/50 hover:border-primary/20 transition-all duration-300 group relative overflow-hidden flex flex-col h-full"
+      className="bg-card rounded-2xl p-8 shadow-lg border border-border hover:border-primary transition-all duration-300 group relative overflow-hidden flex flex-col h-full"
       variants={variants}
     >
       {/* Background gradient on hover */}
@@ -118,53 +163,53 @@ function TeamCard({ member, index, variants }: { member: (typeof team)[0]; index
       />
 
       <div className="relative z-10 flex flex-col h-full">
-        {/* Profile Image */}
-        <motion.div
-          className="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden border-4 border-primary/20"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          <img
-            src={member.image}
-            alt={member.name}
-            className="w-full h-full object-cover"
-          />
-        </motion.div>
+                 {/* Profile Image */}
+         <motion.div
+           className="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden border-4 border-primary/20 bg-gradient-to-br from-blue-500 to-purple-600"
+           initial={{ opacity: 0, scale: 0.8 }}
+           animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+           transition={{ duration: 0.5, delay: 0.1 }}
+         >
+           <img
+             src={member.image}
+             alt={member.name[language as keyof typeof member.name]}
+             className="w-full h-full object-cover"
+           />
+         </motion.div>
 
-        {/* Name */}
-        <motion.h3
-          className="text-xl font-bold text-foreground text-center mb-2"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          {member.name}
-        </motion.h3>
+                 {/* Name */}
+         <motion.h3
+           className="text-xl font-bold text-foreground text-center mb-3"
+           initial={{ opacity: 0, y: 20 }}
+           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+           transition={{ duration: 0.5, delay: 0.2 }}
+         >
+           {member.name[language as keyof typeof member.name]}
+         </motion.h3>
 
-        {/* Role */}
-        <motion.p
-          className="text-primary font-semibold text-center mb-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
-          {member.role}
-        </motion.p>
+         {/* Role */}
+         <motion.p
+           className="text-primary font-semibold text-center mb-4"
+           initial={{ opacity: 0, y: 20 }}
+           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+           transition={{ duration: 0.5, delay: 0.3 }}
+         >
+           {member.role[language as keyof typeof member.role]}
+         </motion.p>
 
-        {/* Description */}
-        <motion.p
-          className="text-muted-foreground text-center mb-6 leading-relaxed flex-grow"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          {member.description}
-        </motion.p>
+         {/* Description */}
+         <motion.p
+           className="text-muted-foreground text-justify mb-6 leading-relaxed flex-grow"
+           initial={{ opacity: 0, y: 20 }}
+           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+           transition={{ duration: 0.5, delay: 0.4 }}
+         >
+           {member.description[language as keyof typeof member.description]}
+         </motion.p>
 
         {/* Social Links - pushed to bottom */}
         <motion.div
-          className="flex justify-center space-x-4 mt-auto"
+          className="flex justify-center space-x-4 mt-auto pt-4"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.5 }}
@@ -219,7 +264,7 @@ function TeamCard({ member, index, variants }: { member: (typeof team)[0]; index
 
       {/* Hover border effect */}
       <motion.div
-        className="absolute inset-0 rounded-3xl border-2 border-transparent pointer-events-none"
+        className="absolute inset-0 rounded-2xl border-2 border-transparent pointer-events-none"
         whileHover={{
           borderColor: "hsl(var(--primary) / 0.2)",
           boxShadow: "0 0 30px hsl(var(--primary) / 0.1)",

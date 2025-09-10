@@ -26,18 +26,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center mb-6">
-              <img
-                className="h-8 w-auto mr-3"
-                src="/xp-logo.svg"
-                alt="XP Logo"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                  target.nextElementSibling?.classList.remove('hidden');
-                }}
-              />
-              <span className="text-2xl font-bold text-foreground hidden mr-3">XP</span>
-              <span className="text-2xl font-bold text-foreground">XP</span>
+              <span className="text-2xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-blue-600 bg-clip-text text-transparent">XP</span>
             </div>
             <p className="text-muted-foreground mb-6 max-w-md leading-relaxed">
               {t('hero.subtitle')}

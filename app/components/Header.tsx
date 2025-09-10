@@ -51,17 +51,7 @@ export default function Header() {
         <div className="flex items-center flex-shrink-0">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">XP</span>
-            <img
-              className="h-8 w-auto"
-              src="/xp-logo.svg"
-              alt="XP Logo"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.display = 'none';
-                target.nextElementSibling?.classList.remove('hidden');
-              }}
-            />
-            <span className="text-2xl font-bold text-foreground hidden">XP</span>
+            <span className="text-2xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-blue-600 bg-clip-text text-transparent">XP</span>
           </Link>
         </div>
         {/* Spacer: same width as right controls */}

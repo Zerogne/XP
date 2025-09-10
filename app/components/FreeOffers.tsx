@@ -110,11 +110,11 @@ export default function FreeOffers() {
         >
           <motion.div
             variants={itemVariants}
-            className="group relative bg-white/80 backdrop-blur-sm rounded-3xl border border-blue-200/50 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden"
+            className="group relative bg-card/90 backdrop-blur-sm rounded-3xl border border-blue-200/50 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden"
             whileHover={{ y: -8, scale: 1.02 }}
           >
             {/* Background Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-green-50 opacity-50 group-hover:opacity-70 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-green-50 opacity-30 group-hover:opacity-50 transition-opacity duration-500" />
             
             {/* Content */}
             <div className="relative p-8 text-center">
@@ -140,7 +140,7 @@ export default function FreeOffers() {
               </div>
 
               {/* Description */}
-              <p className="text-muted-foreground leading-relaxed mb-6 text-base">
+              <p className="text-foreground/90 leading-relaxed mb-6 text-base">
                 Get professional insights about your website's performance and SEO opportunities
               </p>
             </div>

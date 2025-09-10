@@ -25,6 +25,96 @@ const developers = [
 
 // Project data - you can move this to a separate file later
 const projectData = {
+  "winacademy": {
+    title: {
+      mn: "WinAcademy – Маркетинг, Дизайн, AI, Бодит Ур Чадвар Олгох Платформ",
+      en: "WinAcademy – Marketing, Design, AI, Practical Skills Learning Platform"
+    },
+    subtitle: {
+      mn: "Маркетинг, дизайн, хиймэл оюун (AI)-ийн практик ур чадварыг хөгжүүлэх онлайн сургалтын платформ.",
+      en: "Online learning platform for developing practical skills in marketing, design, and artificial intelligence (AI)."
+    },
+    description: {
+      mn: "WinAcademy нь \"Суралц · Бүтээ · Ажилд ор\" зарчмаар оюутнууд болон карьерийн эхэн үеийн залууст богино хугацаанд мэдлэг олгож, бодит даалгавраар баталгаажуулж, ажилд зуучлуулахад чиглэсэн цогц платформ юм.",
+      en: "WinAcademy is a comprehensive platform following the \"Learn · Build · Get Hired\" principle, designed to provide students and early-career professionals with knowledge in a short time, validate through real projects, and connect them to employment opportunities."
+    },
+    longDescription: {
+      mn: "Орчин үеийн веб технологид тулгуурласан WinAcademy нь онлайн сургалтыг хэрэглэгчдэд шууд хүртээмжтэй, хялбар ойлгомжтой хүргэдэг.\n\nКурсын каталог, гишүүнчлэлийн систем, онлайн төлбөрийн шийдэл, медиа хичээл, хэрэглэгчийн сэтгэгдэл болон админ самбар бүхий бүрэн шийдэлтэйгээр бүтээгдсэн.",
+      en: "Built on modern web technologies, WinAcademy delivers online learning that is immediately accessible and easy to understand for users.\n\nIt's a complete solution featuring course catalogs, membership systems, online payment solutions, media lessons, user reviews, and admin dashboards."
+    },
+    imageUrl: "/Screenshot 2025-09-05 201346.png",
+    category: {
+      mn: "Веб хөгжүүлэлт",
+      en: "Web Development"
+    },
+    liveUrl: "https://winacademy.mn",
+    githubUrl: null,
+    technologies: ["Next.js", "TypeScript", "Tailwind", "MongoDB", "Cloudinary", "NextAuth", "QPay API"],
+    features: {
+      mn: [
+        "Курсын каталог, түргэн элсэлт",
+        "Гишүүнчлэлийн систем (membership access)",
+        "QPay интеграцтай онлайн төлбөрийн систем",
+        "Видео сургалт ба медиа сан",
+        "Хэрэглэгчийн үнэлгээ, сэтгэгдэл",
+        "CMS (мэдээ, зар, FAQ)",
+        "Админ самбар: контент, хэрэглэгч, төлбөр удирдах",
+        "Гүйцэтгэлийн аналитик, аудит лог"
+      ],
+      en: [
+        "Course catalog with quick enrollment",
+        "Membership system (membership access)",
+        "Online payment system with QPay integration",
+        "Video training and media library",
+        "User ratings and reviews",
+        "CMS (news, announcements, FAQ)",
+        "Admin dashboard: content, user, and payment management",
+        "Performance analytics and audit logs"
+      ]
+    },
+    challenges: {
+      mn: [
+        "Онлайн төлбөрийн системийг шууд сургалтын хандалттай уялдуулах",
+        "Их хэмжээний видео ба медиа контентыг оновчтой удирдах",
+        "Гишүүнчлэл ба сургалтын хандалтын түвшинг удирдах",
+        "Аюулгүй нэвтрэлт ба хэрэглэгчийн өгөгдөл хамгаалах"
+      ],
+      en: [
+        "Integrating online payment system with immediate course access",
+        "Optimally managing large amounts of video and media content",
+        "Managing membership and course access levels",
+        "Secure authentication and user data protection"
+      ]
+    },
+    solutions: {
+      mn: [
+        "QPay API ашиглан төлбөр төлсний дараа хичээлд автоматаар хандалт олгох webhook холболт хийсэн",
+        "Cloudinary ашиглан медиа файлуудыг шахаж, хурдтай стрийминг шийдсэн",
+        "Membership system-ийг MongoDB дээр role-based access control-оор хэрэгжүүлсэн",
+        "NextAuth ашиглан Google/Facebook нэвтрэлтийг аюулгүй холбож, хэрэглэгчийн эрхийн удирдлагыг төвлөрүүлсэн"
+      ],
+      en: [
+        "Implemented webhook connection using QPay API to automatically grant course access after payment",
+        "Solved fast streaming by compressing media files using Cloudinary",
+        "Implemented membership system with role-based access control on MongoDB",
+        "Securely connected Google/Facebook authentication using NextAuth and centralized user permission management"
+      ]
+    },
+    stats: {
+      students: "120+",
+      courses: "15+",
+      hired: "120+",
+      satisfaction: "95%"
+    },
+    timeline: {
+      mn: "1 сар",
+      en: "1 month"
+    },
+    team: {
+      mn: "2 хөгжүүлэгч",
+      en: "2 developers"
+    }
+  },
   "xperience": {
     title: "Xperience – Дижитал Дадлагын Төв",
     subtitle: "Монголын оюутан сурагчдад дадлага, цагийн ажил, төсөлд оролцох боломжуудтай холбож, боловсрол ба ажил мэргэжлийн гүүр болох платформ.",
@@ -231,10 +321,26 @@ const projectData = {
   }
 }
 
+// Helper function to get localized text
+const getLocalizedText = (text: any, language: string) => {
+  if (typeof text === 'string') return text
+  if (typeof text === 'object' && text !== null) {
+    // Check if it's an array (for features, challenges, solutions)
+    if (Array.isArray(text)) return text
+    // Check if it has language keys
+    if (text[language]) return text[language]
+    if (text.mn) return text.mn
+    if (text.en) return text.en
+    // If it's an object but no language keys, return empty string
+    return ''
+  }
+  return text || ''
+}
+
 export default function ProjectDetails() {
   const { slug } = useParams()
   const router = useRouter()
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
 
   const project = projectData[slug as keyof typeof projectData]
 
@@ -322,7 +428,7 @@ export default function ProjectDetails() {
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                {project.category}
+                {getLocalizedText(project.category, language)}
               </motion.div>
 
               <motion.h1
@@ -331,7 +437,7 @@ export default function ProjectDetails() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                {project.title}
+                {getLocalizedText(project.title, language)}
               </motion.h1>
 
               <motion.p
@@ -340,7 +446,7 @@ export default function ProjectDetails() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                {project.subtitle}
+                {getLocalizedText(project.subtitle, language)}
               </motion.p>
 
               <motion.p
@@ -349,7 +455,7 @@ export default function ProjectDetails() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
               >
-                {project.description}
+                {getLocalizedText(project.description, language)}
               </motion.p>
             </motion.div>
 
@@ -363,7 +469,7 @@ export default function ProjectDetails() {
               <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 rounded-3xl p-8 shadow-2xl">
                 <Image
                   src={project.imageUrl}
-                  alt={project.title}
+                  alt={getLocalizedText(project.title, language)}
                   width={600}
                   height={400}
                   className="w-full h-auto rounded-2xl"
@@ -395,7 +501,7 @@ export default function ProjectDetails() {
                 viewport={{ once: true }}
               >
                 <h3 className="text-2xl font-bold text-foreground mb-6">Project Overview</h3>
-                <p className="text-muted-foreground leading-relaxed">{project.longDescription}</p>
+                <p className="text-muted-foreground leading-relaxed whitespace-pre-line">{getLocalizedText(project.longDescription, language)}</p>
               </motion.div>
 
               <motion.div
@@ -406,7 +512,7 @@ export default function ProjectDetails() {
               >
                 <h3 className="text-2xl font-bold text-foreground mb-6">Гол онцлогууд</h3>
                 <ul className="space-y-3">
-                  {project.features.map((feature, index) => (
+                  {getLocalizedText(project.features, language).map((feature, index) => (
                     <motion.li
                       key={index}
                       className="flex items-start gap-3"
@@ -458,15 +564,15 @@ export default function ProjectDetails() {
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <Calendar className="w-5 h-5 text-primary" />
-                    <span className="text-muted-foreground">Хугацаа: {project.timeline}</span>
+                    <span className="text-muted-foreground">Хугацаа: {getLocalizedText(project.timeline, language)}</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Users className="w-5 h-5 text-primary" />
-                    <span className="text-muted-foreground">Баг: {project.team}</span>
+                    <span className="text-muted-foreground">Баг: {getLocalizedText(project.team, language)}</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Code className="w-5 h-5 text-primary" />
-                    <span className="text-muted-foreground">Ангилал: {project.category}</span>
+                    <span className="text-muted-foreground">Ангилал: {getLocalizedText(project.category, language)}</span>
                   </div>
                 </div>
               </motion.div>
@@ -513,7 +619,7 @@ export default function ProjectDetails() {
                   <div>
                     <h4 className="font-semibold text-foreground mb-3">Сорилтууд:</h4>
                     <ul className="space-y-2">
-                      {project.challenges.map((challenge, index) => (
+                      {getLocalizedText(project.challenges, language).map((challenge, index) => (
                         <li key={index} className="text-muted-foreground text-sm">• {challenge}</li>
                       ))}
                     </ul>
@@ -521,7 +627,7 @@ export default function ProjectDetails() {
                   <div>
                     <h4 className="font-semibold text-foreground mb-3">Шийдлүүд:</h4>
                     <ul className="space-y-2">
-                      {project.solutions.map((solution, index) => (
+                      {getLocalizedText(project.solutions, language).map((solution, index) => (
                         <li key={index} className="text-muted-foreground text-sm">• {solution}</li>
                       ))}
                     </ul>

@@ -10,11 +10,52 @@ import Link from "next/link"
 
 const projects = [
   {
+    id: 6,
+    title: {
+      mn: "WinAcademy – Маркетинг, Дизайн, AI, Бодит Ур Чадвар Олгох Платформ",
+      en: "WinAcademy – Marketing, Design, AI, Practical Skills Learning Platform"
+    },
+    description: {
+      mn: "Маркетинг, дизайн, хиймэл оюун (AI)-ийн практик ур чадварыг хөгжүүлэх онлайн сургалтын платформ. WinAcademy нь \"Learn · Build · Get Hired\" зарчмаар оюутнууд болон карьерийн эхэн үеийн залууст богино хугацаанд мэдлэг олгож, бодит даалгавраар баталгаажуулж, ажилд зуучлуулахад чиглэсэн цогц платформ юм.",
+      en: "Online learning platform for developing practical skills in marketing, design, and artificial intelligence (AI). WinAcademy follows the \"Learn · Build · Get Hired\" principle, providing students and early-career professionals with knowledge in a short time, validating through real projects, and connecting them to employment opportunities."
+    },
+    imageUrl: "/Screenshot 2025-09-05 201346.png",
+    category: {
+      mn: "Веб хөгжүүлэлт",
+      en: "Web Development"
+    },
+    liveUrl: "https://winacademy.mn",
+    slug: "winacademy",
+    technologies: ["Next.js", "TypeScript", "Tailwind", "MongoDB", "Cloudinary", "NextAuth", "QPay API"],
+    stats: {
+      students: "120+",
+      courses: "15+",
+      hired: "120+"
+    },
+    timeline: {
+      mn: "1 сар",
+      en: "1 month"
+    },
+    team: {
+      mn: "2 хөгжүүлэгч",
+      en: "2 developers"
+    }
+  },
+  {
     id: 2,
-    title: "Han Education – Гадаадад Сурах, Хэлний Хөтөлбөрийн Платформ",
-    description: "Сурагчдад хичээл, хэлний сургалт болон гадаадад суралцах боломжуудыг нээж өгөх орчин үеийн боловсролын веб сайт. Монголын сурагчдад нэр хүндтэй БНХАУ-ын их сургуулиуд болон тэтгэлгийн хөтөлбөрүүдтэй холбогдох боломжийг олгодог.",
+    title: {
+      mn: "Han Education – Гадаадад Сурах, Хэлний Хөтөлбөрийн Платформ",
+      en: "Han Education – Study Abroad & Language Program Platform"
+    },
+    description: {
+      mn: "Сурагчдад хичээл, хэлний сургалт болон гадаадад суралцах боломжуудыг нээж өгөх орчин үеийн боловсролын веб сайт. Монголын сурагчдад нэр хүндтэй БНХАУ-ын их сургуулиуд болон тэтгэлгийн хөтөлбөрүүдтэй холбогдох боломжийг олгодог.",
+      en: "Modern educational website providing students with opportunities for courses, language training, and studying abroad. Connects Mongolian students with prestigious Chinese universities and scholarship programs."
+    },
     imageUrl: "/haneducation.png",
-    category: "Web Development",
+    category: {
+      mn: "Веб хөгжүүлэлт",
+      en: "Web Development"
+    },
     liveUrl: "https://haneducation.mn",
     slug: "han-education",
     technologies: ["Next.js", "TypeScript", "Tailwind", "MongoDB", "Cloudinary"],
@@ -23,15 +64,30 @@ const projects = [
       universities: "30+",
       countries: "3"
     },
-    timeline: "2 weeks",
-    team: "2 developers"
+    timeline: {
+      mn: "2 долоо хоног",
+      en: "2 weeks"
+    },
+    team: {
+      mn: "2 хөгжүүлэгч",
+      en: "2 developers"
+    }
   },
   {
     id: 3,
-    title: "Sunrise Mongolia – Аялал ба Туршлагууд",
-    description: "Монголын шилдэг аялал, адал явдлыг танилцуулж, захиалга хийхэд хялбар болгосон орчин үеийн аяллын вэбсайт. Энэхүү платформ нь аялагчдад аяллын дэлгэрэнгүй мэдээлэл болон онцгой туршлагуудтай танилцах боломжийг олгоно.",
+    title: {
+      mn: "Sunrise Mongolia – Аялал ба Туршлагууд",
+      en: "Sunrise Mongolia – Travel & Experiences"
+    },
+    description: {
+      mn: "Монголын шилдэг аялал, адал явдлыг танилцуулж, захиалга хийхэд хялбар болгосон орчин үеийн аяллын вэбсайт. Энэхүү платформ нь аялагчдад аяллын дэлгэрэнгүй мэдээлэл болон онцгой туршлагуудтай танилцах боломжийг олгоно.",
+      en: "Modern travel website showcasing Mongolia's best tours and adventures, making booking easy. This platform provides travelers with detailed travel information and opportunities to experience unique adventures."
+    },
     imageUrl: "/SunriseMongolia.png",
-    category: "Web Development",
+    category: {
+      mn: "Веб хөгжүүлэлт",
+      en: "Web Development"
+    },
     liveUrl: "https://sunrisemongolia.com",
     slug: "sunrise-mongolia",
     technologies: ["Next.js", "TypeScript", "Tailwind", "MongoDB", "Cloudinary", "ReCAPTCHA"],
@@ -40,15 +96,30 @@ const projects = [
       destinations: "20+",
       bookings: "100+"
     },
-    timeline: "2 weeks",
-    team: "2 developers"
+    timeline: {
+      mn: "2 долоо хоног",
+      en: "2 weeks"
+    },
+    team: {
+      mn: "2 хөгжүүлэгч",
+      en: "2 developers"
+    }
   },
   {
     id: 4,
-    title: "New Era – Ерөнхий боловсрол ба Хичээлүүдийн платформ",
-    description: "Эцэг эх, сурагчдад зориулсан ээлтэй боловсролын сайт. Хөтөлбөрийн мэдээлэл, элсэлт, мэдээ зар, медиа галерей зэрэг бүх мэдээллийг нэг дор төвлөрүүлсэн цогц боловсролын платформ.",
+    title: {
+      mn: "New Era – Ерөнхий боловсрол ба Хичээлүүдийн платформ",
+      en: "New Era – General Education & Courses Platform"
+    },
+    description: {
+      mn: "Эцэг эх, сурагчдад зориулсан ээлтэй боловсролын сайт. Хөтөлбөрийн мэдээлэл, элсэлт, мэдээ зар, медиа галерей зэрэг бүх мэдээллийг нэг дор төвлөрүүлсэн цогц боловсролын платформ.",
+      en: "Friendly educational website for parents and students. A comprehensive educational platform that centralizes all information including program details, enrollment, news, announcements, and media galleries in one place."
+    },
     imageUrl: "/newera.png",
-    category: "Web Development",
+    category: {
+      mn: "Веб хөгжүүлэлт",
+      en: "Web Development"
+    },
     liveUrl: "https://edunewera.mn",
     slug: "new-era",
     technologies: ["Next.js", "TypeScript", "Tailwind", "MongoDB", "Cloudinary", "NextAuth", "Bunny.net", "TUS"],
@@ -57,15 +128,30 @@ const projects = [
       programs: "25+",
       courses: "100+"
     },
-    timeline: "4 weeks",
-    team: "2 developers"
+    timeline: {
+      mn: "4 долоо хоног",
+      en: "4 weeks"
+    },
+    team: {
+      mn: "2 хөгжүүлэгч",
+      en: "2 developers"
+    }
   },
   {
     id: 1,
-    title: "Xperience – Дижитал Дадлагын Төв",
-    description: "Монголын оюутан сурагчдад дадлага, цагийн ажил, төсөлд оролцох боломжуудтай холбож, боловсрол ба ажил мэргэжлийн гүүр болох платформ. Зорилготой, идэвхтэй оюутан, залуу мэргэжилтнүүдийг үнэ цэнтэй дадлага, менторшип хөтөлбөртэй холбодог.",
+    title: {
+      mn: "Xperience – Дижитал Дадлагын Төв",
+      en: "Xperience – Digital Internship Hub"
+    },
+    description: {
+      mn: "Монголын оюутан сурагчдад дадлага, цагийн ажил, төсөлд оролцох боломжуудтай холбож, боловсрол ба ажил мэргэжлийн гүүр болох платформ. Зорилготой, идэвхтэй оюутан, залуу мэргэжилтнүүдийг үнэ цэнтэй дадлага, менторшип хөтөлбөртэй холбодог.",
+      en: "Platform connecting Mongolian students with internship, part-time work, and project opportunities, serving as a bridge between education and professional careers. Connects goal-oriented, active students and young professionals with valuable internships and mentorship programs."
+    },
     imageUrl: "/xperience.png",
-    category: "Projects",
+    category: {
+      mn: "Төслүүд",
+      en: "Projects"
+    },
     liveUrl: "https://xperience.mn",
     slug: "xperience",
     technologies: ["Next.js", "TypeScript", "MongoDB", "Cloudinary", "NextAuth"],
@@ -74,15 +160,30 @@ const projects = [
       companies: "50+",
       internships: "200+"
     },
-    timeline: "3 months",
-    team: "2 developers"
+    timeline: {
+      mn: "3 сар",
+      en: "3 months"
+    },
+    team: {
+      mn: "2 хөгжүүлэгч",
+      en: "2 developers"
+    }
   },
   {
     id: 5,
-    title: "TellU – Сурагчдын Сэтгэгдэл илэрхийлэх Платформ",
-    description: "Сурагчдад сургууль, их сургуулийнхаа талаар шударга сэтгэгдэлээ хуваалцах боломж олгодог гар утсанд ээлтэй платформ. Сурагчид санал бодлоо илэрхийлэх, сургалтын дэд бүтцийг үнэлэх аюулгүй орон зайг бүрдүүлдэг.",
+    title: {
+      mn: "TellU – Сурагчдын Сэтгэгдэл илэрхийлэх Платформ",
+      en: "TellU – Student Feedback Platform"
+    },
+    description: {
+      mn: "Сурагчдад сургууль, их сургуулийнхаа талаар шударга сэтгэгдэлээ хуваалцах боломж олгодог гар утсанд ээлтэй платформ. Сурагчид санал бодлоо илэрхийлэх, сургалтын дэд бүтцийг үнэлэх аюулгүй орон зайг бүрдүүлдэг.",
+      en: "Mobile-friendly platform that allows students to share honest feedback about their schools and universities. Creates a safe space for students to express their opinions and evaluate educational infrastructure."
+    },
     imageUrl: "/TellU.png",
-    category: "Projects",
+    category: {
+      mn: "Төслүүд",
+      en: "Projects"
+    },
     liveUrl: null,
     slug: "tellu",
     technologies: ["Next.js", "TypeScript", "MongoDB", "Cloudinary", "NextAuth", "Tailwind CSS"],
@@ -91,21 +192,49 @@ const projects = [
       schools: "100+",
       students: "1000+"
     },
-    timeline: "4 months",
-    team: "2 developers"
+    timeline: {
+      mn: "4 сар",
+      en: "4 months"
+    },
+    team: {
+      mn: "2 хөгжүүлэгч",
+      en: "2 developers"
+    }
   }
 ]
 
-const categories = ["All", ...new Set(projects.map((project) => project.category))]
+// Helper function to get localized text
+const getLocalizedText = (text: any, language: string) => {
+  if (typeof text === 'string') return text
+  if (typeof text === 'object' && text !== null) {
+    if (text[language]) return text[language]
+    if (text.mn) return text.mn
+    if (text.en) return text.en
+    return ''
+  }
+  return text || ''
+}
+
+const categories = ["All", "Web Development", "Projects"]
+
+const getCategoryDisplayName = (category: string, language: string) => {
+  if (category === "All") return language === "mn" ? "Бүгд" : "All"
+  if (category === "Web Development") return language === "mn" ? "Веб хөгжүүлэлт" : "Web Development"
+  if (category === "Projects") return language === "mn" ? "Төслүүд" : "Projects"
+  return category
+}
 
 export default function PortfolioGrid() {
   const [filter, setFilter] = useState("All")
   const [showAll, setShowAll] = useState(false)
   const containerRef = useRef(null)
   const isInView = useInView(containerRef, { once: true, amount: 0.1 })
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
 
-  const filteredProjects = filter === "All" ? projects : projects.filter((project) => project.category === filter)
+  const filteredProjects = filter === "All" ? projects : projects.filter((project) => {
+    const projectCategory = getLocalizedText(project.category, language)
+    return projectCategory === filter
+  })
   const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 3)
   const hasMoreProjects = filteredProjects.length > 3
 
@@ -176,13 +305,13 @@ export default function PortfolioGrid() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              {category}
+              {getCategoryDisplayName(category, language)}
             </motion.button>
           ))}
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -196,7 +325,7 @@ export default function PortfolioGrid() {
                 initial="hidden"
                 animate="visible"
                 exit="hidden"
-                className="bg-background rounded-3xl shadow-lg overflow-hidden hover-lift transition-all duration-300 ease-in-out border-2 border-transparent hover:border-primary/10 group"
+                className="bg-background rounded-3xl shadow-lg overflow-hidden hover-lift transition-all duration-300 ease-in-out border-2 border-transparent hover:border-primary/10 group h-full flex flex-col"
                 whileHover={{
                   y: -10,
                   transition: { duration: 0.3 },
@@ -205,7 +334,7 @@ export default function PortfolioGrid() {
                 <div className="relative h-64 overflow-hidden">
                   <Image
                     src={project.imageUrl || "/placeholder.svg"}
-                    alt={project.title}
+                    alt={getLocalizedText(project.title, language)}
                     fill
                     style={{ objectFit: "cover" }}
                     className="transition-transform duration-500 ease-in-out group-hover:scale-110"
@@ -217,14 +346,14 @@ export default function PortfolioGrid() {
                     <div className="flex justify-between items-center mb-2">
                       <div className="flex gap-2">
                         <span className="text-sm font-medium text-primary-foreground bg-primary/20 px-2 py-1 rounded-full">
-                          {project.category}
+                          {getLocalizedText(project.category, language)}
                         </span>
-                        {project.category === "Projects" && (
+                        {getLocalizedText(project.category, language) === "Projects" && (
                           <span className="text-sm font-bold text-white bg-gradient-to-r from-yellow-500 to-orange-500 px-3 py-1 rounded-full shadow-lg">
                             ⭐
                           </span>
                         )}
-                        {project.category === "Web Development" && (
+                        {getLocalizedText(project.category, language) === "Web Development" && (
                           <span className="text-sm font-bold text-white bg-gradient-to-r from-blue-500 to-purple-500 px-3 py-1 rounded-full shadow-lg">
                             💻
                           </span>
@@ -234,7 +363,7 @@ export default function PortfolioGrid() {
                   </div>
                 </div>
 
-                <div className="p-6">
+                <div className="p-6 flex-1 flex flex-col">
                   <motion.h3
                     className="text-xl font-semibold text-foreground mb-3"
                     initial={{ x: -20, opacity: 0 }}
@@ -242,7 +371,7 @@ export default function PortfolioGrid() {
                     transition={{ duration: 0.4, delay: 0.1 }}
                     viewport={{ once: true }}
                   >
-                    {project.title}
+                    {getLocalizedText(project.title, language)}
                   </motion.h3>
 
                   <motion.p
@@ -252,7 +381,7 @@ export default function PortfolioGrid() {
                     transition={{ duration: 0.4, delay: 0.2 }}
                     viewport={{ once: true }}
                   >
-                    {project.description}
+                    {getLocalizedText(project.description, language)}
                   </motion.p>
 
                   {/* Technologies */}
@@ -289,17 +418,17 @@ export default function PortfolioGrid() {
                     <div className="flex justify-between items-center text-sm">
                       <div className="flex items-center gap-1 text-muted-foreground">
                         <span>⏱️</span>
-                        <span>{project.timeline}</span>
+                        <span>{getLocalizedText(project.timeline, language)}</span>
                       </div>
                       <div className="flex items-center gap-1 text-muted-foreground">
                         <span>👥</span>
-                        <span>{project.team}</span>
+                        <span>{getLocalizedText(project.team, language)}</span>
                       </div>
                     </div>
                   </motion.div>
 
                   {/* Action Buttons */}
-                  <div className="flex gap-3">
+                  <div className="flex gap-3 mt-auto pt-4">
                     <Link
                       href={`/projects/${project.slug}`}
                       className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium whitespace-nowrap min-w-0"
