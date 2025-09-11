@@ -26,7 +26,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center mb-6">
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-blue-600 bg-clip-text text-transparent">XP</span>
+              <img src="/xp-logo.svg" alt="Xperience" className="h-8 w-auto" />
             </div>
             <p className="text-muted-foreground mb-6 max-w-md leading-relaxed">
               {t('hero.subtitle')}
@@ -43,7 +43,7 @@ export default function Footer() {
                 <Facebook className="w-5 h-5" />
               </motion.a>
               <motion.a
-                href="https://www.instagram.com/xp.digital.dev/"
+                href="https://www.instagram.com/xperience.proydrs/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
@@ -53,7 +53,7 @@ export default function Footer() {
                 <Instagram className="w-5 h-5" />
               </motion.a>
               <motion.a
-                href="mailto:xpdigital.dev@gmail.com"
+                href="mailto:xperience.proydrs@gmail.com"
                 className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
@@ -95,7 +95,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center text-muted-foreground">
                 <Mail className="w-4 h-4 mr-2" />
-                <span>xpdigital.dev@gmail.com</span>
+                <span>xperience.proydrs@gmail.com</span>
               </li>
               <li className="flex items-center text-muted-foreground">
                 <MapPin className="w-4 h-4 mr-2" />
@@ -108,7 +108,7 @@ export default function Footer() {
         {/* Bottom section */}
         <div className="border-t border-border/50 py-8 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground mb-4 sm:mb-0">
-            © 2025 XP Digital. {t('navigation.contact') === 'Contact' ? 'All rights reserved.' : 'Бүх эрх хуулиар хамгаалагдсан.'}
+            © 2025 Xperience. {t('navigation.contact') === 'Contact' ? 'All rights reserved.' : 'Бүх эрх хуулиар хамгаалагдсан.'}
           </p>
 
           {/* Back to top button */}

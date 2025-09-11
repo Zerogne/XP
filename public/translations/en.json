@@ -1,7 +1,7 @@
 {
   "hero": {
-    "title": "XP",
-    "subtitle": "XP is a team driven by fresh ideas and collective passion. Together, we create real solutions that make an impact.",
+    "title": "Xperience",
+    "subtitle": "Xperience-Agency works with the goal of supporting your business's long-term growth, not just creating another website, but delivering services aimed at creating value to take your business to the next level.",
     "badge": "Creative Agency",
     "exploreButton": "Explore Our Work",
     "learnMore": "Learn more"
@@ -71,8 +71,7 @@
     }
   },
   "aboutUs": {
-    "title": "Meet Our Team",
-    "subtitle": "The passionate individuals behind XP"
+    "title": "Meet Our Team"
   },
   "projects": {
     "title": "Featured Projects",
@@ -93,75 +92,98 @@
     "title": "Pricing Offers",
     "subtitle": "Choose the perfect package for your business needs",
     "packages": {
-      "minimum": {
-        "name": "Minimum Package",
-        "price": "1,500,000₮",
+      "essential": {
+        "name": "Essential Package",
+        "price": "3,800,000₮",
         "priceNote": "Starting from",
         "websiteType": "Landing page",
-        "bestFor": "Cafés, shops, salons, service providers",
-        "pages": "2–4 (+300,000₮ per extra)",
-        "design": "Semi-custom design",
+        "bestFor": "Cafés, small shops, service providers who need to be visible online but want a bit more branding and soul to the design",
+        "pages": "4 to 6 pages",
+        "design": "Semi Custom",
+        "adminAccess": "X (Not included)",
         "features": [
           "Modern UI/UX",
           "Responsive design",
-          "Hosting/Domain setup"
+          "Host/Domain connection service"
         ],
-        "delivery": "1–3 weeks (Rush +300,000₮)",
-        "maintenance": "100,000₮/month (6+6 service)",
+        "delivery": "2 to 3 weeks",
+        "rushDelivery": "Delivery within 1 to 2 weeks +400k",
+        "maintenance": "",
+        "additionalFeature": "",
+        "support": "Email",
+        "meetings": "1 to 2 during the build process",
         "noat": "-",
-        "cta": "Choose Minimum Package"
+        "domainService": "165,000 MNT",
+        "cta": "Choose Essential Package"
       },
       "standard": {
         "name": "Standard Package",
-        "price": "3,300,000₮",
+        "price": "6,000,000₮",
         "priceNote": "Starting from",
         "websiteType": "Portfolio / Company site",
-        "bestFor": "Companies, professionals, organizations",
-        "pages": "Up to 9 (+300,000₮ per extra)",
-        "design": "Fully custom design",
+        "bestFor": "Companies, professionals, or organizations that want control over the content of their investment",
+        "pages": "Up to 9 pages + 300'000 per page",
+        "design": "Fully custom + Smooth animation",
+        "adminAccess": "Edit content",
         "features": [
-          "Content control",
-          "Add/Delete features",
-          "Responsive design",
-          "Hosting/Domain",
-          "Language support"
+          "Fully custom design",
+          "Add and Delete features",
+          "Full control over the content",
+          "Responsive",
+          "Hosting / Domain Service",
+          "Lang support",
+          "SSR"
         ],
-        "delivery": "2–3 weeks (Rush 1–2 weeks)",
-        "maintenance": "100,000₮/month (6+6 service)",
+        "delivery": "2 to 4 weeks",
+        "rushDelivery": "Delivery within 1 to 2 weeks +500k",
+        "maintenance": "100'000 per month",
+        "additionalFeature": "One custom feature from client",
+        "support": "Priority",
+        "meetings": "Weekly report and 2 online meeting after contract",
         "noat": "+",
+        "domainService": "165,000 MNT",
         "cta": "Choose Standard Package"
       },
       "premium": {
         "name": "Premium Package",
-        "price": "9,000,000₮",
+        "price": "12,000,000₮",
         "priceNote": "Starting from",
         "websiteType": "Media, Ecommerce, Educational, Custom Web App",
-        "bestFor": "Ecommerce shops, schools, online platforms, large organizations",
-        "pages": "Unlimited (+Free 2–3 page landing)",
-        "design": "Fully custom UI/UX + Animations + Branding",
+        "bestFor": "Ecommerce shops, schools, larger businesses, or anyone needing advanced online tools",
+        "pages": "Unlimited on the package specific web app, + 4 to 5 page landing page (free)",
+        "design": "Fully custom UI/UX + Animation sequences + Branding",
+        "adminAccess": "Dashboard, Analytics, User Management",
         "features": [
-          "Dashboard",
-          "Analytics",
-          "User Management",
-          "Payment integration",
-          "QPay integration",
-          "AI Chatbot",
-          "SEO (3 months free)"
+          "SSR",
+          "ISR",
+          "CSO",
+          "User Auth system",
+          "Data Backup",
+          "QPAY payment system",
+          "AI chatbot",
+          "Lang support",
+          "Hosting/ Domain Service",
+          "3 months of free maintenance"
         ],
-        "delivery": "5–7 weeks",
-        "maintenance": "300,000₮/month (6+6 service)",
+        "delivery": "6 to 7 weeks",
+        "rushDelivery": "X (Not available)",
+        "maintenance": "300k/month",
+        "additionalFeature": "2 custom feature from Client",
+        "support": "Dedicated",
+        "meetings": "Weekly report and 3-4 meeting after contract",
         "noat": "+",
+        "domainService": "165,000 MNT",
         "cta": "Choose Premium Package"
       }
     },
-         "addon": {
-       "title": "Social Media Marketing Feature",
-       "description": "Professional reel + Poster design",
-       "price": "999,000₮",
-       "details": "Created by expert media team with big project experience",
-       "benefit": "Boost your launch on social media",
-       "cta": "Add to Any Package"
-     },
+    "addon": {
+      "title": "Social Media Marketing Feature",
+      "description": "Professional reel + Poster design",
+      "price": "999,000₮",
+      "details": "Created by expert media team with big project experience",
+      "benefit": "Boost your launch on social media",
+      "cta": "Add to Any Package"
+    },
     "labels": {
       "websiteType": "Website type",
       "bestFor": "Best for",

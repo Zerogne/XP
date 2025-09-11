@@ -16,8 +16,8 @@ const team = [
       mn: "Үүсгэн байгуулагч, Төслийн менежер & Хөгжүүлэгч"
     },
     description: {
-      en: "Creating beautiful and intuitive user experiences that engage users and drive conversions. Leading the team with vision and technical expertise.",
-      mn: "XP Digital-ийг үүсгэн байгуулж, төслийн менежмент болон хөгжүүлэлтийг хариуцдаг. Үйлчлүүлэгчдэд ойлгомжтой, найдвартай туршлага бүтээхдээ төвлөрөх ба багийг алсын хараа, техникийн мэдлэгээр удирдан чиглүүлдэг."
+      en: "Founder of Xperience, responsible for project management and development. Focuses on providing clients with the products and services they need, leading the team with vision and technical expertise.",
+      mn: "Xperience-ийг үүсгэн байгуулж, төслийн менежмент болон хөгжүүлэлтийг хариуцдан ажилладаг. Үйлчлүүлэгчдэдээ хэрэгцээтэй бүтээгдэхүүн үйлчилгээгээр хангахад төвлөрөх ба багийг алсын харааг техникийн мэдлэгээр удирдан чиглүүлдэг."
     },
     image: "https://images8.alphacoders.com/483/483462.png",
     facebook: "https://www.facebook.com/dnii.dnii.0412",
@@ -35,8 +35,8 @@ const team = [
       mn: "Ахлах хөгжүүлэгч"
     },
     description: {
-      en: "Passionate about creating innovative digital solutions and helping businesses grow through technology.",
-      mn: "Багийн ахлах хөгжүүлэгчээр ажилладаг. Сайт болгоны ар дахь нарийн төвөгтэй кодуудыг бичиж, үйлчлүүлэгчдийн сайтыг бэлэн болгоход үндсэн чухал үүргийг гүйцэтгэнэ."
+      en: "Senior Developer of the team. Writes complex code behind every website and plays a crucial role in delivering the final product to clients.",
+      mn: "Багийн ахлах хөгжүүлэгч. Вебсайт болгоны ар дахь нарийн төвөгтэй кодуудыг бичиж, үйлчлүүлэгчдийн эцсийн бүтээгдэрүүнийг бэлэн болгон хүргэх чухал үүргийг гүйцэтгэнэ."
     },
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnb34N79_25Qvdze3AEKBpgrVV7zWyNLwr_Q&s",
     facebook: "https://www.facebook.com/Xuj11/",
@@ -49,12 +49,12 @@ const team = [
       mn: "Батмандах"
     },
     role: {
-      en: "Product Manager, SMM Manager",
-      mn: "Бүтээгдэхүүний менежер, Сошиал медиа маркетингийн менежер"
+      en: "SMM Manager",
+      mn: "Сошиал медиа маркетингийн менежер"
     },
     description: {
-      en: "Strategic product development and social media marketing expert, driving growth through innovative solutions and engaging content.",
-      mn: "Бүтээгдэхүүний хөгжүүлэлт болон сошиал медиа маркетингийн чиглэлээр ажилладаг. Стратегийн төлөвлөлт, сонирхолтой контент бүтээх замаар хэрэглэгчийн оролцоог нэмэгдүүлж, бизнесийн өсөлтийг дэмждэг."
+      en: "Works in product development and social media marketing. Focuses on creating content in social environments to increase user engagement and spread their influence in the business environment.",
+      mn: "Бүтээгдэхүүний хөгжүүлэлт болон сошиал медиа маркетингийн чиглэлээр ажилладаг. Сошиал орчинд контент бүтээх замаар хэрэглэгчийн оролцоог нэмэгдүүлж, бизнесийн орчинд өөрсдийн нэр нөлөөгөө түгээхэд төвлөрч ажиллана."
     },
     image: "https://static.wikia.nocookie.net/disney/images/3/37/Profile_-_Simba.jpeg",
     facebook: "https://www.facebook.com/batmandakh.batsukh.5",
@@ -67,17 +67,18 @@ const team = [
       mn: "Саран-Очир"
     },
     role: {
-      en: "Business Manager",
-      mn: "Бизнесийн менежер"
+      en: "Sales Manager, Product Service Manager",
+      mn: "Борлуулалтын менежер, бүтээгдэхүүн үйлчилгээний мененжер"
     },
     description: {
-      en: "Works as the Business Manager at XP Digital. Responsible for overseeing financial and operational organization across projects, focusing on sustainable growth and building long-term client relationships.",
-      mn: "XP Digital-ийн бизнесийн менежерээр ажилладаг. Төсөл бүрийн санхүү, үйл ажиллагааны зохион байгуулалтыг хариуцаж, багийн тогтвортой өсөлт болон үйлчлүүлэгчидтэй урт хугацааны харилцааг хөгжүүлэхэд чиглэнэ."
+      en: "Works as the business and product manager of Xperience. Responsible for introducing their products and services to organizations that come to collaborate, overseeing all stages of negotiations and sales contracts, which supports their future growth and development.",
+      mn: "Xperience-ийн бизнесийн болон бүтээгдэхүүний менежерээр ажилладаг. Хамтран ажиллахаар зорин ирж буй байгууллагуудад өөрсдийн бүтээгдэхүүн үйлчилгээгээ танилцуулж, тохиролцооны болон борлуулалтын гэрээ байгуулах бүх үе шатыг хянан зохицуулах үүрэгтэй бөгөөд энэ нь өөрсдийн цаашдын өсөлт хөгжилтийг дэмжих юм."
     },
     image: "/saran-ochir-profile.jpg",
     facebook: "https://www.facebook.com/saran.ochir",
     instagram: "https://www.instagram.com/saagii_21",
-    github: null,
+    github: "https://github.com/SaagiiSG",
+    portfolio: "https://saagii-21.vercel.app",
   },
 ]
 
@@ -123,10 +124,7 @@ export default function AboutUs() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-3xl font-bold text-foreground sm:text-4xl mb-4">{t('aboutUs.title')}</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t('aboutUs.subtitle')}
-          </p>
+          <h2 className="text-h2 text-foreground mb-4">{t('aboutUs.title')}</h2>
         </motion.div>
 
         <motion.div
@@ -163,49 +161,49 @@ function TeamCard({ member, index, variants, language }: { member: (typeof team)
       />
 
       <div className="relative z-10 flex flex-col h-full">
-                 {/* Profile Image */}
-         <motion.div
-           className="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden border-4 border-primary/20 bg-gradient-to-br from-blue-500 to-purple-600"
-           initial={{ opacity: 0, scale: 0.8 }}
-           animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-           transition={{ duration: 0.5, delay: 0.1 }}
-         >
-           <img
-             src={member.image}
-             alt={member.name[language as keyof typeof member.name]}
-             className="w-full h-full object-cover"
-           />
-         </motion.div>
+        {/* Profile Image */}
+        <motion.div
+          className="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden border-4 border-primary/20 bg-gradient-to-br from-blue-500 to-purple-600"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <img
+            src={member.image}
+            alt={member.name[language as keyof typeof member.name]}
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
 
-                 {/* Name */}
-         <motion.h3
-           className="text-xl font-bold text-foreground text-center mb-3"
-           initial={{ opacity: 0, y: 20 }}
-           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-           transition={{ duration: 0.5, delay: 0.2 }}
-         >
-           {member.name[language as keyof typeof member.name]}
-         </motion.h3>
+        {/* Name */}
+        <motion.h3
+          className="text-h5 text-foreground text-center mb-3"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          {member.name[language as keyof typeof member.name]}
+        </motion.h3>
 
-         {/* Role */}
-         <motion.p
-           className="text-primary font-semibold text-center mb-4"
-           initial={{ opacity: 0, y: 20 }}
-           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-           transition={{ duration: 0.5, delay: 0.3 }}
-         >
-           {member.role[language as keyof typeof member.role]}
-         </motion.p>
+        {/* Role */}
+        <motion.p
+          className="text-primary font-semibold text-center mb-4 text-body-sm"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          {member.role[language as keyof typeof member.role]}
+        </motion.p>
 
-         {/* Description */}
-         <motion.p
-           className="text-muted-foreground text-justify mb-6 leading-relaxed flex-grow"
-           initial={{ opacity: 0, y: 20 }}
-           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-           transition={{ duration: 0.5, delay: 0.4 }}
-         >
-           {member.description[language as keyof typeof member.description]}
-         </motion.p>
+        {/* Description */}
+        <motion.p
+          className="text-body text-muted-foreground text-justify mb-6 flex-grow"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          {member.description[language as keyof typeof member.description]}
+        </motion.p>
 
         {/* Social Links - pushed to bottom */}
         <motion.div

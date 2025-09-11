@@ -16,13 +16,13 @@ export default function ContactForm() {
     },
     {
       name: "Instagram",
-      url: "https://www.instagram.com/xp.digital.dev/",
+      url: "https://www.instagram.com/xperience.proydrs/",
       icon: Instagram,
       color: "from-pink-500 to-purple-600",
     },
     {
       name: "Gmail",
-      url: "mailto:xpdigital.dev@gmail.com",
+      url: "mailto:xperience.proydrs@gmail.com",
       icon: Mail,
       color: "from-red-500 to-red-600",
     },
@@ -75,7 +75,7 @@ export default function ContactForm() {
                     </h3>
                     <p className="text-xs text-muted-foreground">
                       {social.name === "Phone" ? "+976 80296007" :
-                        social.name === "Gmail" ? "xpdigital.dev@gmail.com" :
+                        social.name === "Gmail" ? "xperience.proydrs@gmail.com" :
                           "Connect with us"}
                     </p>
                   </div>

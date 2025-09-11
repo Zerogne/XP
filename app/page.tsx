@@ -5,7 +5,6 @@ import PortfolioGrid from "./components/PortfolioGrid"
 import Pricing from "./components/Pricing"
 import AboutUs from "./components/AboutUs"
 import ContactForm from "./components/ContactForm"
-import FloatingActionButton from "./components/FloatingActionButton"
 import Marquee from "./components/Marquee"
 
 export default function Home() {
@@ -18,7 +17,6 @@ export default function Home() {
       <AboutUs />
       <Marquee />
       <ContactForm />
-      <FloatingActionButton />
     </>
   )
 }

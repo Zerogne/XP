@@ -1,7 +1,7 @@
 {
   "hero": {
-    "title": "XP",
-    "subtitle": "Бид таны дижитал өсөлтийн түнш бөгөөд технологи, дизайн, маркетингийг хослуулан таны бизнесийг дээшлүүлж, удаан хугацааны амжилтыг хангадаг.",
+    "title": "Xperience",
+    "subtitle": "Xperience-Agency нь таны бизнэссийн уртын хугацааны өсөлтийг дэмжин ажиллах зорилготойгоор зүгээр ч нэг Вебсайт биш харин бизнессээ дараагийн түвшинд аваачих үнэ цэнийг бий болгохыг зорин үйлчилгээгээ хүргэдэг.",
     "badge": "Бүтээлч Агентлаг",
     "exploreButton": "Бидний ажлыг үзэх",
     "learnMore": "Дэлгэрэнгүй"
@@ -71,8 +71,7 @@
     }
   },
   "aboutUs": {
-    "title": "Бидний багтай танилцаарай",
-    "subtitle": "XP-ийн ард байгаа хүсэл эрмэлзэлтэй хүмүүс бөгөөд инновацийн дижитал шийдлүүдээр дамжуулан бизнесүүд хэрхэн хэрэглэгчдээтэй холбогдохыг өөрчлөхөд зориулж ажилладаг."
+    "title": "Бидний багтай танилцаарай"
   },
   "projects": {
     "title": "Онцлох төслүүд",
@@ -93,75 +92,98 @@
     "title": "Үнийн Санал",
     "subtitle": "Таны бизнест тохирох төгс багцыг сонгоорой",
     "packages": {
-      "minimum": {
-        "name": "Minimum Package",
-        "price": "1,500,000₮",
+      "essential": {
+        "name": "Essential Package",
+        "price": "3,800,000₮",
         "priceNote": "эхлэх үнэ",
         "websiteType": "Landing page",
-        "bestFor": "Кофе шоп, дэлгүүр, салоон, жижиг үйлчилгээ эрхлэгчид",
-        "pages": "2–4 (+нэмэлт 300,000₮)",
-        "design": "Semi-custom design",
+        "bestFor": "Кофе шоп, жижиг дэлгүүр, салоон, жижиг үйлчилгээ эрхлэгчид",
+        "pages": "4-6 хуудас",
+        "design": "Semi Custom",
+        "adminAccess": "X (Оруулаагүй)",
         "features": [
           "Орчин үеийн дизайн",
           "Responsive",
-          "Домэйн/Hosting тохиргоо"
+          "Домэйн/Hosting холболтын үйлчилгээ"
         ],
-        "delivery": "1–3 долоо хоног<br/>(яаралтай +300,000₮)",
-        "maintenance": "100,000₮/сар (6+6 үйлчилгээ)",
+        "delivery": "2-3 долоо хоног",
+        "rushDelivery": "1-2 долоо хоногт +400к",
+        "maintenance": "",
+        "additionalFeature": "",
+        "support": "Email",
+        "meetings": "Хөгжүүлэлтийн явцад 1-2 удаа",
         "noat": "-",
-        "cta": "Minimum Package сонгох"
+        "domainService": "165,000 MNT",
+        "cta": "Essential Package сонгох"
       },
       "standard": {
         "name": "Standard Package",
-        "price": "3,300,000₮",
+        "price": "6,000,000₮",
         "priceNote": "эхлэх үнэ",
         "websiteType": "Портфолио / Компаний сайт",
-        "bestFor": "Компаниуд, жижиг дунд бизнес эрхлэгчид",
-        "pages": "9 хүртэл (+нэмэлт 300,000₮)",
-        "design": "Fully custom design",
+        "bestFor": "Компаниуд, мэргэжлийн хүмүүс, байгууллагууд",
+        "pages": "9 хүртэл + хуудас бүрт 300,000₮",
+        "design": "Fully custom + Гөлгөн анимаци",
+        "adminAccess": "Контент засах",
         "features": [
-          "Контент удирдах",
-          "нэмэх/устгах",
+          "Fully custom дизайн",
+          "нэмэх/устгах боломж",
+          "Контентийн бүрэн удирдлага",
           "Responsive",
-          "Домэйн/Hosting",
-          "Хэлний дэмжлэг"
+          "Домэйн/Hosting үйлчилгээ",
+          "Хэлний дэмжлэг",
+          "SSR"
         ],
-        "delivery": "2–3 долоо хоног<br>(яаралтай +300,000₮)",
-        "maintenance": "100,000₮/сар (6+6 үйлчилгээ)",
+        "delivery": "2-4 долоо хоног",
+        "rushDelivery": "1-2 долоо хоногт +500к",
+        "maintenance": "100,000₮/сар",
+        "additionalFeature": "Клиентээс 1 тусгай боломж",
+        "support": "Тэргүүлэх",
+        "meetings": "Долоо хоног бүр тайлан + гэрээний дараа 2 онлайн уулзалт",
         "noat": "+",
+        "domainService": "165,000 MNT",
         "cta": "Standard Package сонгох"
       },
       "premium": {
         "name": "Premium Package",
-        "price": "9,000,000₮",
+        "price": "12,000,000₮",
         "priceNote": "эхлэх үнэ",
         "websiteType": "Медиа, Ecommerce, Сургалтын, Custom App",
-        "bestFor": "Онлайн дэлгүүр, сургууль, томоохон байгууллагагууд, платформууд",
-        "pages": "Хязгааргүй (+үнэгүй 2–3 хуудасны landing)",
-        "design": "Custom + animations + branding",
+        "bestFor": "Онлайн дэлгүүр, сургууль, томоохон бизнес эрхлэгчид, дэвшилтэт онлайн хэрэгсэл хэрэгтэй хүмүүс",
+        "pages": "Хязгааргүй (багцын тусгай вэб апп) + 4-5 хуудасны landing (үнэгүй)",
+        "design": "Fully custom UI/UX + Анимацийн дараалал + Брендинг",
+        "adminAccess": "Dashboard, Analytics, User Management",
         "features": [
-          "Dashboard",
-          "Analytics",
-          "User Management",
-          "Төлбөрийн систем",
-          "QPay",
-          "AI Chatbot",
-          "SEO (3 сар үнэгүй)"
+          "SSR",
+          "ISR",
+          "CSO",
+          "User Auth систем",
+          "Өгөгдлийн нөөцлөлт",
+          "QPAY төлбөрийн систем",
+          "AI chatbot",
+          "Хэлний дэмжлэг",
+          "Hosting/Домэйн үйлчилгээ",
+          "3 сарын үнэгүй арчилгаа"
         ],
-        "delivery": "5–7 долоо хоног",
-        "maintenance": "300,000₮/сар (6+6 үйлчилгээ)",
+        "delivery": "6-7 долоо хоног",
+        "rushDelivery": "X (Хүртээмжгүй)",
+        "maintenance": "300к/сар",
+        "additionalFeature": "Клиентээс 2 тусгай боломж",
+        "support": "Тусгайлан",
+        "meetings": "Долоо хоног бүр тайлан + гэрээний дараа 3-4 уулзалт",
         "noat": "+",
+        "domainService": "165,000 MNT",
         "cta": "Premium Package сонгох"
       }
     },
-         "addon": {
-       "title": "Social Media Marketing",
-       "description": "reel + Постер",
-       "price": "999,000₮",
-       "details": "Туршлагатай медиа багийн бүтээл",
-       "benefit": "Шинэ вебсайтаа олон нийтэд хүчтэй таниулах боломж",
-       "cta": "Аливаа багцад нэмэх"
-     },
+    "addon": {
+      "title": "Social Media Marketing",
+      "description": "reel + Постер",
+      "price": "999,000₮",
+      "details": "Туршлагатай медиа багийн бүтээл",
+      "benefit": "Шинэ вебсайтаа олон нийтэд хүчтэй таниулах боломж",
+      "cta": "Аливаа багцад нэмэх"
+    },
     "labels": {
       "websiteType": "Вэб сайт төрөл",
       "bestFor": "Зориулагдсан",
@@ -208,7 +230,7 @@
   "navigation": {
     "home": "Нүүр",
     "services": "Үйлчилгээ",
-    "offers": "Үнийн санал",
+    "offers": "Үнэ",
     "about": "Бидний тухай",
     "work": "Ажил",
     "contact": "Холбоо барих",

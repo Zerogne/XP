@@ -11,7 +11,7 @@ import Chatbot from "./components/Chatbot"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "XP-Your Digital Growth Partner",
+  title: "Xperience-Your Digital Growth Partner",
 }
 
 export default function RootLayout({

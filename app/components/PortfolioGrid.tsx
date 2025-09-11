@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion, AnimatePresence, useInView } from "framer-motion"
 import { useRef } from "react"
 import Image from "next/image"
@@ -26,7 +26,7 @@ const projects = [
     },
     liveUrl: "https://winacademy.mn",
     slug: "winacademy",
-    technologies: ["Next.js", "TypeScript", "Tailwind", "MongoDB", "Cloudinary", "NextAuth", "QPay API"],
+    technologies: ["Next.js", "TypeScript", "Tailwind", "MongoDB", "Cloudinary", "NextAuth", "QPay"],
     stats: {
       students: "120+",
       courses: "15+",
@@ -35,38 +35,6 @@ const projects = [
     timeline: {
       mn: "1 сар",
       en: "1 month"
-    },
-    team: {
-      mn: "2 хөгжүүлэгч",
-      en: "2 developers"
-    }
-  },
-  {
-    id: 2,
-    title: {
-      mn: "Han Education – Гадаадад Сурах, Хэлний Хөтөлбөрийн Платформ",
-      en: "Han Education – Study Abroad & Language Program Platform"
-    },
-    description: {
-      mn: "Сурагчдад хичээл, хэлний сургалт болон гадаадад суралцах боломжуудыг нээж өгөх орчин үеийн боловсролын веб сайт. Монголын сурагчдад нэр хүндтэй БНХАУ-ын их сургуулиуд болон тэтгэлгийн хөтөлбөрүүдтэй холбогдох боломжийг олгодог.",
-      en: "Modern educational website providing students with opportunities for courses, language training, and studying abroad. Connects Mongolian students with prestigious Chinese universities and scholarship programs."
-    },
-    imageUrl: "/haneducation.png",
-    category: {
-      mn: "Веб хөгжүүлэлт",
-      en: "Web Development"
-    },
-    liveUrl: "https://haneducation.mn",
-    slug: "han-education",
-    technologies: ["Next.js", "TypeScript", "Tailwind", "MongoDB", "Cloudinary"],
-    stats: {
-      students: "500+",
-      universities: "30+",
-      countries: "3"
-    },
-    timeline: {
-      mn: "2 долоо хоног",
-      en: "2 weeks"
     },
     team: {
       mn: "2 хөгжүүлэгч",
@@ -106,14 +74,46 @@ const projects = [
     }
   },
   {
-    id: 4,
+    id: 2,
     title: {
-      mn: "New Era – Ерөнхий боловсрол ба Хичээлүүдийн платформ",
-      en: "New Era – General Education & Courses Platform"
+      mn: "Han Education – Гадаадад Сурах, Хэлний Хөтөлбөрийн Платформ",
+      en: "Han Education – Study Abroad & Language Program Platform"
     },
     description: {
-      mn: "Эцэг эх, сурагчдад зориулсан ээлтэй боловсролын сайт. Хөтөлбөрийн мэдээлэл, элсэлт, мэдээ зар, медиа галерей зэрэг бүх мэдээллийг нэг дор төвлөрүүлсэн цогц боловсролын платформ.",
-      en: "Friendly educational website for parents and students. A comprehensive educational platform that centralizes all information including program details, enrollment, news, announcements, and media galleries in one place."
+      mn: "Сурагчдад хичээл, хэлний сургалт болон гадаадад суралцах боломжуудыг нээж өгөх орчин үеийн боловсролын веб сайт. Монголын сурагчдад нэр хүндтэй БНХАУ-ын их сургуулиуд болон тэтгэлгийн хөтөлбөрүүдтэй холбогдох боломжийг олгодог.",
+      en: "Modern educational website providing students with opportunities for courses, language training, and studying abroad. Connects Mongolian students with prestigious Chinese universities and scholarship programs."
+    },
+    imageUrl: "/haneducation.png",
+    category: {
+      mn: "Веб хөгжүүлэлт",
+      en: "Web Development"
+    },
+    liveUrl: "https://haneducation.mn",
+    slug: "han-education",
+    technologies: ["Next.js", "TypeScript", "Tailwind", "MongoDB", "Cloudinary"],
+    stats: {
+      students: "500+",
+      universities: "30+",
+      countries: "3"
+    },
+    timeline: {
+      mn: "2 долоо хоног",
+      en: "2 weeks"
+    },
+    team: {
+      mn: "2 хөгжүүлэгч",
+      en: "2 developers"
+    }
+  },
+  {
+    id: 4,
+    title: {
+      mn: "New Era – AI-ийн онлайн сургалтын платформ",
+      en: "New Era – Online AI Course Platform"
+    },
+    description: {
+      mn: "Хиймэл оюун ухаан (AI) болон орчин үеийн технологийн чиглэлээр онлайн сургалт явуулах платформ. Сурагчдад AI-ийн үндэс, машин суралцалт, дата шинжилгээ, автоматжуулалт зэрэг чиглэлээр практик мэдлэг олгох цогц сургалтын систем.",
+      en: "Online learning platform for artificial intelligence (AI) and modern technology courses. A comprehensive educational system that provides students with practical knowledge in AI fundamentals, machine learning, data analysis, automation, and other cutting-edge technology fields."
     },
     imageUrl: "/newera.png",
     category: {
@@ -124,9 +124,9 @@ const projects = [
     slug: "new-era",
     technologies: ["Next.js", "TypeScript", "Tailwind", "MongoDB", "Cloudinary", "NextAuth", "Bunny.net", "TUS"],
     stats: {
-      students: "300+",
-      programs: "25+",
-      courses: "100+"
+      students: "500+",
+      aiCourses: "30+",
+      certifications: "15+"
     },
     timeline: {
       mn: "4 долоо хоног",
@@ -231,9 +231,25 @@ export default function PortfolioGrid() {
   const isInView = useInView(containerRef, { once: true, amount: 0.1 })
   const { t, language } = useLanguage()
 
+  // Reset filter when language changes
+  useEffect(() => {
+    setFilter("All")
+    setShowAll(false)
+  }, [language])
+
   const filteredProjects = filter === "All" ? projects : projects.filter((project) => {
     const projectCategory = getLocalizedText(project.category, language)
-    return projectCategory === filter
+    // Map filter values to their localized equivalents for comparison
+    const filterMap: { [key: string]: string } = {
+      "Web Development": language === "mn" ? "Веб хөгжүүлэлт" : "Web Development",
+      "Projects": language === "mn" ? "Төслүүд" : "Projects"
+    }
+    const localizedFilter = filterMap[filter] || filter
+
+    // Debug logging (remove in production)
+    console.log(`Filter: ${filter}, Language: ${language}, Project Category: ${projectCategory}, Localized Filter: ${localizedFilter}, Match: ${projectCategory === localizedFilter}`)
+
+    return projectCategory === localizedFilter
   })
   const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 3)
   const hasMoreProjects = filteredProjects.length > 3

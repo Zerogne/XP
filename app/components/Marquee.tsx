@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 
 export default function Marquee() {
   // The text to repeat
-  const marqueeText = "XP — Your Digital Growth Partner."
+  const marqueeText = "Xperience — Your Digital Growth Partner."
   // Render two copies for seamless loop
   return (
     <div className="relative w-full overflow-hidden bg-background py-16">

@@ -7,19 +7,44 @@ import Link from "next/link"
 import Image from "next/image"
 import { useParams, useRouter } from "next/navigation"
 
-// Developer profiles
-const developers = [
+// Developer profiles - matching AboutUs component
+const teamMembers = [
   {
-    name: "Danny",
-    role: "Full Stack хөгжүүлэгч",
-    avatar: "/placeholder-user.jpg", // You can replace with actual avatar
-    initials: "DN"
+    name: {
+      en: "Danny",
+      mn: "Дэнни"
+    },
+    role: {
+      en: "Founder, Project Manager & Developer",
+      mn: "Үүсгэн байгуулагч, Төслийн менежер & Хөгжүүлэгч"
+    },
+    description: {
+      en: "Founder of Xperience, responsible for project management and development. Focuses on providing clients with the products and services they need, leading the team with vision and technical expertise.",
+      mn: "Xperience-ийг үүсгэн байгуулж, төслийн менежмент болон хөгжүүлэлтийг хариуцдан ажилладаг. Үйлчлүүлэгчдэдээ хэрэгцээтэй бүтээгдэхүүн үйлчилгээгээр хангахад төвлөрөх ба багийг алсын харааг техникийн мэдлэгээр удирдан чиглүүлдэг."
+    },
+    image: "https://images8.alphacoders.com/483/483462.png",
+    facebook: "https://www.facebook.com/dnii.dnii.0412",
+    instagram: "https://www.instagram.com/dnii_d/",
+    github: "https://github.com/dnii0412",
+    portfolio: "https://dnii0412.github.io/danny-portfolio/",
   },
   {
-    name: "Bayrbaysalan",
-    role: "Full Stack хөгжүүлэгч",
-    avatar: "/placeholder-user.jpg", // You can replace with actual avatar
-    initials: "BB"
+    name: {
+      en: "Bayarbayasgalan",
+      mn: "Баярбаясгалан"
+    },
+    role: {
+      en: "Lead Developer",
+      mn: "Ахлах хөгжүүлэгч"
+    },
+    description: {
+      en: "Senior Developer of the team. Writes complex code behind every website and plays a crucial role in delivering the final product to clients.",
+      mn: "Багийн ахлах хөгжүүлэгч. Вебсайт болгоны ар дахь нарийн төвөгтэй кодуудыг бичиж, үйлчлүүлэгчдийн эцсийн бүтээгдэрүүнийг бэлэн болгон хүргэх чухал үүргийг гүйцэтгэнэ."
+    },
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnb34N79_25Qvdze3AEKBpgrVV7zWyNLwr_Q&s",
+    facebook: "https://www.facebook.com/Xuj11/",
+    instagram: "https://instagram.com/zgrbayraa",
+    github: "https://github.com/Zerogne",
   }
 ]
 
@@ -49,7 +74,7 @@ const projectData = {
     },
     liveUrl: "https://winacademy.mn",
     githubUrl: null,
-    technologies: ["Next.js", "TypeScript", "Tailwind", "MongoDB", "Cloudinary", "NextAuth", "QPay API"],
+    technologies: ["Next.js", "TypeScript", "Tailwind", "MongoDB", "Cloudinary", "NextAuth", "QPay"],
     features: {
       mn: [
         "Курсын каталог, түргэн элсэлт",
@@ -210,7 +235,7 @@ const projectData = {
     features: [
       "Шүүлтүүртэй аялалын каталог",
       "Медиа галерей",
-      "SEO оновчтой нүүр хуудсууд", 
+      "SEO оновчтой нүүр хуудсууд",
       "Захиалгын хүсэлтийн форм",
       "Уян хатан вебсайт удирдлагын админ самбар",
       "Гүйцэтгэлд төвлөрсөн UI"
@@ -584,24 +609,85 @@ export default function ProjectDetails() {
                 viewport={{ once: true }}
               >
                 <h3 className="text-2xl font-bold text-foreground mb-6">Хөгжүүлэлтийн баг</h3>
-                <div className="space-y-4">
-                  {developers.map((developer, index) => (
+                <div className="space-y-6">
+                  {teamMembers.map((member, index) => (
                     <motion.div
-                      key={developer.name}
-                      className="flex items-center gap-4 p-3 bg-secondary/20 rounded-lg"
+                      key={getLocalizedText(member.name, language)}
+                      className="p-4 bg-secondary/20 rounded-lg hover:bg-secondary/30 transition-colors"
                       initial={{ x: 20, opacity: 0 }}
                       whileInView={{ x: 0, opacity: 1 }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}
                       viewport={{ once: true }}
                     >
-                      <div className="relative">
-                        <div className="w-12 h-12 bg-gradient-to-br from-primary to-purple-600 rounded-full flex items-center justify-center text-white font-semibold shadow-lg">
-                          {developer.initials}
+                      <div className="flex items-start gap-4">
+                        <div className="relative">
+                          <Image
+                            src={member.image}
+                            alt={getLocalizedText(member.name, language)}
+                            width={60}
+                            height={60}
+                            className="w-15 h-15 rounded-full object-cover shadow-lg"
+                          />
                         </div>
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-foreground">{developer.name}</h4>
-                        <p className="text-sm text-muted-foreground">{developer.role}</p>
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-foreground text-lg mb-1">
+                            {getLocalizedText(member.name, language)}
+                          </h4>
+                          <p className="text-primary font-medium mb-2">
+                            {getLocalizedText(member.role, language)}
+                          </p>
+                          <p className="text-sm text-muted-foreground leading-relaxed">
+                            {getLocalizedText(member.description, language)}
+                          </p>
+
+                          {/* Social Links */}
+                          <div className="flex items-center gap-3 mt-3">
+                            {member.github && (
+                              <a
+                                href={member.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                                title="GitHub"
+                              >
+                                <Github className="w-4 h-4" />
+                              </a>
+                            )}
+                            {member.portfolio && (
+                              <a
+                                href={member.portfolio}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                                title="Portfolio"
+                              >
+                                <Globe className="w-4 h-4" />
+                              </a>
+                            )}
+                            {member.facebook && (
+                              <a
+                                href={member.facebook}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                                title="Facebook"
+                              >
+                                <ExternalLink className="w-4 h-4" />
+                              </a>
+                            )}
+                            {member.instagram && (
+                              <a
+                                href={member.instagram}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                                title="Instagram"
+                              >
+                                <ExternalLink className="w-4 h-4" />
+                              </a>
+                            )}
+                          </div>
+                        </div>
                       </div>
                     </motion.div>
                   ))}

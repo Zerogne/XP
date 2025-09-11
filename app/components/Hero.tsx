@@ -26,7 +26,7 @@ export default function Hero() {
 
   const copyEmailToClipboard = async () => {
     try {
-      await navigator.clipboard.writeText('xpdigital.dev@gmail.com')
+      await navigator.clipboard.writeText('xperience.proydrs@gmail.com')
       setEmailCopied(true)
       setTimeout(() => setEmailCopied(false), 2000)
     } catch (err) {
@@ -91,16 +91,16 @@ export default function Hero() {
 
       {/* Interactive Cursor Follower */}
       <motion.div
-        className="fixed w-6 h-6 bg-primary/20 rounded-full pointer-events-none z-50 mix-blend-difference"
-        animate={{
-          x: mousePosition.x - 12,
-          y: mousePosition.y - 12,
+        className="fixed w-6 h-6 bg-primary/30 rounded-full pointer-events-none z-[60] border border-primary/50"
+        style={{
+          left: mousePosition.x - 12,
+          top: mousePosition.y - 12,
         }}
         transition={{ type: "spring", stiffness: 500, damping: 28 }}
       />
 
       {/* Main Content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 py-16 flex flex-col-reverse lg:flex-row items-center gap-y-12 lg:gap-x-16 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 flex flex-col-reverse lg:flex-row items-center gap-y-12 lg:gap-x-16">
         {/* Text Content */}
         <motion.div
           className="w-full max-w-2xl lg:mx-0 lg:max-w-lg lg:flex-shrink-0 flex flex-col items-center lg:items-start text-center lg:text-left"
@@ -110,18 +110,18 @@ export default function Hero() {
         >
           {/* Badge */}
           <motion.div
-            className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6"
+            className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-8"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <span className="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse" />
-            {t('hero.badge') || 'Creative Agency'}
+            Creative Agency
           </motion.div>
 
           {/* Main Title */}
           <motion.h1
-            className="text-5xl lg:text-7xl font-bold tracking-tight text-foreground leading-tight"
+            className="text-h1 text-foreground"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -133,7 +133,7 @@ export default function Hero() {
 
           {/* Subtitle */}
           <motion.p
-            className="mt-8 text-xl leading-8 text-muted-foreground max-w-lg"
+            className="mt-8 text-body max-w-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
@@ -149,7 +149,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.7 }}
           >
             <motion.button
-              className="group relative px-8 py-4 rounded-full bg-gradient-to-r from-primary to-purple-600 text-white font-semibold text-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              className="group relative px-8 py-4 rounded-full bg-gradient-to-r from-primary to-purple-600 text-white font-semibold text-body-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => {
@@ -170,7 +170,7 @@ export default function Hero() {
               href="https://www.facebook.com/profile.php?id=61578833769304"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 px-6 py-4 text-foreground font-semibold hover:text-primary transition-colors duration-300"
+              className="group flex items-center gap-2 px-6 py-4 text-foreground font-semibold text-body hover:text-primary transition-colors duration-300"
               whileHover={{ x: 5 }}
             >
               {t('hero.learnMore')}
@@ -192,15 +192,24 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.9 }}
           >
             {[
-              { number: "5", label: "Projects" },
-              { number: "10", label: "Clients" },
-              { number: "3", label: "Years" }
+              { number: "+6", label: "Projects" },
+              { number: "12", label: "Clients" },
+              { number: "+3", label: "Years of Experience" }
             ].map((stat, index) => (
               <div key={index} className="group">
                 <div className="text-3xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">
                   {stat.number}
                 </div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+                <div className="text-caption max-w-[80px] mx-auto">
+                  {stat.label === "Years of Experience" ? (
+                    <div className="space-y-0">
+                      <div>Years of</div>
+                      <div>Experience</div>
+                    </div>
+                  ) : (
+                    stat.label
+                  )}
+                </div>
               </div>
             ))}
           </motion.div>
@@ -222,13 +231,13 @@ export default function Hero() {
               },
               {
                 icon: Instagram,
-                href: "https://instagram.com/xp.agency.mn",
+                href: "https://www.instagram.com/xperience.proydrs/",
                 color: "hover:text-pink-600",
                 bgColor: "hover:bg-pink-100"
               },
               {
                 icon: Mail,
-                href: "mailto:xpdigital.dev@gmail.com",
+                href: "mailto:xperience.proydrs@gmail.com",
                 color: "hover:text-green-600",
                 bgColor: "hover:bg-green-100"
               }
@@ -269,7 +278,7 @@ export default function Hero() {
 
                       {/* Email Tooltip */}
                       <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-foreground text-background text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
-                        xpdigital.dev@gmail.com
+                        xperience.proydrs@gmail.com
                       </div>
                     </motion.button>
                   ) : (

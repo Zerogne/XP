@@ -24,13 +24,13 @@ import {
 } from "lucide-react"
 
 const packageIcons = {
-  minimum: Globe,
+  essential: Globe,
   standard: Palette,
   premium: Crown
 }
 
 const packageColors = {
-  minimum: "from-blue-500 to-cyan-500",
+  essential: "from-blue-500 to-cyan-500",
   standard: "from-purple-500 to-pink-500",
   premium: "from-yellow-500 to-orange-500"
 }
@@ -94,10 +94,10 @@ export default function Pricing() {
     },
   }
 
-  const packages = ['minimum', 'standard', 'premium'] as const
+  const packages = ['essential', 'standard', 'premium'] as const
 
   return (
-    <section id="pricing" className="py-20 bg-gradient-to-b from-background to-secondary/10 relative overflow-hidden" ref={containerRef}>
+    <section id="pricing" className="py-24 bg-gradient-to-b from-background to-secondary/10 relative overflow-hidden" ref={containerRef}>
       {/* Background Elements */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5" />
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
@@ -106,7 +106,7 @@ export default function Pricing() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div
-          className="text-center mb-10"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
@@ -120,17 +120,14 @@ export default function Pricing() {
             <Star className="w-3 h-3" />
             {t('pricing.labels.popular')}
           </motion.div>
-          <h2 className="text-3xl font-bold text-foreground sm:text-4xl mb-3">
+          <h2 className="text-h2 text-foreground mb-6">
             {t('pricing.title')}
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            {t('pricing.subtitle')}
-          </p>
         </motion.div>
 
         {/* Collapsed Preview - Show all offers in compact format */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 max-w-7xl mx-auto mt-12 pt-8 items-stretch"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16 max-w-7xl mx-auto mt-16 pt-8 items-stretch"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -147,7 +144,7 @@ export default function Pricing() {
                 <motion.div
                   key={packageKey}
                   variants={itemVariants}
-                  className="relative bg-white/95 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-lg group overflow-visible h-full flex flex-col scale-105 min-h-[500px]"
+                  className="relative bg-white/95 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-lg group overflow-visible h-full flex flex-col scale-105 min-h-[480px]"
                 >
                   {/* Recommended Badge */}
                   <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 z-20">
@@ -156,39 +153,39 @@ export default function Pricing() {
                     </div>
                   </div>
 
-                  <div className="p-6 pt-8 relative z-10 flex flex-col h-full text-center">
+                  <div className="p-8 pt-10 relative z-10 flex flex-col h-full text-center">
                     {/* Icon */}
-                    <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 text-white mb-6 shadow-lg transition-all duration-300 mx-auto">
-                      <IconComponent className="w-10 h-10" />
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 text-white mb-6 shadow-lg transition-all duration-300 mx-auto">
+                      <IconComponent className="w-8 h-8" />
                     </div>
 
                     {/* Package Name */}
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    <h3 className="text-h5 text-gray-900 mb-4">
                       {packageData.name || ''}
                     </h3>
 
                     {/* Price */}
-                    <div className="text-4xl font-bold text-gray-900 mb-4">
+                    <div className="text-3xl font-extrabold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-4">
                       {packageData.price || ''}
                     </div>
 
                     {/* Description */}
-                    <p className="text-gray-600 mb-8 leading-relaxed">
+                    <p className="text-body-sm text-gray-600 mb-8 px-2">
                       {packageData.bestFor || ''}
                     </p>
 
                     {/* Features */}
                     <div className="mb-8 space-y-3 flex-grow text-left">
-                      <div className="flex items-center text-gray-700">
-                        <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 mr-3"></div>
+                      <div className="flex items-center text-body-sm text-gray-700">
+                        <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 mr-3 flex-shrink-0"></div>
                         <span>{packageData.websiteType || ''}</span>
                       </div>
-                      <div className="flex items-center text-gray-700">
-                        <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 mr-3"></div>
+                      <div className="flex items-center text-body-sm text-gray-700">
+                        <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 mr-3 flex-shrink-0"></div>
                         <span dangerouslySetInnerHTML={{ __html: packageData.pages || '' }}></span>
                       </div>
-                      <div className="flex items-center text-gray-700">
-                        <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 mr-3"></div>
+                      <div className="flex items-center text-body-sm text-gray-700">
+                        <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 mr-3 flex-shrink-0"></div>
                         <span dangerouslySetInnerHTML={{ __html: packageData.delivery || '' }}></span>
                       </div>
                     </div>
@@ -196,10 +193,10 @@ export default function Pricing() {
                     {/* Preview Button */}
                     <a
                       href="/offers"
-                      className="w-full py-4 px-6 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 group/btn relative overflow-hidden mt-auto"
+                      className="w-full py-3 px-4 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 group/btn relative overflow-hidden mt-auto"
                     >
                       <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-400 skew-x-12"></div>
-                      <Eye className="w-5 h-5" />
+                      <Eye className="w-4 h-4" />
                       <span>Дэлгэрэнгүй үзэх</span>
                     </a>
                   </div>
@@ -212,7 +209,7 @@ export default function Pricing() {
               <motion.div
                 key={packageKey}
                 variants={itemVariants}
-                className={`relative bg-gradient-to-b from-white/90 to-white/70 backdrop-blur-lg rounded-3xl shadow-xl border transition-all duration-300 hover:shadow-lg group overflow-hidden h-full flex flex-col ${isPopular
+                className={`relative bg-gradient-to-b from-white/90 to-white/70 backdrop-blur-lg rounded-3xl shadow-xl border transition-all duration-300 hover:shadow-lg group overflow-hidden h-full flex flex-col min-h-[480px] ${isPopular
                   ? 'border-primary/30 ring-2 ring-primary/20 scale-105 shadow-primary/10'
                   : 'border-gray-200/50 hover:border-primary/30 hover:shadow-primary/5'
                   }`}
@@ -229,33 +226,33 @@ export default function Pricing() {
                   </div>
                 )}
 
-                <div className="p-6 relative z-10 flex flex-col h-full">
+                <div className="p-8 relative z-10 flex flex-col h-full">
                   {/* Package Header */}
-                  <div className="text-center mb-6">
-                    <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r ${packageColors[packageKey]} text-white mb-4 shadow-lg transition-all duration-300`}>
+                  <div className="text-center mb-8">
+                    <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r ${packageColors[packageKey]} text-white mb-6 shadow-lg transition-all duration-300`}>
                       <IconComponent className="w-8 h-8" />
                     </div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">
+                    <h3 className="text-h5 text-gray-900 mb-4">
                       {packageData.name || ''}
                     </h3>
-                    <div className="text-3xl font-extrabold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-2">
+                    <div className="text-3xl font-extrabold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-4">
                       {packageData.price || ''}
                     </div>
-                    <p className="text-sm text-gray-600 leading-relaxed px-2">{packageData.bestFor || ''}</p>
+                    <p className="text-body-sm text-gray-600 px-2">{packageData.bestFor || ''}</p>
                   </div>
 
                   {/* Features Preview */}
-                  <div className="mb-6 space-y-2 flex-grow">
-                    <div className="flex items-center text-sm text-gray-700">
-                      <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${packageColors[packageKey]} mr-3`}></div>
+                  <div className="mb-8 space-y-3 flex-grow">
+                    <div className="flex items-center text-body-sm text-gray-700">
+                      <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${packageColors[packageKey]} mr-3 flex-shrink-0`}></div>
                       <span className="font-medium">{packageData.websiteType || ''}</span>
                     </div>
-                    <div className="flex items-center text-sm text-gray-700">
-                      <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${packageColors[packageKey]} mr-3`}></div>
+                    <div className="flex items-center text-body-sm text-gray-700">
+                      <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${packageColors[packageKey]} mr-3 flex-shrink-0`}></div>
                       <span>{packageData.pages || ''}</span>
                     </div>
-                    <div className="flex items-center text-sm text-gray-700">
-                      <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${packageColors[packageKey]} mr-3`}></div>
+                    <div className="flex items-center text-body-sm text-gray-700">
+                      <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${packageColors[packageKey]} mr-3 flex-shrink-0`}></div>
                       <span>{packageData.delivery || ''}</span>
                     </div>
                   </div>
@@ -277,38 +274,38 @@ export default function Pricing() {
           {/* Add-on Service */}
           <motion.div
             variants={itemVariants}
-            className="relative bg-gradient-to-b from-pink-50/90 to-purple-50/70 backdrop-blur-lg rounded-3xl shadow-xl border border-pink-200/50 hover:border-pink-300/70 transition-all duration-300 hover:shadow-lg group overflow-hidden h-full flex flex-col"
+            className="relative bg-gradient-to-b from-pink-50/90 to-purple-50/70 backdrop-blur-lg rounded-3xl shadow-xl border border-pink-200/50 hover:border-pink-300/70 transition-all duration-300 hover:shadow-lg group overflow-hidden h-full flex flex-col min-h-[480px]"
           >
             {/* Background Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-br from-pink-500 to-purple-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300" />
 
-            <div className="p-6 relative z-10 flex flex-col h-full">
+            <div className="p-8 relative z-10 flex flex-col h-full">
               {/* Add-on Header */}
-              <div className="text-center mb-6">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-500 text-white mb-4 shadow-lg transition-all duration-300">
+              <div className="text-center mb-8">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-500 text-white mb-6 shadow-lg transition-all duration-300">
                   <Rocket className="w-8 h-8" />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                <h3 className="text-h5 text-gray-900 mb-4">
                   Social Media
                 </h3>
-                <div className="text-3xl font-extrabold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent mb-2">
+                <div className="text-3xl font-extrabold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent mb-4">
                   {t('pricing.addon.price')}
                 </div>
-                <p className="text-sm text-gray-600 leading-relaxed px-2">Professional Reel + постер дизайн</p>
+                <p className="text-body-sm text-gray-600 px-2">Professional Reel + постер дизайн</p>
               </div>
 
               {/* Features Preview */}
-              <div className="mb-6 space-y-2 flex-grow">
-                <div className="flex items-center text-sm text-gray-700">
-                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 mr-3"></div>
+              <div className="mb-8 space-y-3 flex-grow">
+                <div className="flex items-center text-body-sm text-gray-700">
+                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 mr-3 flex-shrink-0"></div>
                   <span className="font-medium">Professional Reel</span>
                 </div>
-                <div className="flex items-center text-sm text-gray-700">
-                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 mr-3"></div>
+                <div className="flex items-center text-body-sm text-gray-700">
+                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 mr-3 flex-shrink-0"></div>
                   <span>Постер дизайн</span>
                 </div>
-                <div className="flex items-center text-sm text-gray-700">
-                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 mr-3"></div>
+                <div className="flex items-center text-body-sm text-gray-700">
+                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 mr-3 flex-shrink-0"></div>
                   <span>Social Media контент</span>
                 </div>
               </div>
@@ -348,16 +345,16 @@ export default function Pricing() {
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r from-blue-500 to-cyan-500 text-white mb-4 shadow-lg transition-all duration-300">
                   <Monitor className="w-8 h-8" />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-3">
+                <h3 className="text-h5 text-gray-900 mb-3">
                   Website Audit
                 </h3>
                 <div className="flex items-center justify-center gap-2 mb-3">
                   <Zap className="w-4 h-4 text-yellow-500" />
-                  <span className="text-sm font-bold text-green-600 bg-green-100 px-3 py-1 rounded-full">
+                  <span className="text-body-sm font-bold text-green-600 bg-green-100 px-3 py-1 rounded-full">
                     100% Үнэгүй
                   </span>
                 </div>
-                <p className="text-sm text-gray-600 leading-relaxed">Design, speed & mobile analysis</p>
+                <p className="text-body-sm text-gray-600">Design, speed & mobile analysis</p>
               </div>
 
               <motion.a
@@ -386,16 +383,16 @@ export default function Pricing() {
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-500 text-white mb-4 shadow-lg transition-all duration-300">
                   <Search className="w-8 h-8" />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-3">
+                <h3 className="text-h5 text-gray-900 mb-3">
                   SEO Audit
                 </h3>
                 <div className="flex items-center justify-center gap-2 mb-3">
                   <Zap className="w-4 h-4 text-yellow-500" />
-                  <span className="text-sm font-bold text-green-600 bg-green-100 px-3 py-1 rounded-full">
+                  <span className="text-body-sm font-bold text-green-600 bg-green-100 px-3 py-1 rounded-full">
                     100% Үнэгүй
                   </span>
                 </div>
-                <p className="text-sm text-gray-600 leading-relaxed">Google ranking & optimization tips</p>
+                <p className="text-body-sm text-gray-600">Google ranking & optimization tips</p>
               </div>
 
               <motion.a
@@ -421,14 +418,14 @@ export default function Pricing() {
         >
           <motion.a
             href="/offers"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary to-purple-600 text-white font-semibold rounded-2xl hover:shadow-xl transition-all duration-300 group text-lg"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary to-purple-600 text-white font-semibold rounded-2xl hover:shadow-xl transition-all duration-300 group text-body-lg"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
           >
             <span>View All Offers</span>
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </motion.a>
-          <p className="text-sm text-muted-foreground mt-3">
+          <p className="text-caption mt-3">
             See all packages, add-ons, and free offers in detail
           </p>
         </motion.div>
