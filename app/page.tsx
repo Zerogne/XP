@@ -2,7 +2,7 @@
 import Hero from "./components/Hero"
 import Services from "./components/Services"
 import PortfolioGrid from "./components/PortfolioGrid"
-import Pricing from "./components/Pricing"
+import PackagesPreview from "./components/PackagesPreview"
 import AboutUs from "./components/AboutUs"
 import ContactForm from "./components/ContactForm"
 import Marquee from "./components/Marquee"
@@ -12,7 +12,7 @@ export default function Home() {
     <>
       <Hero />
       <PortfolioGrid />
-      <Pricing />
+      <PackagesPreview />
       <Services />
       <AboutUs />
       <Marquee />

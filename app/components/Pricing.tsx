@@ -18,8 +18,6 @@ import {
   Rocket,
   Plus,
   ArrowRight,
-  Monitor,
-  Search,
   Eye
 } from "lucide-react"
 
@@ -164,31 +162,12 @@ export default function Pricing() {
                       {packageData.name || ''}
                     </h3>
 
-                    {/* Price */}
-                    <div className="text-3xl font-extrabold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-4">
-                      {packageData.price || ''}
-                    </div>
 
                     {/* Description */}
                     <p className="text-body-sm text-gray-600 mb-8 px-2">
                       {packageData.bestFor || ''}
                     </p>
 
-                    {/* Features */}
-                    <div className="mb-8 space-y-3 flex-grow text-left">
-                      <div className="flex items-center text-body-sm text-gray-700">
-                        <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 mr-3 flex-shrink-0"></div>
-                        <span>{packageData.websiteType || ''}</span>
-                      </div>
-                      <div className="flex items-center text-body-sm text-gray-700">
-                        <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 mr-3 flex-shrink-0"></div>
-                        <span dangerouslySetInnerHTML={{ __html: packageData.pages || '' }}></span>
-                      </div>
-                      <div className="flex items-center text-body-sm text-gray-700">
-                        <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 mr-3 flex-shrink-0"></div>
-                        <span dangerouslySetInnerHTML={{ __html: packageData.delivery || '' }}></span>
-                      </div>
-                    </div>
 
                     {/* Preview Button */}
                     <a
@@ -235,27 +214,9 @@ export default function Pricing() {
                     <h3 className="text-h5 text-gray-900 mb-4">
                       {packageData.name || ''}
                     </h3>
-                    <div className="text-3xl font-extrabold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-4">
-                      {packageData.price || ''}
-                    </div>
                     <p className="text-body-sm text-gray-600 px-2">{packageData.bestFor || ''}</p>
                   </div>
 
-                  {/* Features Preview */}
-                  <div className="mb-8 space-y-3 flex-grow">
-                    <div className="flex items-center text-body-sm text-gray-700">
-                      <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${packageColors[packageKey]} mr-3 flex-shrink-0`}></div>
-                      <span className="font-medium">{packageData.websiteType || ''}</span>
-                    </div>
-                    <div className="flex items-center text-body-sm text-gray-700">
-                      <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${packageColors[packageKey]} mr-3 flex-shrink-0`}></div>
-                      <span>{packageData.pages || ''}</span>
-                    </div>
-                    <div className="flex items-center text-body-sm text-gray-700">
-                      <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${packageColors[packageKey]} mr-3 flex-shrink-0`}></div>
-                      <span>{packageData.delivery || ''}</span>
-                    </div>
-                  </div>
 
                   {/* Preview Button */}
                   <a
@@ -288,9 +249,6 @@ export default function Pricing() {
                 <h3 className="text-h5 text-gray-900 mb-4">
                   Social Media
                 </h3>
-                <div className="text-3xl font-extrabold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent mb-4">
-                  {t('pricing.addon.price')}
-                </div>
                 <p className="text-body-sm text-gray-600 px-2">Professional Reel + постер дизайн</p>
               </div>
 
@@ -325,89 +283,6 @@ export default function Pricing() {
           </motion.div>
         </motion.div>
 
-        {/* Free Offers Row */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 max-w-4xl mx-auto items-stretch"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
-          {/* Free Website Audit */}
-          <motion.div
-            variants={itemVariants}
-            className="relative bg-gradient-to-b from-blue-50/90 to-cyan-50/70 backdrop-blur-lg rounded-3xl shadow-xl border border-blue-200/50 hover:border-blue-300/70 transition-all duration-300 hover:shadow-lg group overflow-hidden h-full flex flex-col"
-          >
-            {/* Background Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300" />
-
-            <div className="p-6 relative z-10 flex flex-col h-full">
-              <div className="text-center mb-6 flex-grow">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r from-blue-500 to-cyan-500 text-white mb-4 shadow-lg transition-all duration-300">
-                  <Monitor className="w-8 h-8" />
-                </div>
-                <h3 className="text-h5 text-gray-900 mb-3">
-                  Website Audit
-                </h3>
-                <div className="flex items-center justify-center gap-2 mb-3">
-                  <Zap className="w-4 h-4 text-yellow-500" />
-                  <span className="text-body-sm font-bold text-green-600 bg-green-100 px-3 py-1 rounded-full">
-                    100% Үнэгүй
-                  </span>
-                </div>
-                <p className="text-body-sm text-gray-600">Design, speed & mobile analysis</p>
-              </div>
-
-              <motion.a
-                href="/offers"
-                className="w-full py-3 px-4 rounded-xl font-semibold text-white bg-gradient-to-r from-blue-500 to-cyan-500 hover:shadow-xl transition-all duration-500 flex items-center justify-center gap-2 group/btn relative overflow-hidden mt-auto"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700 skew-x-12"></div>
-                <Eye className="w-4 h-4 transition-transform group-hover/btn:scale-110" />
-                <span>Дэлгэрэнгүй үзэх</span>
-              </motion.a>
-            </div>
-          </motion.div>
-
-          {/* Free SEO Audit */}
-          <motion.div
-            variants={itemVariants}
-            className="relative bg-gradient-to-b from-green-50/90 to-emerald-50/70 backdrop-blur-lg rounded-3xl shadow-xl border border-green-200/50 hover:border-green-300/70 transition-all duration-300 hover:shadow-lg group overflow-hidden h-full flex flex-col"
-          >
-            {/* Background Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-green-500 to-emerald-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300" />
-
-            <div className="p-6 relative z-10 flex flex-col h-full">
-              <div className="text-center mb-6 flex-grow">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-500 text-white mb-4 shadow-lg transition-all duration-300">
-                  <Search className="w-8 h-8" />
-                </div>
-                <h3 className="text-h5 text-gray-900 mb-3">
-                  SEO Audit
-                </h3>
-                <div className="flex items-center justify-center gap-2 mb-3">
-                  <Zap className="w-4 h-4 text-yellow-500" />
-                  <span className="text-body-sm font-bold text-green-600 bg-green-100 px-3 py-1 rounded-full">
-                    100% Үнэгүй
-                  </span>
-                </div>
-                <p className="text-body-sm text-gray-600">Google ranking & optimization tips</p>
-              </div>
-
-              <motion.a
-                href="/offers"
-                className="w-full py-3 px-4 rounded-xl font-semibold text-white bg-gradient-to-r from-green-500 to-emerald-500 hover:shadow-xl transition-all duration-500 flex items-center justify-center gap-2 group/btn relative overflow-hidden mt-auto"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700 skew-x-12"></div>
-                <Eye className="w-4 h-4 transition-transform group-hover/btn:scale-110" />
-                <span>Дэлгэрэнгүй үзэх</span>
-              </motion.a>
-            </div>
-          </motion.div>
-        </motion.div>
 
         {/* View All Offers Button */}
         <motion.div
