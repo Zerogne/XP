@@ -2,8 +2,9 @@
 
 import { motion } from "framer-motion"
 import { useLanguage } from "../contexts/LanguageContext"
-import { ArrowRight, Eye } from "lucide-react"
+import { ArrowRight, Calendar } from "lucide-react"
 import CalendlyButton from "@/components/CalendlyButton"
+import ButtonCard from "@/components/ui/ButtonCard"
 import * as LucideIcons from "lucide-react"
 
 interface PackagesPreviewProps {
@@ -29,8 +30,8 @@ const packagePreviews: PackagePreview[] = [
         id: 'essential',
         nameMn: 'Essential Package',
         nameEn: 'Essential Package',
-        audienceMn: 'Жижиг бизнесээ онлайнаар илүү харагдуулж, үйлчлүүлэгчдэд итгэл төрүүлээрэй. Таны кофе шоп, салон, жижиг дэлгүүрийн мэдээлэл хэрэглэгчдэд амархан хүрч, шинэ үйлчлүүлэгч татах боломжтой болно.',
-        audienceEn: 'Make your small business more visible online and build trust with customers. Your café, salon, or small shop information will reach customers easily, attracting new clients.',
+        audienceMn: '• Интенрэт дээрх байр суурь\n• Шинэ үйлчлүүлэгдийг татах\n• Хэрэглэгчиддээ Итгэлзэл төрүүлэх\n• Бүтээгдэхүүн үйлчилгээний мэдээлэл нэг дор',
+        audienceEn: '• Online presence\n• Attract new customers\n• Build trust with clients\n• All product & service info in one place',
         icon: 'Globe',
         gradient: 'from-sky-400 to-blue-500',
         borderColor: 'border-sky-200/50 dark:border-sky-800/50'
@@ -39,8 +40,8 @@ const packagePreviews: PackagePreview[] = [
         id: 'standard',
         nameMn: 'Standard Package',
         nameEn: 'Standard Package',
-        audienceMn: 'Компанийн болон үйлчилгээний байгууллагад зориулсан мэргэжлийн шийдэл. Вебсайтаа та өөрөө удирдаж, үйлчлүүлэгчдэдээ илүү итгэлтэй, томоохон байгууллага шиг харагдаж, шинэ захиалагч, түнш татах боломжтой.',
-        audienceEn: 'Professional solution for companies and service organizations. Manage your website yourself, appear more trustworthy to customers like a large organization, and attract new clients and partners.',
+        audienceMn: '• Бизнессдээ хөрөнгө оруулах цогц шийдлүүд\n• Вебсайтаа хүссэнэээрэе удирдах\n• Шинэ захиалагч татах\n• Түншүүдтэй холбогдох\n• Итгэлзэл төрүүлэх',
+        audienceEn: '• Comprehensive investment solutions for your business\n• Manage your website as you wish\n• Attract new clients\n• Connect with partners\n• Build trust',
         icon: 'Palette',
         gradient: 'from-violet-400 to-indigo-500',
         borderColor: 'border-violet-200/50 dark:border-violet-800/50',
@@ -50,8 +51,8 @@ const packagePreviews: PackagePreview[] = [
         id: 'premium',
         nameMn: 'Premium Package',
         nameEn: 'Premium Package',
-        audienceMn: 'Онлайн дэлгүүр, сургалт, эсвэл том бизнесүүдэд тохиромжтой. Борлуулалт, хэрэглэгчийн харилцаа, үйлчилгээ бүгдийг нэг дороос зохион байгуулж, бизнес тань автоматаар өсөж, цаг хэмнэн, илүү олон хэрэглэгчид хүрч, орлого нэмэгдэнэ.',
-        audienceEn: 'Perfect for online stores, education, or large businesses. Organize sales, customer relations, and services all in one place. Your business grows automatically, saves time, reaches more customers, and increases revenue.',
+        audienceMn: '• Цаг хэмнэж, ашигтай ажиллах ухаалаг шийдэл\n• Автоматжуулсан борлуулалтын урсгал\n• Бизнессээ онлайн хэлбэрт явуулж, үйл ажиллагаагаа өргөжүүлэн, шинэ боломжуудыг нээх\n• Том брэндийн хэмжээнд харагдах байдал\n• Цогц дижитал экосистем',
+        audienceEn: '• Time-saving, profitable smart solutions\n• Automated sales flow\n• Run your business online, expand operations, and open new opportunities\n• Large brand-level appearance\n• Comprehensive digital ecosystem',
         icon: 'Crown',
         gradient: 'from-amber-400 to-orange-500',
         borderColor: 'border-amber-200/50 dark:border-amber-800/50'
@@ -60,8 +61,8 @@ const packagePreviews: PackagePreview[] = [
         id: 'social-media',
         nameMn: 'Social Media',
         nameEn: 'Social Media',
-        audienceMn: 'Сошиал орчинд танай брэнд тод харагдаж, хэрэглэгчийн оролцоог нэмэгдүүлнэ. Reel болон постер дизайнаар бизнес тань хэрэглэгчдийн анхаарлыг татаж, шинэ боломжууд нээгдэнэ.',
-        audienceEn: 'Make your brand stand out in social media and increase customer engagement. With reel and poster design, your business will attract customer attention and open new opportunities.',
+        audienceMn: 'Брэндээ сошиал орчинд таниулж, шинэ хэрэглэгчдийг татах мэргэжлийн рийл, постер дизайн.',
+        audienceEn: 'Introduce your brand in social environment and attract new users with professional reel and poster design.',
         icon: 'Rocket',
         gradient: 'from-fuchsia-400 to-pink-500',
         borderColor: 'border-fuchsia-200/50 dark:border-fuchsia-800/50'
@@ -117,7 +118,7 @@ export default function PackagesPreview({ locale, onViewAll, href = "/offers" }:
                     viewport={{ once: true }}
                 >
                     <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-medium mb-3">
-                        <span>{currentLocale === 'mn' ? 'Үйлчилгээний саналууд' : 'Our Packages'}</span>
+                        <span>{currentLocale === 'mn' ? 'Бидний танд хүргэх үнэ цэнэ' : 'Our Value for You'}</span>
                     </div>
                     <h2 className="text-4xl font-bold text-foreground mb-8 tracking-wide">
                         {currentLocale === 'mn' ? 'Бидний саналууд' : 'Our Offers'}
@@ -172,27 +173,14 @@ export default function PackagesPreview({ locale, onViewAll, href = "/offers" }:
                                     </h3>
 
                                     {/* Audience */}
-                                    <p className="text-xs text-muted-foreground leading-normal mb-6 flex-grow text-left">
-                                        {currentLocale === 'mn' ? pkg.audienceMn : pkg.audienceEn}
-                                    </p>
+                                    <div className="text-xs text-muted-foreground leading-normal mb-6 flex-grow text-left">
+                                        {(currentLocale === 'mn' ? pkg.audienceMn : pkg.audienceEn).split('\n').map((line, index) => (
+                                            <div key={index} className="mb-1">
+                                                {line}
+                                            </div>
+                                        ))}
+                                    </div>
 
-                                    {/* CTA Button */}
-                                    <motion.button
-                                        className={`w-full py-2 px-3 rounded-lg text-sm font-medium text-white bg-gradient-to-r ${pkg.gradient} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary/20 transition-all duration-300 flex items-center justify-center gap-2`}
-                                        whileHover={{ scale: 1.02 }}
-                                        whileTap={{ scale: 0.98 }}
-                                        onClick={(e) => {
-                                            e.stopPropagation()
-                                            if (onViewAll) {
-                                                onViewAll()
-                                            } else {
-                                                window.location.href = href
-                                            }
-                                        }}
-                                    >
-                                        <Eye className="w-3 h-3" />
-                                        <span>{currentLocale === 'mn' ? 'ДЭЛГЭРЭНГҮЙ ҮЗЭХ' : 'VIEW DETAILS'}</span>
-                                    </motion.button>
                                 </div>
                             </motion.div>
                         )
@@ -224,16 +212,17 @@ export default function PackagesPreview({ locale, onViewAll, href = "/offers" }:
                             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                         </motion.a>
 
-                        <CalendlyButton
-                            label={currentLocale === 'mn' ? 'Зөвлөхтэй холбогдох' : 'Book a Call'}
-                            size="md"
-                            className="px-6 py-3 text-sm shadow-md"
+                        <ButtonCard
+                            icon={<Calendar className="w-4 h-4 text-gray-600" />}
+                            text={currentLocale === 'mn' ? 'Зөвлөхтэй холбогдох' : 'Book a Call'}
+                            onClick={() => window.open('https://calendly.com/saranochir-s/30min?hide_gdpr_banner=1', '_blank')}
+                            className="px-8 py-3"
                         />
                     </div>
                     <p className="text-sm mt-4 text-muted-foreground text-center max-w-md leading-relaxed">
                         {currentLocale === 'mn'
-                            ? 'Бүх багц, нэмэлт үйлчилгээ болон үнэгүй саналуудыг дэлгэрэнгүй үзэх'
-                            : 'See all packages, add‑ons, and free offers in detail'
+                            ? 'Бүх багц, нэмэлт үйлчилгээ болон үнэгүй саналуудыг дэлгэрэнгүй үзэж, зөвлөхтэй цаг товлон холбогдсоноор захиалга өгөх боломжтой.'
+                            : 'See all packages, add‑ons, and free offers in detail, and book a consultation to place your order.'
                         }
                     </p>
                 </motion.div>

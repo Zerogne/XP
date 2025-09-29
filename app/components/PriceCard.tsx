@@ -40,7 +40,7 @@ export default function PriceCard({ offer, language, isPopular = false }: PriceC
 
   return (
     <motion.div
-      className={`relative bg-card/90 backdrop-blur-sm rounded-xl border-2 transition-all duration-300 group overflow-hidden h-full flex flex-col ${isPopular
+      className={`relative bg-card/90 backdrop-blur-sm rounded-xl border-2 transition-all duration-300 group overflow-visible h-full flex flex-col ${isPopular
         ? `border-primary/50 ring-2 ring-primary/20 shadow-lg`
         : `${colors.borderColor}`
         }`}
@@ -50,6 +50,17 @@ export default function PriceCard({ offer, language, isPopular = false }: PriceC
 
 
       <div className="relative p-6 flex flex-col h-full">
+        {/* Suggested Badge */}
+        {offer.isSuggested && (
+          <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 z-30">
+            <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500 text-white shadow-2xl border-2 border-white/20 backdrop-blur-sm">
+              <span className="relative">
+                ✨ {language === 'mn' ? 'Санал болгох' : 'Suggested'} ✨
+              </span>
+            </span>
+          </div>
+        )}
+
         {/* Header */}
         <div className="text-center mb-6">
           <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r ${colors.gradient} text-white mb-4 shadow-lg`}>

@@ -7,7 +7,7 @@ import TierToggle from "../components/TierToggle"
 import OfferGrid from "../components/OfferGrid"
 import AddonsSection from "../components/AddonsSection"
 import FAQSection from "../components/FAQSection"
-import { ArrowLeft, Sparkles } from "lucide-react"
+import { ArrowLeft } from "lucide-react"
 
 export default function OffersPage() {
   const containerRef = useRef(null)
@@ -55,31 +55,7 @@ export default function OffersPage() {
             <TierToggle />
           </motion.div>
 
-          {/* Badge */}
-          <motion.div
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-purple-500/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <Sparkles className="w-4 h-4" />
-            <span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent font-semibold">
-              {language === 'mn' ? 'Бүх Саналууд' : 'All Offers'}
-            </span>
-          </motion.div>
 
-          {/* Main Title */}
-          <h1 className="text-4xl font-bold text-foreground sm:text-6xl mb-6">
-            {language === 'mn' ? 'Бүрэн саналын тойм' : 'Complete Offers Overview'}
-          </h1>
-
-          {/* Subtitle */}
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            {language === 'mn'
-              ? 'Манай бүх багц, нэмэлт үйлчилгээ болон үнэгүй үйлчилгээнүүдийг нэг дороос цогцоор нь танилцуулж байна'
-              : 'Explore all our packages, add-ons, and free services in one comprehensive view'
-            }
-          </p>
         </motion.div>
 
         {/* Pricing Packages Section */}
@@ -90,7 +66,7 @@ export default function OffersPage() {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-2">
               {language === 'mn' ? 'Вэбсайт хөгжүүлэлтийн багцууд' : 'Website Development Packages'}
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -117,12 +93,12 @@ export default function OffersPage() {
         >
           <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold text-foreground mb-4">
-              {language === 'mn' ? 'Төслөө эхлүүлэхэд бэлэн үү?' : 'Ready to start your project?'}
+              {language === 'mn' ? 'Бидэнтэй холбогдоорой!' : 'Get in touch with us!'}
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
               {language === 'mn'
-                ? 'Бидэнтэй холбогдож, таны бизнест тохирох төгс шийдлийг олцгооё'
-                : 'Get in touch with us and let\'s find the perfect solution for your business'
+                ? 'Tаны бизнест тохирох төгс шийдлийг хамтдаа олцгооё'
+                : 'Let\'s find the perfect solution for your business together'
               }
             </p>
             <motion.a
@@ -131,7 +107,7 @@ export default function OffersPage() {
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
-              <span>{language === 'mn' ? 'Холбоо барих' : 'Get in Touch'}</span>
+              <span>{language === 'mn' ? 'Онлайн уулзалт товлох' : 'Schedule Online Meeting'}</span>
             </motion.a>
           </div>
         </motion.section>

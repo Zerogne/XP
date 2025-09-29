@@ -17,7 +17,7 @@ export default function TierToggle() {
   if (!mounted) return null
 
   return (
-    <div className="flex items-center gap-4 p-2 bg-card/50 backdrop-blur-sm rounded-2xl border border-border/20">
+    <div className="flex items-center gap-4 p-2 bg-card/80 backdrop-blur-md rounded-2xl border border-border/40 shadow-lg">
       {/* Language Toggle */}
       <div className="flex items-center gap-2">
         <Globe className="w-4 h-4 text-muted-foreground" />

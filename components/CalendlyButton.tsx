@@ -25,7 +25,7 @@ export default function CalendlyButton({
     const variantClasses = {
         primary: "bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:shadow-lg hover:from-indigo-600 hover:to-purple-700",
         secondary: "bg-gradient-to-r from-gray-500 to-gray-600 text-white hover:shadow-lg hover:from-gray-600 hover:to-gray-700",
-        outline: "border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white"
+        outline: "bg-white border-2 border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 hover:shadow-md"
     };
 
     const open = () => {
@@ -48,7 +48,7 @@ export default function CalendlyButton({
     return (
         <button
             onClick={open}
-            className={buttonClasses}
+            className={`${buttonClasses} px-8`}
         >
             <Calendar className="w-4 h-4 flex-shrink-0" />
             <span className="whitespace-nowrap">{label}</span>

@@ -25,6 +25,7 @@ export type Offer = {
     maintenanceEn: string;
     priceNoteMn?: string;
     priceNoteEn?: string;
+    isSuggested?: boolean;
     features: Feature[];
     icon: string; // lucide icon name e.g. "Rocket"
 };
@@ -36,7 +37,7 @@ export const packages: Offer[] = [
         nameEn: 'Essential Package',
         taglineMn: 'Богино хугацаанд мэргэжлийн веб.',
         taglineEn: 'A clean landing page—fast.',
-        impactMn: 'Таны бизнес онлайнаар даруй итгэл төрүүлнэ. Google‑д илүү амархан олдоно. Зөв мэдээлэл, холбоо барих, байршил нэг дор—Facebook‑оос хамаарал багасна.',
+        impactMn: 'Таны бизнес онлайнаар даруй итгэл төрүүлж, цахим сүлжээнд өөрийн гэсэн байр суурийг олж авна. Хэрэглэгчдэд үнэн зөв, хэрэгцээтэй мэдээллүүдээ олоход таны Facebook пэйжийг орж нэг нэгэнгүй шалгаж цаг алдах шаардлагагүй. (Цаг бол алт, шинэ хэрэглэгч олох, байгаа хэрэглэгчидтэйгээ харилцаатай байж байнга мэдээллээр таслахгүй байх гэдэг хэцүү)',
         impactEn: 'Instant credibility and findability on Google. Clear info, contact, and location in one place—no more Facebook‑only presence.',
         idealForMn: 'Кофе шоп, салон, жижиг бизнес.',
         idealForEn: 'Cafés, salons, small local businesses.',
@@ -48,8 +49,6 @@ export const packages: Offer[] = [
         rushEn: '+400k for 1–2 week rush',
         maintenanceMn: 'Сар бүр 100k (сонголттой)',
         maintenanceEn: '100k/month optional',
-        priceNoteMn: 'эхлэх үнэ',
-        priceNoteEn: 'starting from',
         icon: 'Globe',
         features: [
             { labelMn: 'Орчин үеийн дизайн', labelEn: 'Modern Design', tier: 'essential' },
@@ -63,7 +62,7 @@ export const packages: Offer[] = [
         id: 'standard',
         nameMn: 'Standard Package',
         nameEn: 'Standard Package',
-        taglineMn: 'Өөрийн танихуй + өсөлтөд бэлэн.',
+        taglineMn: 'Бизнессийн алсын хараа + өсөлт',
         taglineEn: 'Custom look, built to grow.',
         impactMn: 'Захиалгат дизайнтай мэргэжлийн сайт—брэндийн үнэ цэнийг өсгөнө. Өөрөө контентоо засварлаж цаг, зардал хэмнэнэ. SEO + хурд сайжирч, органик урсгал нэмэгдэнэ.',
         impactEn: 'A unique, custom site that elevates your brand. Edit content yourself to save time. Better SEO and performance bring more organic traffic.',
@@ -77,8 +76,7 @@ export const packages: Offer[] = [
         rushEn: '+500k rush',
         maintenanceMn: 'Сар бүр 100k (сонголттой)',
         maintenanceEn: '100k/month optional',
-        priceNoteMn: 'эхлэх үнэ',
-        priceNoteEn: 'starting from',
+        isSuggested: true,
         icon: 'Palette',
         features: [
             { labelMn: 'Custom дизайн', labelEn: 'Custom Design', tier: 'standard' },
@@ -96,7 +94,7 @@ export const packages: Offer[] = [
         nameEn: 'Premium Package',
         taglineMn: 'Дижитал экосистем—борлуулалт + автоматжуулалт.',
         taglineEn: 'A full digital platform—sell, automate, scale.',
-        impactMn: 'И‑коммерс/аппаар 24/7 борлуулалт нээнэ. Хурд/SEO сайжруулалт, хэрэглэгч нэвтрэлт, төлбөр, аналитик, AI chatbot—гар ажиллагаа багасгаж, өсөлтөд бэлдэнэ.',
+        impactMn: '24/7 борлуулалтыг бий болгох ба хурд/SEO сайжруулалт, хэрэглэгч нэвтрэлт, төлбөр, аналитик, AI chatbot гэх мэт зүйлсээр хүний ажиллагааг багасгаж, сайт нь өөрөө хэрэглэгчдэд хэрэгтэй бараа бүтээгдэхүүнүүдийг зарж, бизнессийг тань автоматжуулсанаар таны алтан цагийн хэмнэнэ.',
         impactEn: 'Unlock 24/7 revenue with e‑commerce or a custom app. Performance/SEO, auth, payments, analytics, and AI chatbot reduce manual work and prepare you to scale.',
         idealForMn: 'Онлайн дэлгүүр, сургалт, томоохон бизнес',
         idealForEn: 'E‑commerce, education, enterprises, startups',
@@ -108,8 +106,6 @@ export const packages: Offer[] = [
         rushEn: 'Not available',
         maintenanceMn: 'Сар бүр 300k',
         maintenanceEn: '300k/month',
-        priceNoteMn: 'эхлэх үнэ',
-        priceNoteEn: 'starting from',
         icon: 'Crown',
         features: [
             { labelMn: 'SSR', labelEn: 'Server-Side Rendering', tier: 'premium' },
@@ -162,7 +158,7 @@ export const faq = [
         answerEn: 'Yes, all packages include domain and hosting setup.'
     },
     {
-        questionMn: 'Контент засварлах боломжтой юу?',
+        questionMn: 'Вебсайтаа өөрөө удирдаж, мэдээллүүдээ засварлах боложтой болох уу?',
         questionEn: 'Can I edit content myself?',
         answerMn: 'Standard болон Premium багцад контент засварлах админ панел байна.',
         answerEn: 'Standard and Premium packages include content editing dashboard.'
